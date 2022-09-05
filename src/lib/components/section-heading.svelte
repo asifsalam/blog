@@ -1,0 +1,87 @@
+<script>
+	export let category = 'all';
+	export let displayQuantity = 10;
+	export let totalQuantity = 50;
+	export let headingTitle = 'Interesting';
+	// console.log('category: ', category, 'displayQuantity');
+</script>
+
+<div class="heading">
+	<!-- <img class="category-img" src={category.img} alt={category.title} srcset="" /> -->
+	<h1 class="heading-title">{headingTitle}</h1>
+	<!-- <p class="sub-title">Latest first.</p> -->
+	<h3 class="article-count">
+		{#if totalQuantity > displayQuantity}
+			{displayQuantity}
+		{:else}
+			{totalQuantity}
+		{/if}
+		{#if category === 'myPosts'}
+			<a class="article-count" href={`/category/${category}`}>&nbsp;({totalQuantity}) items<br /></a
+			>
+		{:else}
+			<a class="article-count" href={`/category/${category}`}>&nbsp;({totalQuantity}) items<br /></a
+			>
+		{/if}
+	</h3>
+</div>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Pridi:wght@200;400&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Crete+Round&display=swap');
+	h1 {
+		font-family: 'Sanchez';
+		margin: 0;
+	}
+	.heading {
+		background-image: url('https://unsplash.com/photos/VWcPlbHglYc');
+		display: grid;
+		grid-template-columns: 4fr 1fr;
+		height: 4em;
+		padding: 0px 0px 10px 0px;
+		align-items: center;
+		vertical-align: middle;
+		font-family: Sanchez;
+	}
+
+	.heading-title {
+		margin: 0;
+		padding-left: 0px;
+		padding-bottom: 0;
+		font-size: xx-large;
+		font-weight: 200;
+		color: hsla(251, 100%, 20%, 1);
+	}
+
+	.article-count {
+		font-family: 'Scope One', Roboto, Arial, Helvetica, sans-serif;
+		font-size: large;
+		font-weight: bold;
+		text-align: right;
+		color: hsla(251, 100%, 20%, 1);
+		margin: 1em 0 0 0;
+	}
+	.article-count a {
+		opacity: 0.7;
+		text-decoration: dotted;
+		text-decoration-color: hsla(251, 100%, 20%, 1);
+		text-decoration-line: underline;
+		text-decoration-thickness: 2px;
+	}
+	.article-count a:hover {
+		opacity: 1;
+		text-decoration: underline;
+		text-decoration-thickness: 3px;
+	}
+	/* .category-img {
+		background-color: rgba(255, 0, 0, 0.019);
+		bottom: 0;
+		left: 0;
+	}
+	img {
+		display: inline;
+		position: relative;
+		height: inherit;
+	} */
+</style>
