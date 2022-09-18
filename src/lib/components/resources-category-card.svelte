@@ -45,7 +45,7 @@
 		/* width: 50%; */
 		background-image: url('https://unsplash.com/photos/VWcPlbHglYc');
 		display: grid;
-		grid-template-columns: 2fr 4fr 3fr;
+		grid-template-columns: 2fr 5fr 3fr;
 		height: 3em;
 		padding: 0px 0px 10px 0px;
 		align-items: center;
@@ -56,7 +56,7 @@
 		margin: 0;
 		padding-left: 10px;
 		padding-bottom: 0;
-		font-size: x-large;
+		font-size: 1.2em;
 		font-weight: 600;
 		color: hsla(251, 100%, 20%, 1);
 	}

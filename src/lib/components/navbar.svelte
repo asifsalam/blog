@@ -1,0 +1,126 @@
+<script>
+	import { page } from '$app/stores';
+	import '/src/styles/global.css';
+
+	const menuItems = [
+		{ name: 'Home', url: '/' },
+		{ name: 'Blog', url: '/blog' },
+		// { name: 'Articles', url: '/articles' },
+		{ name: 'Resources', url: '/resources' },
+		{ name: 'Topics', url: '/topics' },
+		{ name: 'Contact', url: '/contact' },
+		{ name: 'About', url: '/about' }
+	];
+
+	$: currentPage = $page.url.pathname;
+
+	$: crumbsList = () => {
+		const tokens = $page.url.pathname.split('/').filter((t) => t !== '');
+		let tokenPath = '';
+		// Create { label, href } pairs for each token.
+		let x = tokens.map((t) => {
+			tokenPath += '/' + t;
+			return {
+				label: t,
+				href: tokenPath
+			};
+		});
+		x.unshift({ label: 'home', href: '/' });
+		return x;
+	};
+	$: crumbs = crumbsList();
+</script>
+
+<header>
+	<div class="nav-container">
+		<nav class="middle-section">
+			<ul>
+				{#each menuItems as { url, name }}
+					<li class="nav-item">
+						<!-- we are using the class directive here -->
+						<a
+							class:active={url !== '/' ? currentPage.match(url) : url === currentPage}
+							data-sveltekit-prefetch
+							href={url}>{name}</a
+						>
+					</li>
+				{/each}
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<style>
+	header {
+		width: 100%;
+	}
+
+	nav {
+		height: inherit;
+		position: sticky;
+		top: 0;
+	}
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		/* overflow: hidden; */
+		/* background-color: rgb(254, 255, 247); */
+		display: flex;
+		gap: 1rem;
+		flex-direction: row;
+		justify-content: space-around;
+		height: inherit;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	li {
+		float: left;
+		vertical-align: middle;
+		margin: auto;
+		font-family: 'Roboto Slab';
+		text-decoration: none;
+		font-size: 1.2em;
+		padding: 2px 4px;
+		margin: 10px;
+	}
+
+	li:hover {
+		text-decoration: underline hsl(251, 100%, 20%) 0.2em;
+	}
+
+	/* .nav-item {
+		font-size: 1.2rem;
+		font-weight: normal;
+		padding: 5px 10px;
+	} */
+
+	.active {
+		background-color: rgba(16, 2, 77, 0.9);
+		border: 1px solid hsl(251, 100%, 20%);
+		color: beige;
+		/* font-weight: bolder; */
+	}
+
+	a {
+		padding: 5px;
+		margin: 10px;
+	}
+
+	.nav-container {
+		/* height: 50px; */
+		width: 100%;
+		margin: 0px 0 0 0px;
+		border-bottom: 2px solid var(--heading-color);
+		position: sticky;
+		top: 0;
+	}
+
+	.middle-section {
+		width: 100%;
+	}
+</style>

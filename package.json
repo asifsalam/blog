@@ -25,6 +25,7 @@
 	"dependencies": {
 		"d3": "^7.6.1",
 		"help": "^3.0.2",
-		"mdsvex": "^0.10.6"
+		"mdsvex": "^0.10.6",
+		"remixicon": "^2.5.0"
 	}
 }

@@ -1,43 +1,40 @@
 <script>
 	import { articleList, postList, allCategories, allThemes } from '/src/lib/json/stores';
+	// import SiteTitle from '$lib/components/site-title.svelte';
+	import MainTitle from '$lib/components/main-title.svelte';
+	import Navbar from '$lib/components/navbar.svelte';
+	import Footer from '$lib/components/footer.svelte';
+	import '$lib/styles/global.css';
 
 	export let data;
 	export let errors;
-	// console.log(data);
 
 	data.allCategories.forEach((element) => {
 		element.img = element.img.replace('/static', '');
 	});
-	const test = data.articles.slice(0, 114);
-	// console.log('layout: ', data.allCategories[1]);
-	$articleList = test;
+	const articleData = data.articles.slice(0, 114);
+	$articleList = articleData;
 	$postList = data.posts;
 	$allCategories = data.allCategories;
 	$allThemes = data.allThemes;
-
-	// $: console.log('articleList.length: ', $articleList.length);
-	// console.log($allCategories[1]);
-	// console.log('error: ', errors);
 </script>
 
-<main class="main-content">
-	<p>Total number of articles {$articleList.length}</p>
-	<a href="/">home</a>
-	<a href="/resources">resources</a>
-	<a href="/about">about</a>
-	<a href="/topics">topics</a>
-	<a href="/blog">blog</a>
-	<a href="/category">category</a>
+<svelte:head><title>asifsalam</title></svelte:head>
+<MainTitle />
+<Navbar />
 
+<main>
 	<slot />
 </main>
+
+<Footer />
 
 <style>
 	/* .main-container {
 		display: flex;
 	} */
 
-	.main-content {
+	/* .main-content {
 		margin: 0 0 0 0;
-	}
+	} */
 </style>

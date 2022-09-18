@@ -1,14 +1,12 @@
 <script>
 	import { articleList, allCategories, allThemes } from '$lib/json/stores';
 	import { filterCategory } from '$lib/modules/utility_functions';
-	import { onMount } from 'svelte';
-	// import RandomQuote from '$lib/components/tagline-quote.svelte';
-	// import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
-	// import Sidebar from '$lib/components/sidebar-resources.svelte';
+	import RandomQuote from '$lib/components/random-quote.svelte';
+	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import Sidebar from '$lib/components/sidebar-resources.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
 	import ResourcesCategoryCard from '$lib/components/resources-category-card.svelte';
-	export let errors, data;
+	// export let errors, data;
 
 	const categories = $allCategories.filter((d) => d.id > 10);
 	const headingTitle = 'Resource categories';
@@ -18,8 +16,10 @@
 
 	let article = $articleList[6];
 	console.log('resources-page');
-	// console.log($articleList[6]);
 </script>
+
+<RandomQuote />
+<Breadcrumbs />
 
 <div class="container">
 	<Sidebar allCategories={$allCategories} />
@@ -51,10 +51,7 @@
 		grid-template-columns: 2fr 7fr;
 		margin: 0px 0px 5px 0px;
 	}
-	.heading {
-		margin: 10px;
-		padding: 0px;
-	}
+
 	.resources-container {
 		display: grid;
 		gap: 20px;

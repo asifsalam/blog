@@ -19,7 +19,7 @@
 		<p class="sidebar-text">{s2a}</p>
 	</div>
 	<!-- <ResourceCategoryBars {categories} /> -->
-	<KeyCategories {categories} />
+	<KeyCategories headingText={'Main Categories'} {categories} />
 	<!-- <KeyThemes {categories}/> -->
 </div>
 

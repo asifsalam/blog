@@ -257,26 +257,22 @@
 		background-image: url('/static/img/borders/taj_mahal_border_floral_01.png');
 	} */
 
-	.post-card .read-more {
-		/* float: right; */
-		/* position: absolute; */
+	/* .post-card .read-more {
 		display: block;
 		text-align: end;
 		bottom: 0;
 		right: 10px;
 		justify-items: right;
 		vertical-align: bottom;
-		/* text-align: center; */
-		/* vertical-align: bottom; */
-		/* width: 30%; */
 		padding: 2px 2px;
 		margin: 0 3px 3px 0;
-		/* background-color: #d4a373; */
-	}
-	.post-card .read-more-link {
+	} */
+
+	/* .post-card .read-more-link {
 		background-color: hsla(16, 100%, 66%, 0.1);
 		border: 2px solid hsla(251, 100%, 21%, 0.5);
-	}
+	} */
+
 	.post-card .read-more-link a {
 		color: var(--color_link);
 		display: inline-block;

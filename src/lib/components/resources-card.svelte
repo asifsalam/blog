@@ -9,7 +9,6 @@
 
 	export let article;
 	export let category;
-
 	let tags;
 	if (article.tags.length > 5) {
 		tags = article.tags.slice(0, 5);

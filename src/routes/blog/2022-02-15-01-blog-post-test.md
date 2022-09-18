@@ -1,5 +1,5 @@
 ---
-preview_image: '/static/img/geometric-pattern-01.jpg'
+preview_image: '/img/images/geometric-pattern-01.jpg'
 author: Svelte Script
 title: This is a post with a svelte script
 published: true

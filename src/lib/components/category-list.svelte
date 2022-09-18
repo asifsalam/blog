@@ -1,11 +1,13 @@
 <script>
 	import ResourcesCard from '$lib/components/resources-card.svelte';
+
 	export let articles;
 	export let category;
 </script>
 
 <div class="category-container">
-	{#each articles as article}
+	{#each articles as article, i}
+		<!-- <p>counter:{i}, title: {article.title}</p> -->
 		<ResourcesCard {article} {category} />
 	{/each}
 </div>
@@ -17,7 +19,7 @@
 		grid-template-columns: 1fr;
 		grid-gap: 0px 15px;
 		max-height: 1000px;
-		overflow: hidden;
+		overflow: scroll;
 		align-content: start;
 		margin-bottom: 15px;
 	}

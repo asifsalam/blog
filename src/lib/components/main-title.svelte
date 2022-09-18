@@ -1,0 +1,94 @@
+<script>
+	import '$lib/styles/global.css';
+	// let backgroundImage = '/img/islamic-geometric-pattern-14.jpg';
+</script>
+
+<div class="main-title-wrap">
+	<p class="main-title">
+		a &nbsp
+		<span class="main-title-left">rough guide</span>
+		&nbsp to the &nbsp
+		<span class="main-title-right">data-driven enterprise</span>
+	</p>
+	<div class="title-name-wrap"><p class="title-name">Asif Salam</p></div>
+	<!-- <p class="my-quote">The data-driven life is not worth examining</p> -->
+</div>
+<div class="title-border" />
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+	/* @import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Lancelot&family=Maiden+Orange&family=Noto+Serif+Thai:wght@300;400&family=Offside&family=Scope+One&display=swap'); */
+	:root {
+		--heading-color: hsla(251, 100%, 21%, 1);
+	}
+
+	.main-title-wrap {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 15fr 2fr;
+		align-content: space-around;
+		padding: 0 0px;
+		margin: 0;
+		background-color: beige;
+	}
+
+	/* .site-title {
+		width: 100%;
+		display: grid;
+		background-color: beige;
+		justify-content: center;
+	} */
+
+	.main-title {
+		height: 100%;
+		font-family: 'Roboto';
+		color: hsla(251, 100%, 21%, 0.5);
+		font-size: 2em;
+		text-align: center;
+		margin: 0;
+		padding: 10px 0;
+	}
+
+	.main-title-left {
+		height: 100%;
+		font-family: 'Dista Calista';
+		color: var(--heading-color);
+		font-size: 1.5em;
+		text-align: center;
+		margin: 0;
+		padding: 0;
+	}
+
+	.main-title-right {
+		font-family: 'IBM Plex Mono';
+		color: var(--heading-color);
+		font-size: 1.2em;
+		font-weight: 100;
+		text-align: left;
+		letter-spacing: 0px;
+		margin: 0;
+		padding: 0;
+	}
+
+	.title-name-wrap {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+	.title-name {
+		font-family: 'Great Vibes', 'Pacifico';
+		font-size: 1.8em;
+		margin: 0;
+		rotate: -34deg;
+		color: var(--heading-color);
+	}
+
+	.title-border {
+		width: 100%;
+		height: 15px;
+		background-image: url('/img/images/geometric-pattern-07.jpg');
+
+		background-position: top;
+		background-color: bisque;
+	}
+</style>
