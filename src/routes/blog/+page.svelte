@@ -60,10 +60,10 @@
 		row-gap: 1.5rem;
 	}
 
-	h1 {
+	/* h1 {
 		font-family: 'Sanchez';
 		font-weight: normal;
 		margin: 0px 0px 10px 0px;
 		color: var(--heading-color);
-	}
+	} */
 </style>

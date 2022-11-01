@@ -13,12 +13,12 @@
 	} else {
 		tags = article.tags;
 	}
-	// article.excerpt = article.excerpt.split(' ').slice(0, 15).join(' ').concat('...');
-	article.excerpt = article.excerpt.replace('...', '').split(' ').slice(0, 15).join(' ');
+	article.excerpt = article.excerpt.split(' ').slice(0, 20).join(' ');
+	// article.excerpt = article.excerpt.replace('...', '').split(' ').slice(0, 15).join(' ');
 </script>
 
 <div class="post-card">
-	<div class="background-image" style="background-image: url({img_url}); filter:sepia(0.5)" />
+	<div class="background-image" style="background-image: url({img_url}); filter:sepia(0.2)" />
 	<div class="content">
 		<div class="left-content">
 			{#if article.link_type === 'twitter'}
@@ -52,7 +52,8 @@
 				</p>
 				<a href={article.link} class="excerpt-linked"
 					><p class="excerpt" style="text-decoration:none">
-						{article.excerpt}&#x2026
+						{article.excerpt}
+						<!-- &#x2026 -->
 					</p></a
 				>
 			</div>
@@ -180,7 +181,7 @@
 		/* content: '\2026\21D2'; \27a8*/
 		content: '\2192';
 		position: absolute;
-		margin-left: 5px;
+		margin-left: 0px;
 		color: hsl(257, 89%, 21%, 0.7);
 		font-weight: bold;
 		font-size: larger;

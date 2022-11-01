@@ -1,12 +1,14 @@
 <script>
 	export let tags;
+	export let size = 1;
+	let boxSize = 'size-' + size;
 </script>
 
 <p class="topics">
 	Topics:
 	{#each tags as tag}
 		{#if tag != 'NA'}
-			<a class="topic topic-box" href={`/topics/${tag}`}> {tag} </a>
+			<a class="topic topic-box {boxSize}" href={`/topics/${tag}`}> {tag} </a>
 		{:else}
 			<a class="topic topic-box" href={`/topics/untagged`}> untagged </a>
 		{/if}
@@ -19,27 +21,33 @@
 	.topics {
 		display: block;
 		margin: 0 0 3px 0px;
-		font-weight: bold;
+		font-size: smaller;
+	}
+
+	.size-1 {
+		font-size: 0.9rem;
+	}
+
+	.size-2 {
+		font-size: 1rem;
 	}
 
 	.topic-box {
 		padding: 0px 2px;
 		margin: 0px 3px;
-		/* border: 0.25px solid #dedede; */
-		background-color: hsla(194, 100%, 96%, 0.3);
-		font-weight: normal;
+		background-color: hsla(195, 89%, 69%, 0.1);
+		/* font-size: 0.9rem; */
 		/* box-shadow: 1px 1px rgba(135, 135, 135, 0.2); */
 		color: hsl(251, 100%, 15%);
 		border-radius: 5px;
 		text-decoration: none;
 		border: 0px solid hsla(252, 32%, 44%, 0.2);
-		/* line-height: 1.5rem; */
 	}
 
 	.topic:hover {
 		color: hsl(251, 100%, 21%);
 		font-weight: bold;
-		background-color: hsla(194, 100%, 96%, 0.7);
+		background-color: hsla(195, 89%, 69%, 0.4);
 		outline: 0.2px solid hsla(252, 32%, 44%, 0.2);
 	}
 </style>

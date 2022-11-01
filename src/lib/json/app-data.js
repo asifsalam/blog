@@ -88,5 +88,22 @@ const allThemes = ['datadrivenenterprise',
     'pitfalls',
     'inspiration',
     'process'];
+const allTopics = [
+    'datadrivenenterprise',
+    'rstats',
+    'python',
+    'tutorial',
+    'book',
+    'machinelearning',
+    'datascience',
+    'statistics',
+    'dataliteracy',
+    'art',
+    'dataviz',
+    'method',
+    'process',
+    'tool',
+    'äll'
+]
 
-export { allCategories, allThemes }
+export { allCategories, allThemes, allTopics }

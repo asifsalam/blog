@@ -14,11 +14,8 @@
 	.topic-box {
 		font-family: Pridi, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 		display: inline-block;
-
 		background-color: #eafaff;
-
 		color: hsl(251, 100%, 15%);
-
 		text-decoration: none;
 	}
 

@@ -13,6 +13,7 @@
 	const githubLogoUrlUrl =
 		'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg';
 	export let article;
+
 	let tags;
 	let img_url;
 	if (article.img_url != 'non') {
@@ -25,8 +26,9 @@
 	} else {
 		tags = article.tags;
 	}
-	article.excerpt = article.excerpt.split(' ').slice(0, 15).join(' ').concat('...');
-	// $: console.log('# tags: ', tags);
+
+	// article.excerpt = article.excerpt.split(' ').slice(0, 15).join(' ').concat('...');
+	article.excerpt = article.excerpt.split(' ').slice(0, 15).join(' ');
 </script>
 
 <div class="post-card">
@@ -57,18 +59,14 @@
 						{/if}
 					{/each}
 				</p>
-				<p class="excerpt" style="text-decoration:none">
-					{article.excerpt}
-				</p>
+				<a href={article.link} class="excerpt-linked"
+					><p class="excerpt" style="text-decoration:none">
+						{article.excerpt}
+					</p></a
+				>
 			</div>
-			<!-- <p class="read-more">
-				<span class="read-more-link"><a href={article.link}>&nbsp;Read article</a></span>
-			</p> -->
 		</div>
 	</div>
-	<!-- <div class="bottom-border" style="background-image: url({bottomBorderUrl})" /> -->
-	<!-- <div class="bottom-border" /> -->
-	<!-- </div> -->
 </div>
 
 <style>
@@ -76,7 +74,7 @@
 
 	.post-card {
 		width: 100%;
-		min-height: 150px;
+		min-height: 100px;
 		max-height: 500px;
 		margin: 0;
 		padding: 0;
@@ -87,6 +85,7 @@
 		z-index: 0;
 		position: relative;
 	}
+
 	.post-card .background-image {
 		width: 100%;
 		height: 100%;
@@ -183,33 +182,26 @@
 	}
 	.topics {
 		display: block;
-		/* line-clamp: 2; */
 		line-height: 1.7;
 		margin: 0 0 10px 10px;
-		/* height: 2rem;
-		white-space: nowrap; */
 		font-weight: bold;
 	}
 	.topic {
-		/* margin: 0px 50px;
+		margin: 0px 50px;
 		padding: 20px;
 		text-decoration: none;
-		color: dimgray; */
+		color: dimgray;
 	}
 
 	.topic-box {
 		padding: 0px 2px;
 		margin: 0px 3px;
-		/* border: 0.25px solid #dedede; */
 		background-color: #eafaff;
 		font-weight: normal;
-		/* box-shadow: 1px 1px rgba(135, 135, 135, 0.2); */
 		color: hsl(251, 100%, 15%);
 		border-radius: 5px;
 		text-decoration: none;
-
 		border: 0.1px solid hsla(252, 32%, 44%, 0.2);
-		/* line-height: 1.5rem; */
 	}
 
 	.topic:hover {
@@ -225,6 +217,29 @@
 		flex: 1;
 		/* display: block; */
 	}
+	.excerpt-linked {
+		text-decoration: none;
+	}
+	.excerpt::after {
+		/* content: url('/static/img/icons/open-in-new-svgrepo-com-1.svg'); */
+		/* content: '\2026\21D2'; \27a8*/
+		/* content: '\2192'; */
+		content: '\21DD';
+		position: absolute;
+		margin-left: 0;
+		color: hsl(257, 89%, 21%, 0.7);
+		font-weight: bold;
+		font-size: larger;
+		transition: all cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.3s;
+		padding: 0 5px;
+	}
+
+	.excerpt:hover::after {
+		font-weight: 900;
+		/* font-size: xx-large; */
+		margin-left: 10px;
+		transition: margin 0.3s, opacity 0.3s;
+	}
 
 	/* .bottom-border {
 		width: 100%;
@@ -235,45 +250,43 @@
 	} */
 
 	.post-card .read-more {
-		/* float: right; */
-		/* position: absolute; */
 		display: block;
 		text-align: end;
 		bottom: 0;
 		right: 10px;
 		justify-items: right;
 		vertical-align: bottom;
-		/* text-align: center; */
-		/* vertical-align: bottom; */
-		/* width: 30%; */
 		padding: 2px 2px;
 		margin: 0 3px 3px 0;
-		/* background-color: #d4a373; */
 	}
+
 	.post-card .read-more-link {
 		background-color: hsla(16, 100%, 66%, 0.1);
 		border: 2px solid hsla(251, 100%, 21%, 0.5);
 	}
+
 	.post-card .read-more-link a {
 		color: var(--color_link);
 		display: inline-block;
 		position: relative;
 		text-decoration: dashed;
 	}
+
 	.post-card .read-more-link a:after {
 		/* content: ''; */
 		content: '\2192';
-		/* font-family: FontAwesome; */
 		margin-left: -10px;
 		opacity: 0;
 		vertical-align: bottom;
 		transition: margin 0.3s, opacity 0.3s;
 		text-decoration: none;
 	}
+
 	.post-card .read-more-link a:hover {
 		background-color: hsla(16, 100%, 25%, 0.9);
 		color: white;
 	}
+
 	.post-card .read-more-link a:hover:after {
 		margin-left: 10px;
 		opacity: 1;

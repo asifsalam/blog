@@ -4,7 +4,7 @@
 		let paddedRandomNumber = randomNumber > 9 ? String(randomNumber) : String('0' + randomNumber);
 		return paddedRandomNumber;
 	}
-	// import TopicListCard from '$lib/components/topic-list-card.svelte';
+	import TopicListCard from '$lib/components/topic-list-card.svelte';
 	let baseImgUrl = '/img/images/geometric-pattern-';
 
 	export let article;
@@ -45,14 +45,15 @@
 					</p>
 				</a>
 				<p class="topics">
-					Topics:
-					{#each tags as tag}
+					<TopicListCard {tags} size={1} />
+					<!-- Topics: -->
+					<!-- {#each tags as tag}
 						{#if tag != 'NA'}
 							<a class="topic topic-box" href={`/topics/${tag}`}> {tag} </a>
 						{:else}
 							<a class="topic topic-box" href={`/topics/untagged`}> untagged </a>
 						{/if}
-					{/each}
+					{/each} -->
 				</p>
 			</div>
 		</div>
@@ -192,7 +193,7 @@
 	.topics {
 		display: block;
 		margin: 0 0 3px 0px;
-		font-weight: bold;
+		/* font-weight: bold; */
 	}
 
 	.topic-box {

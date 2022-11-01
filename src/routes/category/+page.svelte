@@ -35,7 +35,7 @@
 		$clickedCategory = selectedCategory;
 		categories = $allCategories.map((d) => d.category);
 		categoryObj = $allCategories.filter((d) => d.category == selectedCategory)[0];
-		console.log('mounted-', selectedCategory);
+		// console.log('mounted-', selectedCategory);
 		category = categoryObj.category;
 		articles = filterCategory($articleList, categoryObj);
 	}
@@ -51,7 +51,7 @@
 <div class="container">
 	<div class="sidebar">
 		<div class="sidebar-header">
-			<p class="sidebar-header-text">Resources by category</p>
+			<p class="sidebar-header-text">Resources by category-1</p>
 			<p />
 		</div>
 		<p class="categories-header">{headingText}</p>

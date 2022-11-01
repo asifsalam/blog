@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import { parseArticle, parsePosts } from '/src/lib/modules/utility_functions';
-import { allCategories, allThemes } from '$lib/json/app-data';
+import { allCategories, allThemes, allTopics } from '$lib/json/app-data';
 // const dataFile = 'https://raw.githubusercontent.com/asifsalam/datasets/master/processed_links-small.csv';
 const dataFile = '/data/processed_links-small.csv';
 const postFile = '/data/my_posts.csv';
@@ -26,6 +26,6 @@ export async function load({ fetch }) {
     })
     // console.log(postData, posts);
     return {
-        articles, posts, allCategories, allThemes
+        articles, posts, allCategories, allThemes, allTopics
     }
 }
