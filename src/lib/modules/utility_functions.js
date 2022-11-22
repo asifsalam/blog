@@ -5,6 +5,12 @@ function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function paddedRandomIntFromInterval(min, max) {
+    let randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+    let paddedRandomNumber = randomNumber > 9 ? String(randomNumber) : String('0' + randomNumber);
+    return paddedRandomNumber;
+}
+
 function loadPosts(postApi = '/api/posts.json') {
     const load = async ({ fetch }) => {
         const posts = await fetch(postApi);
@@ -14,7 +20,6 @@ function loadPosts(postApi = '/api/posts.json') {
         }
     };
     let myPosts = load()
-    // console.log("loadPosts: ", myPosts);
     myPosts = parsePosts(myPosts)
     return {
         myPosts
@@ -54,7 +59,6 @@ function loadArticles(numArticles = 0, dataFile = "/static/data/processed_links-
         }
     }
     articleData = load();
-
     return articleData;
 }
 
@@ -82,24 +86,18 @@ function parseArticle(d) {
 }
 
 function capitalizeFirstLetter(word) {
-    // const word = "freecodecamp"
-
     const capitalized =
         word.charAt(0).toUpperCase()
         + word.slice(1)
     return capitalized
 }
+
 function filterCategory(articles, category) {
-    // console.log("FilterCategory: ", category);
-    // console.log("FilterCategory, articles: ", articles);
     let result;
     if (category.category === "all") {
         result = articles;
-        console.log("FilterCategory: ", category);
-        console.log("FilterCategory: result ", result.length);
     } else {
         result = articles.filter((x) => {
-            // console.log('tags: ', x.tags);
             let includesCategory = false;
             x.tags.forEach((element) => {
                 if (category.subCategory.includes(element)) {
@@ -107,7 +105,31 @@ function filterCategory(articles, category) {
                 }
             });
             if (includesCategory) {
-                // console.log('filtered: ', x.tags);
+                return x;
+            }
+        });
+    }
+    return result;
+}
+
+function filterTheme(articles, theme) {
+    console.log("filterTheme: ", articles, theme)
+    let result;
+    if (theme === "all") {
+        result = articles;
+        // console.log("FilterTheme: ", theme);
+        // console.log("FilterTheme: result ", result.length);
+    } else {
+        result = articles.filter(x => {
+            console.log('tags: ', x.tags);
+            let includesTheme = false;
+            x.tags.forEach(element => {
+                if (theme == element) {
+                    includesTheme = true;
+                }
+            });
+            if (includesTheme) {
+                console.log('filtered: ', x.tags);
                 return x;
             }
         });
@@ -116,7 +138,38 @@ function filterCategory(articles, category) {
     // let numArticles = result.length;
     return result;
 }
+
+function filterTopic(articles, topic) {
+    let result;
+    if (topic === "all") {
+        result = articles;
+    } else {
+        result = articles.filter((x) => {
+            if (x.tags.includes(topic)) {
+                return x;
+            }
+        });
+    }
+    return result;
+}
+
+function filterTopic1(articles, topic) {
+    let result;
+    if (topic === "all") {
+        result = articles;
+    } else {
+        result = articles.filter((x) => {
+            console.log('tags: ', x.tags);
+            if (x.tags.includes(topic)) {
+                return x;
+            }
+
+        });
+    }
+    return result;
+}
+
 export {
-    randomIntFromInterval, parsePosts, parseArticle, capitalizeFirstLetter, loadArticles, loadPosts,
-    filterCategory
+    randomIntFromInterval, paddedRandomIntFromInterval, parsePosts, parseArticle, capitalizeFirstLetter, loadArticles, loadPosts,
+    filterCategory, filterTheme, filterTopic
 } 

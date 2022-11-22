@@ -1,56 +1,50 @@
 <script>
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { articleList, allCategories, clickedCategory } from '$lib/json/stores';
+	import { articleList, allCategories, clickedTheme } from '$lib/json/stores';
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import CategoryList from '$lib/components/category-list.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
+	import Sidebar from '$lib/components/sidebar.svelte';
 	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
-	// import Sidebar from '$lib/components/sidebar-resources.svelte';
-	// import KeyCategories from '$lib/components/key-categories-2.svelte';
+	import KeyCategories from '$lib/components/key-themes.svelte';
 	// export let data;
 	// export let errors;
 
 	$: selectedCategory = '';
-	$: category = 'python';
+	$: category = 'datadrivenenterprise';
 	$: articles = [];
 	let categories = [];
 	let categoryObj = {};
-
+	console.log('page-theme');
+	// console.log($allCategories);
 	onMount(() => {
-		selectedCategory = $clickedCategory;
-		categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
-		categoryObj = $allCategories
-			.filter((d) => d.type === 'category' || d.type === 'all')
-			.filter((d) => d.category == selectedCategory)[0];
-		console.log(categoryObj);
+		selectedCategory = $clickedTheme;
+		categories = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
+		// console.log('themes: ', categories);
+		categoryObj = $allCategories.filter((d) => d.category == selectedCategory)[0];
 		category = categoryObj.category;
-		console.log('mounted-1', selectedCategory);
-		console.log('mounted-2', categoryObj);
-		console.log('mounted-3', categories);
+		// console.log('theme-mounted-1', selectedCategory);
+		// console.log('theme-mounted-2', categoryObj);
+		// console.log('theme-mounted-3', categories);
 		articles = filterCategory($articleList, categoryObj);
 	});
 
 	function categoryClicked(clCategory) {
-		console.log(clCategory);
+		// console.log(clCategory);
 		selectedCategory = clCategory;
-		$clickedCategory = selectedCategory;
-		categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
-		categoryObj = $allCategories
-			.filter((d) => d.type === 'category')
-			.filter((d) => d.category == selectedCategory)[0];
+		$clickedTheme = selectedCategory;
+		categories = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
+		categoryObj = $allCategories.filter((d) => d.category == selectedCategory)[0];
 		// console.log('mounted-', selectedCategory);
 		category = categoryObj.category;
 		articles = filterCategory($articleList, categoryObj);
 	}
 	/** @type {string}*/
-	const headingText = 'Main categories';
+	const headingText = 'Main themes';
 	$: totalQuantity = articles.length;
-	$: console.log('category-page: ', category, selectedCategory, categories, totalQuantity);
-	// if (articles.length == 0) {
-	// 	articles = filterCategory($articleList, $allCategories[11]);
-	// }
+	// $: console.log('category-page: ', category, selectedCategory, categories, articles.length);
 </script>
 
 <RandomQuote />
@@ -59,7 +53,7 @@
 <div class="container">
 	<div class="sidebar">
 		<div class="sidebar-header">
-			<p class="sidebar-header-text">Resources by category-1</p>
+			<p class="sidebar-header-text" />
 			<p />
 		</div>
 		<p class="categories-header">{headingText}</p>

@@ -1,9 +1,4 @@
 <script>
-	function randomIntFromInterval(min, max) {
-		let randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
-		let paddedRandomNumber = randomNumber > 9 ? String(randomNumber) : String('0' + randomNumber);
-		return paddedRandomNumber;
-	}
 	import TopicListCard from '$lib/components/topic-list-card.svelte';
 	let baseImgUrl = '/img/images/geometric-pattern-';
 

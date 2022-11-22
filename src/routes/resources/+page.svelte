@@ -1,5 +1,5 @@
 <script>
-	import { articleList, allCategories, allThemes } from '$lib/json/stores';
+	import { articleList, allCategories } from '$lib/json/stores';
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
@@ -8,7 +8,7 @@
 	import ResourcesCategoryCard from '$lib/components/resources-category-card.svelte';
 	// export let errors, data;
 
-	const categories = $allCategories.filter((d) => d.id > 10);
+	const categories = $allCategories.filter((d) => d.type === 'category');
 	const headingTitle = 'Resource categories';
 	const totalQuantity = $articleList.length;
 	const articlesPerCategory = 3;
@@ -22,7 +22,7 @@
 <Breadcrumbs />
 
 <div class="container">
-	<Sidebar allCategories={$allCategories} />
+	<Sidebar allCategories={categories} />
 	<div class="posts">
 		<SectionHeading {headingTitle} {displayQuantity} {totalQuantity} />
 		<div class="resources-container">

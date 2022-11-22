@@ -1,5 +1,5 @@
 <script>
-	import { articleList, postList, allCategories, allThemes } from '/src/lib/json/stores';
+	import { articleList, postList, allCategories, allThemes, allTopics } from '/src/lib/json/stores';
 	// import SiteTitle from '$lib/components/site-title.svelte';
 	import MainTitle from '$lib/components/main-title.svelte';
 	import Navbar from '$lib/components/navbar.svelte';
@@ -17,6 +17,8 @@
 	$postList = data.posts;
 	$allCategories = data.allCategories;
 	$allThemes = data.allThemes;
+	$allTopics = data.allTopics;
+	// console.log(data);
 </script>
 
 <svelte:head><title>asifsalam</title></svelte:head>

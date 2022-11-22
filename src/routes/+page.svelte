@@ -1,5 +1,5 @@
 <script>
-	import { articleList, postList, allCategories, allThemes } from '$lib/json/stores';
+	import { articleList, postList, allThemes, allCategories, allTopics } from '$lib/json/stores';
 	import ContentCard from '$lib/components/content-card-c.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
@@ -8,6 +8,7 @@
 	$allCategories.forEach((el) => {
 		el.img = el.img.replace('/static', '');
 	});
+	const themes = $allCategories.filter((d) => d.type === 'theme');
 	console.log('home-page:');
 </script>
 
@@ -16,7 +17,7 @@
 
 <div class="container">
 	<div class="sidebar-container">
-		<Sidebar themes={$allThemes} />
+		<Sidebar {themes} />
 	</div>
 	<div class="main-content">
 		<div class="articles">

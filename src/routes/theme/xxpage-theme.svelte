@@ -1,56 +1,45 @@
 <script>
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { articleList, allCategories, clickedCategory } from '$lib/json/stores';
-	import { filterCategory } from '$lib/modules/utility_functions';
+	import { articleList, allThemes, clickedTheme } from '$lib/json/stores';
+	import { filterTheme } from '$lib/modules/utility_functions';
 	import CategoryList from '$lib/components/category-list.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
+	import Sidebar from '$lib/components/sidebar-resources.svelte';
 	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
-	// import Sidebar from '$lib/components/sidebar-resources.svelte';
-	// import KeyCategories from '$lib/components/key-categories-2.svelte';
+	import KeyThemes from '$lib/components/key-themes.svelte';
 	// export let data;
 	// export let errors;
 
-	$: selectedCategory = '';
-	$: category = 'python';
+	$: selectedTheme = '';
+	$: theme = 'all';
 	$: articles = [];
-	let categories = [];
-	let categoryObj = {};
+	let themes = [];
+	let themeObj = {};
 
 	onMount(() => {
-		selectedCategory = $clickedCategory;
-		categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
-		categoryObj = $allCategories
-			.filter((d) => d.type === 'category' || d.type === 'all')
-			.filter((d) => d.category == selectedCategory)[0];
-		console.log(categoryObj);
-		category = categoryObj.category;
-		console.log('mounted-1', selectedCategory);
-		console.log('mounted-2', categoryObj);
-		console.log('mounted-3', categories);
-		articles = filterCategory($articleList, categoryObj);
+		selectedTheme = $clickedTheme;
+		// themes = $allThemes.map((d) => d.category);
+		// categoryObj = $allCategories.filter((d) => d.category == selectedCategory)[0];
+		themes = $allThemes;
+		theme = themes[0];
+		console.log('theme-mounted-1', selectedTheme);
+		console.log('mounted-2', themes);
+		articles = filterTheme($articleList, theme);
 	});
 
-	function categoryClicked(clCategory) {
-		console.log(clCategory);
-		selectedCategory = clCategory;
-		$clickedCategory = selectedCategory;
-		categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
-		categoryObj = $allCategories
-			.filter((d) => d.type === 'category')
-			.filter((d) => d.category == selectedCategory)[0];
-		// console.log('mounted-', selectedCategory);
-		category = categoryObj.category;
-		articles = filterCategory($articleList, categoryObj);
+	function themeClicked(clTheme) {
+		console.log(clTheme);
+		selectedTheme = clTheme;
+		$clickedTheme = selectedTheme;
+		theme = selectedTheme;
+		articles = filterTheme($articleList, theme);
 	}
 	/** @type {string}*/
-	const headingText = 'Main categories';
+	const headingText = 'Main themes';
 	$: totalQuantity = articles.length;
-	$: console.log('category-page: ', category, selectedCategory, categories, totalQuantity);
-	// if (articles.length == 0) {
-	// 	articles = filterCategory($articleList, $allCategories[11]);
-	// }
+	$: console.log('theme-page: ', theme, selectedTheme, themes, articles.length);
 </script>
 
 <RandomQuote />
@@ -59,26 +48,23 @@
 <div class="container">
 	<div class="sidebar">
 		<div class="sidebar-header">
-			<p class="sidebar-header-text">Resources by category-1</p>
+			<p class="sidebar-header-text">Resources by theme-1</p>
 			<p />
 		</div>
 		<p class="categories-header">{headingText}</p>
 		<p class="topics">
-			{#each categories as category}
-				<button class="topic topic-box" on:click={() => categoryClicked(category)}
-					>{category}</button
-				>
+			{#each themes as theme}
+				<button class="topic topic-box" on:click={() => themeClicked(theme)}>{theme}</button>
 			{/each}
 		</p>
-		<!-- <KeyCategories headingText={'Resource categories'} {categories} /> -->
-		<!-- <p on:click={() => categoryClicked(category)}>sidebar {category}</p> -->
 	</div>
+
 	<div class="posts">
-		<SectionHeadingCategory {category} {totalQuantity} />
+		<SectionHeadingCategory {theme} {totalQuantity} />
 		<div class="cards">
 			<!-- <svelte:component this={component} articles={filteredArticles} {category} /> -->
 			{#if articles.length > 0}
-				<CategoryList {articles} {category} />
+				<CategoryList {articles} category={theme} />
 			{:else}
 				<p>Houston there is a problem in "category-list.svelte"</p>
 			{/if}

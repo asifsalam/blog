@@ -1,32 +1,33 @@
 <script>
-	import KeyCategories from '$lib/components/key-categories-2.svelte';
+	import KeyCategories from '$lib/components/key-themes.svelte';
+	import SidebarHeadingHome from '$lib/components/sidebar-heading-home.svelte';
 	import '/src/styles/global.css';
 	export let themes;
 	// const categories = allCategories.map((d) => d.category);
-	const s1a = 'Mostly about data';
-	const s2a = 'And how to use it effectively.';
-	const s2b = 'And the challenges.';
-	const s1b = 'and making companies "data-driven," whatever that means.';
-	const s1c = 'Mostly for practitioners';
-	const s1d = 'Mostly links';
+	// const s1a = 'Mostly about data';
+	// const s2a = 'And how to use it effectively.';
+	// const s2b = 'And the challenges.';
+	// const s1b = 'and making companies "data-driven," whatever that means.';
+	// const s1c = 'Mostly for practitioners';
+	// const s1d = 'Mostly links';
 	// const s2c =
 	// 	'-And those share an appreciation for a  turn of phrase, an appreciation for  for the details, and an allergy to the superficial broad strokes.';
 	// const s2a = 'The promise, the perils, the beauty & the drudgery.';
 	// const s2d = ;
-	const s2c =
-		'And those who find magic in words used well, appreciate an insightful turn of phrase and the long explanation, full of detail and nuance.';
+	// const s2c =
+	// 'And those who find magic in words used well, appreciate an insightful turn of phrase and the long explanation, full of detail and nuance.';
 	// const s2e = 'For practiioners.';
-	const s2d = 'But also leaders and managers.';
-	const s2e =
-		'Actually, anyone engaged in the often ill-defined task of making organizations "data-driven."';
-	const s2g = 'To the &#8212;usually excellent and always instructive&#8212;work of others.';
-	const s1e = 'And some original posts. ';
-	const s3a = 'Key themes:';
-	// console.log('sidebar-categories: ', categories);
+	// const s2d = 'But also leaders and managers.';
+	// const s2e =
+	// 'Actually, anyone engaged in the often ill-defined task of making organizations "data-driven."';
+	// const s2g = 'To the &#8212;usually excellent and always instructive&#8212;work of others.';
+	// const s1e = 'And some original posts. ';
+	// console.log('sidebar: ', themes);
+	themes = themes.map((d) => d.category);
 </script>
 
 <div class="sidebar">
-	<div class="sidebar-header">
+	<!-- <div class="sidebar-header">
 		<p class="sidebar-header-leadin">Greetings! I am Asif, and this space is:</p>
 		<p class="sidebar-header-text">{s1a}&#8212</p>
 		<p class="sidebar-text">{s2a}</p>
@@ -38,8 +39,9 @@
 		<p class="sidebar-header-text">{s1d}&#8212</p>
 		<p class="sidebar-text">{@html s2g}</p>
 		<p class="sidebar-header-text">{s1e}</p>
-	</div>
-	<KeyCategories categories={themes} />
+	</div> -->
+	<SidebarHeadingHome />
+	<KeyCategories headingText={'Main themes'} categories={themes} />
 </div>
 
 <style>

@@ -1,41 +1,30 @@
 <script>
+	export let data;
 	import { onMount } from 'svelte';
-	import { articleList, allCategories, allTopics, clickedTopic } from '$lib/json/stores';
+	import { articleList, filteredArticles, allTopics, clickedTopic } from '$lib/json/stores';
 	import { filterTopic } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	// import Sidebar from './sidebar-topics.svelte';
 	import SectionHeadingTopic from '$lib/components/section-heading-topic.svelte';
 	import TopicList from '$lib/components/topic-list.svelte';
-	// import TopicsCard from './all-topics.svelte';
 
-	let selectedTopic = '';
-	let topic = 'all';
-	let articles = [];
-	// let topics = [];
+	$: topic = data.topic;
+	$: articles = filterTopic($articleList, topic);
+	console.log('topic', data.topic);
+	console.log();
 
-	onMount(() => {
-		// selectedTopic = $clickedTopic;
-		// console.log('onMount: $clickedTopic: ', $clickedTopic);
-		// topic = $allTopics.filter((d) => d === $clickedTopic)[0];
-		// console.log('mounted-1', topics);
-		articles = filterTopic($articleList, $clickedTopic);
-	});
+	// onMount(() => {
+	// 	articles = filterTopic($articleList, topic);
+	// });
 
 	function topicClicked(clTopic) {
-		// console.log('topicClicked: ', clTopic);
-		// selectedTopic = clTopic;
-		// $clickedTopic = selectedTopic;
-		$clickedTopic = clTopic;
-		// topics = $allTopics;
-		// topic = $allTopics.filter((d) => d === $clickedTopic)[0];
-		console.log('TopicClicked', $clickedTopic);
+		topic = clTopic;
+		console.log('TopicClicked', topic);
 		articles = filterTopic($articleList, clTopic);
 	}
 	/** @type {string}*/
-	const headingText = 'Topics';
+	const headingText = 'Topic';
 	$: totalQuantity = articles.length;
-	// let article = $articleList[6];
 	// $: console.log('topics-page: articles ', articles);
 </script>
 
@@ -45,21 +34,22 @@
 <div class="container">
 	<div class="sidebar">
 		<div class="sidebar-header">
-			<p class="sidebar-header-text">Resources by category-1</p>
+			<p class="sidebar-header-text">Items by topic</p>
 			<p />
 		</div>
 		<p class="topics-header">{headingText}</p>
 		<p class="topics">
 			{#each $allTopics as topic}
-				<button class="topic topic-box" on:click={() => topicClicked(topic)}>{topic}</button>
+				<!-- <button class="topic topic-box" on:click={() => topicClicked(topic)}>{topic}</button> -->
+				<a class="topic topic-box" href={`/topics/${topic}`}> {topic} </a>
 			{/each}
 		</p>
 	</div>
 	<div class="posts">
-		<SectionHeadingTopic topic={$clickedTopic} {totalQuantity} />
+		<SectionHeadingTopic {topic} {totalQuantity} />
 		<div class="cards">
 			{#if articles.length > 0}
-				<TopicList {articles} topic={$clickedTopic} />
+				<TopicList {articles} {topic} />
 			{:else}
 				<p>Houston there is a problem in "topic-list.svelte" with {topic}</p>
 			{/if}

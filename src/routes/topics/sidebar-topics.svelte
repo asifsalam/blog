@@ -1,15 +1,13 @@
 <script>
 	// import ResourceCategoryBars from './resource-category-bars.svelte';
 	// import KeyThemes from '$lib/components/key-themes.svelte';
-	import KeyCategories from '$lib/components/key-categories-2.svelte';
-	export let allCategories;
-
-	const categories = allCategories.map((d) => d.category);
+	import KeyCategories from '$lib/components/key-topics.svelte';
+	export let allTopics;
 
 	const s1a = 'Links to resources';
-	const s2a = 'Click on a category title to view all the relevant resource links.';
+	const s2a = 'Click on a topic title to view all the relevant resource links.';
 	const s2c = 'Starting with the most recent ones';
-	console.log('sidebar-resources');
+	console.log('sidebar-topics');
 	// console.log('all-categories: ', allCategories);
 </script>
 
@@ -19,7 +17,7 @@
 		<p class="sidebar-text">{s2a}</p>
 	</div>
 	<!-- <ResourceCategoryBars {categories} /> -->
-	<KeyCategories headingText={'Main Categories'} {categories} />
+	<KeyCategories headingText={'All topics'} {topics} />
 	<!-- <KeyThemes {categories}/> -->
 </div>
 
