@@ -36,7 +36,7 @@
 					<ContentCard {article} />
 				{/each}
 			</div>
-			<p class="more-posts"><a href="\articles">More links</a></p>
+			<p class="more-posts"><a href="\resources">More links</a></p>
 		</div>
 	</div>
 </div>

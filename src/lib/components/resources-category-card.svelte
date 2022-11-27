@@ -7,7 +7,7 @@
 	export let category;
 	export let displayArticles = 5;
 	let categories = $allCategories;
-	// console.log('resources-category-card: ', category);
+
 	function categoryClicked(selectedCategory) {
 		// @ts-ignore
 		$clickedCategory = selectedCategory;
@@ -72,9 +72,7 @@
 		margin-bottom: 15px;
 	}
 	.category-header {
-		/* text-align: left; */
-		/* width: 50%; */
-		background-image: url('https://unsplash.com/photos/VWcPlbHglYc');
+		/* background-image: url('https://picsum.photos/200/300'); */
 		display: grid;
 		grid-template-columns: 2fr 5fr 3fr;
 		height: 3em;
@@ -106,18 +104,16 @@
 		text-decoration: underline 4px;
 		color: hsla(251, 100%, 20%, 1);
 	}
-	.article-count a {
-		/* font-family: 'Roboto Slab', Arial, Helvetica, sans-serif; */
+	/* .article-count a {
 		font-weight: normal;
 		opacity: 0.7;
 		text-decoration: none;
 	}
 	.article-count a:hover {
-		/* font-family: 'Roboto Slab', Arial, Helvetica, sans-serif; */
 		text-decoration: underline;
 		opacity: 1;
 		font-weight: bold;
-	}
+	} */
 	.category-img {
 		background-color: rgba(255, 0, 0, 0.019);
 		bottom: 0;
@@ -127,29 +123,5 @@
 		display: inline;
 		position: relative;
 		height: inherit;
-		/* outline: 0.5px solid rgb(119, 119, 119); */
-		/* top: 50%;
-        left: 10%;
-        transform: translate(0%, -50%); */
-	}
-
-	.topic-box {
-		display: inline-block;
-		padding: 0px 5px;
-		margin: 5px 10px 5px 0;
-		background-color: #eafaff;
-		font-family: Roboto, Arial, Helvetica, sans-serif;
-		font-weight: normal;
-		font-size: 1em;
-		cursor: pointer;
-		color: hsl(251, 100%, 15%);
-		border-radius: 5px;
-		text-decoration: none;
-		border: 0.1px solid hsla(251, 32%, 44%, 0.2);
-	}
-
-	.topic:hover {
-		color: hsl(251, 100%, 21%);
-		font-weight: bold;
 	}
 </style>

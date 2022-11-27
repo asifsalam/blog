@@ -5,19 +5,15 @@
 	export let displayQuantity = 10;
 	export let totalQuantity = 50;
 	export let headingTitle = 'Interesting';
-	// console.log('category: ', category, 'displayQuantity');
 	function categoryClicked(selectedCategory) {
 		// @ts-ignore
 		$clickedCategory = selectedCategory;
 		goto('/resources/category');
-		// console.log('section-heading: ', $clickedCategory);
 	}
 </script>
 
 <div class="heading">
-	<!-- <img class="category-img" src={category.img} alt={category.title} srcset="" /> -->
 	<h1 class="heading-title">{headingTitle}</h1>
-	<!-- <p class="sub-title">Latest first.</p> -->
 	<h3 class="article-count">
 		{#if totalQuantity > displayQuantity}
 			{displayQuantity}
@@ -40,13 +36,6 @@
 		>
 			view all
 		</p>
-		<!-- {#if category === 'myPosts'}
-			<a class="article-count" href={`/category/${category}`}>&nbsp;({totalQuantity}) items<br /></a
-			>
-		{:else}
-			<a class="article-count" href={`/category/${category}`}>&nbsp;({totalQuantity}) items<br /></a
-			>
-		{/if} -->
 	</h3>
 </div>
 
@@ -107,14 +96,4 @@
 		text-decoration: underline;
 		text-decoration-thickness: 3px;
 	}
-	/* .category-img {
-		background-color: rgba(255, 0, 0, 0.019);
-		bottom: 0;
-		left: 0;
-	}
-	img {
-		display: inline;
-		position: relative;
-		height: inherit;
-	} */
 </style>

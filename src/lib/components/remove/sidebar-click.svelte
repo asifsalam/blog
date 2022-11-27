@@ -1,6 +1,6 @@
 <script>
 	// import { allCategories } from '$lib/components/app-data';
-	import ResourceCategoryBars from './resource-category-bars.svelte';
+	import ResourceCategoryBars from '../resource-category-bars.svelte';
 	import KeyCategories from '$lib/components/key-categories-2.svelte';
 	import '/src/styles/global.css';
 	export let allCategories;

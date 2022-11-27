@@ -36,8 +36,6 @@
 		padding: 0px 2px;
 		margin: 0px 3px;
 		background-color: hsla(195, 89%, 69%, 0.1);
-		/* font-size: 0.9rem; */
-		/* box-shadow: 1px 1px rgba(135, 135, 135, 0.2); */
 		color: hsl(251, 100%, 15%);
 		border-radius: 5px;
 		text-decoration: none;

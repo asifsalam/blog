@@ -6,7 +6,6 @@
 	import Sidebar from '$lib/components/sidebar-resources.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
 	import ResourcesCategoryCard from '$lib/components/resources-category-card.svelte';
-	// export let errors, data;
 
 	const categories = $allCategories.filter((d) => d.type === 'category');
 	const headingTitle = 'Resource categories';
@@ -63,7 +62,6 @@
 	.category-container-1 {
 		border-bottom: 8px;
 		border-bottom-style: dotted;
-		/* border-bottom-right-radius: 10px; */
 		border-bottom-color: rgb(77, 2, 2);
 	}
 </style>

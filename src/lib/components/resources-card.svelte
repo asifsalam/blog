@@ -14,9 +14,7 @@
 </script>
 
 <div class="post-card">
-	<!-- <div class="background-image" style="background-image: url({img_url})" /> -->
 	<div class="content">
-		<!-- <div class="left-content" /> -->
 		<div class="right-content">
 			<div class="main-content">
 				<div class="img-content">
@@ -41,14 +39,6 @@
 				</a>
 				<p class="topics">
 					<TopicListCard {tags} size={1} />
-					<!-- Topics: -->
-					<!-- {#each tags as tag}
-						{#if tag != 'NA'}
-							<a class="topic topic-box" href={`/topics/${tag}`}> {tag} </a>
-						{:else}
-							<a class="topic topic-box" href={`/topics/untagged`}> untagged </a>
-						{/if}
-					{/each} -->
 				</p>
 			</div>
 		</div>
@@ -72,40 +62,14 @@
 		position: relative;
 		/* color: var(--color_grey_dark); */
 	}
-	/* .post-card:last-child {
-		border-top: 2px solid hsla(278, 13%, 28%, 0.4);
-	} */
-	/* .post-card .background-image {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-size: cover;
-		background-position: center;
-		z-index: 1;
-	} */
 
 	.content {
 		display: grid;
 		grid-template-columns: 1fr;
 		height: 100%;
 		width: 100%;
-		/* display: flex; */
-		/* flex-direction: column; */
 	}
 
-	/* .left-content {
-		background-color: hsl(0, 0%, 11%, 0.1);
-		width: 100%;
-		height: 100%;
-		z-index: 2;
-		color: white;
-		font-weight: 400;
-		margin: 0;
-	} */
 	.main-content {
 		margin: 0;
 		padding: 0;
@@ -116,6 +80,7 @@
 		height: 2.6em;
 		width: 2.6em;
 	}
+
 	img {
 		float: left;
 		margin: 0px 10px 2px 3px;
@@ -153,11 +118,6 @@
 	.article-title:hover {
 		text-decoration: wavy;
 	}
-	/* .article-title:hover .read-more-link {
-		font-style: underline;
-		background-color: hsla(31, 100%, 50%, 0.5);
-		visibility: visible;
-	} */
 
 	.article-title {
 		font-family: 'Roboto Slab', Poppins, sans-serif;
@@ -191,48 +151,8 @@
 		/* font-weight: bold; */
 	}
 
-	.topic-box {
-		padding: 0px 2px;
-		margin: 0px 3px;
-		background-color: hsla(194, 100%, 96%, 0.3);
-		font-weight: normal;
-		color: hsl(251, 100%, 15%);
-		border-radius: 5px;
-		text-decoration: none;
-		border: 0px solid hsla(252, 32%, 44%, 0.2);
-	}
-
-	.topic:hover {
-		color: hsl(251, 100%, 21%);
-		font-weight: bold;
-		background-color: hsla(194, 100%, 96%, 0.7);
-		background-color: hsla(195, 100%, 82%, 0.5);
-		outline: 0.2px solid hsla(252, 32%, 44%, 0.2);
-	}
-
-	/* .bottom-border {
-		width: 100%;
-		height: 7px;
-		background-color: hsl(251, 100%, 21%);
-		background: linear-gradient(rgba(255, 254, 243, 0.9) 5%, hsla(251, 100%, 21%, 0.7) 5%);
-		background-image: url('/static/img/borders/taj_mahal_border_floral_01.png');
-	} */
-
-	/* .post-card .read-more {
-		display: block;
-		text-align: end;
-		bottom: 0;
-		right: 10px;
-		justify-items: right;
-		vertical-align: bottom;
-		padding: 2px 2px;
-		margin: 0 3px 3px 0;
-	}
-	.post-card .read-more-link {
-		visibility: hidden;
-	} */
 	.post-card .read-more-link a {
-		color: blue;
+		color: rgb(15, 3, 45);
 		display: inline-block;
 		position: relative;
 		text-decoration: double;

@@ -72,7 +72,6 @@
 		color: hsl(55deg 100% 98%);
 		background-size: cover;
 	}
-
 	.footer {
 		display: flex;
 		flex-direction: row;
@@ -80,7 +79,7 @@
 		align-items: center;
 		width: 100%;
 		margin-top: 20px;
-		padding: 5px 20px;
+		padding: 5px 0px;
 		border-bottom: 1px solid grey;
 		border-top: 1px solid rgb(56, 56, 56);
 	}

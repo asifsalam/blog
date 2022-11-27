@@ -26,8 +26,6 @@
 	} else {
 		tags = article.tags;
 	}
-
-	// article.excerpt = article.excerpt.split(' ').slice(0, 15).join(' ').concat('...');
 	article.excerpt = article.excerpt.split(' ').slice(0, 15).join(' ');
 </script>
 
@@ -47,7 +45,6 @@
 						<span>{article.author}</span> <br />
 						<span class="article-date">{article.post_date}</span>
 					</p>
-					<!-- <p class="article-date">{article.post_date}</p> -->
 				{/if}
 				<p class="topics">
 					Topics:
@@ -96,33 +93,23 @@
 		left: 0;
 		background-size: cover;
 		background-position: center;
-		/* transition: transform 0.2s; */
 		z-index: 1;
 	}
 
 	.content {
-		/* float: left; */
 		display: grid;
 		grid-template-columns: 2fr 8fr;
 		height: 100%;
 		width: 100%;
-		/* display: flex; */
-		/* flex-direction: column; */
 	}
 
 	.left-content {
-		/* float: left; */
 		background-color: hsl(0, 0%, 11%, 0.1);
 		width: 100%;
 		height: 100%;
 		z-index: 2;
 		color: white;
 		font-weight: 400;
-		/* text-shadow: antiquewhite; */
-		/* position: absolute;
-		top: 0;
-		left: 0;
-		overflow: hidden; */
 		margin: 0;
 	}
 	.main-content {
@@ -131,7 +118,6 @@
 	}
 
 	.right-content {
-		/* float: right; */
 		display: grid;
 		grid-gap: 0;
 		align-content: space-between;
@@ -141,44 +127,32 @@
 		z-index: 3;
 		margin: 0;
 		color: black;
-		/* font-weight: 500; */
-		/* text-shadow: 2px 2px 1px white; */
 	}
 	.article-title {
 		font-family: 'Roboto Slab', Poppins, sans-serif;
-		/* line-height: 1; */
 		margin: 5px 0px 03px 10px;
 		font-size: 1.1rem;
 		font-weight: 400;
 		color: hsla(251, 100%, 21%, 1);
-		/* width: 100%; */
-		/* overflow: hidden; */
-		/* overflow-wrap: break-word; */
 	}
 	.article-author {
 		font-family: 'Roboto Slab', Georgia, 'Times New Roman', Times, serif;
 		font-size: 1rem;
 		font-weight: normal;
 		font-style: italic;
-		/* text-transform: uppercase; */
 		color: rgb(0, 0, 0);
 		margin: 0px 0px 3px 10px;
 		padding: 0;
 		width: 100%;
-		/* height: 1.25rem;
-		overflow: hidden; */
 	}
 	.article-date {
 		font-family: Roboto, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 		font-size: 0.95rem;
 		font-weight: 400;
 		font-style: normal;
-		/* text-transform: uppercase; */
 		color: hsla(250, 100%, 5%, 1);
 		margin: 0px 0px 0px 0px;
 		width: 100%;
-		/* height: 1.25rem;
-		overflow: hidden; */
 	}
 	.topics {
 		display: block;

@@ -4,39 +4,25 @@
 	import { filterTopic } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	// import Sidebar from './sidebar-topics.svelte';
 	import SectionHeadingTopic from '$lib/components/section-heading-topic.svelte';
 	import TopicList from '$lib/components/topic-list.svelte';
-	// import TopicsCard from './all-topics.svelte';
 
 	let selectedTopic = '';
 	let topic = 'all';
 	let articles = [];
-	// let topics = [];
 
 	onMount(() => {
-		// selectedTopic = $clickedTopic;
-		// console.log('onMount: $clickedTopic: ', $clickedTopic);
-		// topic = $allTopics.filter((d) => d === $clickedTopic)[0];
-		// console.log('mounted-1', topics);
 		articles = filterTopic($articleList, $clickedTopic);
 	});
 
 	function topicClicked(clTopic) {
-		// console.log('topicClicked: ', clTopic);
-		// selectedTopic = clTopic;
-		// $clickedTopic = selectedTopic;
 		$clickedTopic = clTopic;
-		// topics = $allTopics;
-		// topic = $allTopics.filter((d) => d === $clickedTopic)[0];
-		console.log('TopicClicked', $clickedTopic);
+		// console.log('TopicClicked', $clickedTopic);
 		articles = filterTopic($articleList, clTopic);
 	}
 	/** @type {string}*/
 	const headingText = 'Topics';
 	$: totalQuantity = articles.length;
-	// let article = $articleList[6];
-	// $: console.log('topics-page: articles ', articles);
 </script>
 
 <RandomQuote />

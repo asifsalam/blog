@@ -1,12 +1,11 @@
 <script>
 	import { postList, allThemes } from '$lib/json/stores';
-	import Sidebar from '$lib/components/sidebar-blog.svelte';
-	import ContentCard from '$lib/components/content-card-a.svelte';
-	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
+	import RandomQuote from '$lib/components/random-quote.svelte';
+	import Sidebar from '$lib/components/sidebar-blog.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
+	import ContentCard from '$lib/components/content-card-a.svelte';
 
-	// console.log($postList);
 	let displayQuantity = $postList.length;
 	let headingText = 'My posts';
 	let totalQuantity = displayQuantity;
