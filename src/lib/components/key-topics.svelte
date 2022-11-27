@@ -78,8 +78,9 @@
 	}
 
 	.topic:hover {
-		color: hsl(251, 100%, 21%);
+		color: hsl(251, 95%, 33%);
 		font-weight: bold;
+		background-color: #bff0ff;
 	}
 	button {
 	}

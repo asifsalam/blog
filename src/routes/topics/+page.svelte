@@ -135,7 +135,9 @@
 		border: 0.1px solid hsla(251, 32%, 44%, 0.2);
 	}
 	.topic:hover {
-		color: hsl(251, 100%, 60%);
+		color: hsl(251, 95%, 33%);
 		font-weight: bold;
+		background-color: #bff0ff;
+		cursor: pointer;
 	}
 </style>

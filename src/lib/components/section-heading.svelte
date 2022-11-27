@@ -1,9 +1,17 @@
 <script>
+	import { clickedCategory } from '$lib/json/stores';
+	import { goto } from '$app/navigation';
 	export let category = 'all';
 	export let displayQuantity = 10;
 	export let totalQuantity = 50;
 	export let headingTitle = 'Interesting';
 	// console.log('category: ', category, 'displayQuantity');
+	function categoryClicked(selectedCategory) {
+		// @ts-ignore
+		$clickedCategory = selectedCategory;
+		goto('/resources/category');
+		// console.log('section-heading: ', $clickedCategory);
+	}
 </script>
 
 <div class="heading">
@@ -16,13 +24,29 @@
 		{:else}
 			{totalQuantity}
 		{/if}
-		{#if category === 'myPosts'}
+		of
+		<span
+			class="view-all"
+			on:click={() => {
+				categoryClicked('all');
+			}}>{totalQuantity}</span
+		>
+		items<br />
+		<p
+			class="article-count view-all"
+			on:click={() => {
+				categoryClicked('all');
+			}}
+		>
+			view all
+		</p>
+		<!-- {#if category === 'myPosts'}
 			<a class="article-count" href={`/category/${category}`}>&nbsp;({totalQuantity}) items<br /></a
 			>
 		{:else}
 			<a class="article-count" href={`/category/${category}`}>&nbsp;({totalQuantity}) items<br /></a
 			>
-		{/if}
+		{/if} -->
 	</h3>
 </div>
 
@@ -59,9 +83,18 @@
 		font-size: large;
 		font-weight: bold;
 		text-align: right;
-		color: hsla(251, 100%, 20%, 1);
+		color: hsla(251, 100%, 20%, 0.6);
 		margin: 1em 0 0 0;
 	}
+	.view-all {
+		margin: 0;
+		cursor: pointer;
+	}
+	.view-all:hover {
+		text-decoration: underline 4px;
+		color: hsla(251, 100%, 20%, 1);
+	}
+
 	.article-count a {
 		opacity: 0.7;
 		text-decoration: dotted;

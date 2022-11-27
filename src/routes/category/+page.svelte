@@ -13,34 +13,29 @@
 	// export let errors;
 
 	$: selectedCategory = '';
-	$: category = 'python';
+	$: category = 'all';
 	$: articles = [];
 	let categories = [];
 	let categoryObj = {};
 
 	onMount(() => {
+		console.log('category: ', $clickedCategory);
 		selectedCategory = $clickedCategory;
 		categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
 		categoryObj = $allCategories
 			.filter((d) => d.type === 'category' || d.type === 'all')
 			.filter((d) => d.category == selectedCategory)[0];
-		console.log(categoryObj);
 		category = categoryObj.category;
-		console.log('mounted-1', selectedCategory);
-		console.log('mounted-2', categoryObj);
-		console.log('mounted-3', categories);
 		articles = filterCategory($articleList, categoryObj);
 	});
 
 	function categoryClicked(clCategory) {
-		console.log(clCategory);
 		selectedCategory = clCategory;
 		$clickedCategory = selectedCategory;
 		categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
 		categoryObj = $allCategories
 			.filter((d) => d.type === 'category')
 			.filter((d) => d.category == selectedCategory)[0];
-		// console.log('mounted-', selectedCategory);
 		category = categoryObj.category;
 		articles = filterCategory($articleList, categoryObj);
 	}
@@ -59,7 +54,7 @@
 <div class="container">
 	<div class="sidebar">
 		<div class="sidebar-header">
-			<p class="sidebar-header-text">Resources by category-1</p>
+			<p class="sidebar-header-text">Resources by category</p>
 			<p />
 		</div>
 		<p class="categories-header">{headingText}</p>
@@ -141,6 +136,7 @@
 		margin: 5px 10px 5px 0;
 		background-color: #eafaff;
 		font-family: Roboto, Arial, Helvetica, sans-serif;
+		cursor: pointer;
 		font-weight: normal;
 		font-size: 1em;
 		color: hsl(251, 100%, 15%);

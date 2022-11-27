@@ -22,22 +22,16 @@
 	onMount(() => {
 		selectedCategory = $clickedTheme;
 		categories = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
-		// console.log('themes: ', categories);
 		categoryObj = $allCategories.filter((d) => d.category == selectedCategory)[0];
 		category = categoryObj.category;
-		// console.log('theme-mounted-1', selectedCategory);
-		// console.log('theme-mounted-2', categoryObj);
-		// console.log('theme-mounted-3', categories);
 		articles = filterCategory($articleList, categoryObj);
 	});
 
 	function categoryClicked(clCategory) {
-		// console.log(clCategory);
 		selectedCategory = clCategory;
 		$clickedTheme = selectedCategory;
 		categories = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
 		categoryObj = $allCategories.filter((d) => d.category == selectedCategory)[0];
-		// console.log('mounted-', selectedCategory);
 		category = categoryObj.category;
 		articles = filterCategory($articleList, categoryObj);
 	}
@@ -64,8 +58,6 @@
 				>
 			{/each}
 		</p>
-		<!-- <KeyCategories headingText={'Resource categories'} {categories} /> -->
-		<!-- <p on:click={() => categoryClicked(category)}>sidebar {category}</p> -->
 	</div>
 	<div class="posts">
 		<SectionHeadingCategory {category} {totalQuantity} />
@@ -143,7 +135,9 @@
 		border: 0.1px solid hsla(251, 32%, 44%, 0.2);
 	}
 	.topic:hover {
-		color: hsl(251, 100%, 60%);
+		color: hsl(251, 95%, 33%);
 		font-weight: bold;
+		background-color: #bff0ff;
+		cursor: pointer;
 	}
 </style>

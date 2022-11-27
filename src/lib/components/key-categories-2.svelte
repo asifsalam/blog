@@ -9,8 +9,8 @@
 	function categoryClicked(category) {
 		// @ts-ignore
 		$clickedCategory = category;
-		goto('/category');
-		console.log('key-category-clicked: ', $clickedCategory);
+		goto('/resources/category');
+		// console.log('key-category-clicked: ', $clickedCategory);
 	}
 </script>
 
@@ -71,6 +71,7 @@
 		font-family: Roboto, Arial, Helvetica, sans-serif;
 		font-weight: normal;
 		font-size: 1em;
+		cursor: pointer;
 		color: hsl(251, 100%, 15%);
 		border-radius: 5px;
 		text-decoration: none;
@@ -78,8 +79,9 @@
 	}
 
 	.topic:hover {
-		color: hsl(251, 100%, 21%);
+		color: hsl(251, 95%, 33%);
 		font-weight: bold;
+		background-color: #bff0ff;
 	}
 	button {
 	}

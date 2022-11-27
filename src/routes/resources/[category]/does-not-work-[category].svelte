@@ -10,6 +10,7 @@
 	let selectedCategory = $page.params.category;
 	const category = $allCategories.filter((d) => d.category == selectedCategory)[0];
 	let filteredArticles = filterCategory($articleList, category);
+	console.log('resources-[category]');
 </script>
 
 <p>{$page}</p>

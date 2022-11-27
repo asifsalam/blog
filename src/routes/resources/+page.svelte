@@ -54,7 +54,7 @@
 
 	.resources-container {
 		display: grid;
-		gap: 50px;
+		gap: 40px;
 		grid-template-columns: 1fr 1fr;
 		padding-top: 5px;
 		justify-content: center;
