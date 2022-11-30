@@ -1,4 +1,5 @@
 <script>
+	import TopicListCard from '$lib/components/topic-list-card.svelte';
 	const twitterLogoUrl = 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg';
 	export let article;
 	let tags;
@@ -40,7 +41,8 @@
 						<span class="article-date">{article.post_date}</span>
 					</p>
 				{/if}
-				<p class="topics">
+				<div class="topics"><TopicListCard {tags} size={2} /></div>
+				<!-- <p class="topics">
 					Topics:
 					{#each tags as tag}
 						{#if tag != 'NA'}
@@ -49,7 +51,7 @@
 							<a class="topic topic-box" href={`/topics/untagged`}> untagged </a>
 						{/if}
 					{/each}
-				</p>
+				</p> -->
 				<a href={article.link} class="excerpt-linked"
 					><p class="excerpt" style="text-decoration:none">
 						{article.excerpt}
@@ -230,25 +232,22 @@
 		color: dimgray; 
 	}*/
 
-	.topic-box {
+	/* .topic-box {
 		padding: 0px 2px;
 		margin: 0px 3px;
-		/* border: 0.25px solid #dedede; */
 		background-color: hsla(194, 100%, 96%, 0.5);
 		font-weight: normal;
-		/* box-shadow: 1px 1px rgba(135, 135, 135, 0.2); */
 		color: hsl(251, 100%, 15%);
 		border-radius: 5px;
 		text-decoration: none;
 		border: 0.2px solid hsla(252, 32%, 44%, 0.2);
-		/* line-height: 1.5rem; */
 	}
 
 	.topic:hover {
 		color: hsl(251, 100%, 21%);
 		font-weight: bold;
 		background-color: hsla(195, 100%, 82%, 0.5);
-	}
+	} */
 
 	/* .bottom-border {
 		width: 100%;

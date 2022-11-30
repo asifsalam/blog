@@ -115,8 +115,10 @@
 		text-decoration: underline;
 		font-weight: 900;
 	}
+
 	.article-title:hover {
 		text-decoration: wavy;
+		font-weight: bolder;
 	}
 
 	.article-title {
@@ -152,7 +154,7 @@
 	}
 
 	.post-card .read-more-link a {
-		color: rgb(15, 3, 45);
+		color: blue;
 		display: inline-block;
 		position: relative;
 		text-decoration: double;
