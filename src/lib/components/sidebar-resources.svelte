@@ -2,15 +2,17 @@
 	// import ResourceCategoryBars from './resource-category-bars.svelte';
 	// import KeyThemes from '$lib/components/key-themes.svelte';
 	import KeyCategories from '$lib/components/key-categories-2.svelte';
+	import KeyTopics from '$lib/components/key-topics.svelte';
+	export let allThemes;
 	export let allCategories;
+	export let allTopics;
 
-	const categories = allCategories.map((d) => d.category);
-
+	const categories = allCategories.filter((d) => d.type === 'category').map((d) => d.category);
+	console.log(categories, allTopics);
 	const s1a = 'Links to resources';
-	const s2a = 'Click on a category title to view all the relevant resource links.';
-	const s2c = 'Starting with the most recent ones';
+	const s2a = 'Click on a category below to view all the related items.';
+	const s2c = 'Sorted by date, starting with the most recent ones';
 	console.log('sidebar-resources');
-	// console.log('all-categories: ', allCategories);
 </script>
 
 <div class="sidebar">
@@ -20,6 +22,7 @@
 	</div>
 	<!-- <ResourceCategoryBars {categories} /> -->
 	<KeyCategories headingText={'Main Categories'} {categories} />
+	<!-- <KeyTopics headingText={'All Topics'} topics={$allTopics} /> -->
 	<!-- <KeyThemes {categories}/> -->
 </div>
 
@@ -39,10 +42,11 @@
 		/* float: left; */
 		height: auto;
 		width: 100%;
-		background-color: rgb(255, 254, 243);
+		/* background-color: rgb(255, 254, 243); */
 		padding: 0 0 10px 0;
 		margin: 0;
 		border-bottom: 2px solid hsl(23, 8%, 50%);
+		border-bottom-style: ridge;
 	}
 
 	.sidebar-header-text {

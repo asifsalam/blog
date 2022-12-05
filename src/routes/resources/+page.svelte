@@ -1,5 +1,5 @@
 <script>
-	import { articleList, allCategories } from '$lib/json/stores';
+	import { articleList, allThemes, allCategories, allTopics } from '$lib/json/stores';
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
@@ -11,9 +11,8 @@
 	const headingTitle = 'Resource categories';
 	const totalQuantity = $articleList.length;
 	const articlesPerCategory = 3;
-	const displayQuantity = articlesPerCategory * categories.length;
+	const displayQuantity = articlesPerCategory * allCategories.length;
 
-	let article = $articleList[6];
 	console.log('resources-page');
 </script>
 
@@ -21,7 +20,7 @@
 <Breadcrumbs />
 
 <div class="container">
-	<Sidebar allCategories={categories} />
+	<Sidebar allThemes={$allThemes} allCategories={$allCategories} allTopics={$allTopics} />
 	<div class="posts">
 		<SectionHeading {headingTitle} {displayQuantity} {totalQuantity} />
 		<div class="resources-container">
@@ -47,7 +46,7 @@
 	div.container {
 		width: 100%;
 		display: grid;
-		grid-template-columns: 2fr 7fr;
+		grid-template-columns: 3fr 9fr;
 		margin: 0px 0px 5px 0px;
 	}
 

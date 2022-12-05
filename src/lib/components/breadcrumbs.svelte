@@ -2,12 +2,10 @@
 	import { page } from '$app/stores';
 	import { capitalizeFirstLetter } from '$lib/modules/utility_functions.js';
 	$: currentPage = $page.url.pathname;
-	// $: console.log('breadcrumbs: ', $page.url.pathname);
 
 	$: crumbsList = () => {
 		const tokens = $page.url.pathname.split('/').filter((t) => t !== '');
 		let tokenPath = '';
-		// Create { label, href } pairs for each token.
 		let x = tokens.map((t) => {
 			tokenPath += '/' + t;
 			return {
@@ -17,7 +15,6 @@
 			};
 		});
 		x.unshift({ labelCap: 'Home', href: '/' });
-
 		return x;
 	};
 	$: crumbs = crumbsList();
@@ -39,20 +36,18 @@
 	.breadcrumbs {
 		padding: 0;
 		margin: 0 0 10px 0;
-		/* background-color: hsla(0, 26%, 54%, 0.7); */
-		/* background-color: hsla(0, 90%, 25%, 1); */
-		background-color: hsla(23, 8%, 50%, 1);
+		/* background-color: hsla(0, 95%, 15%, 0.9); */
+		background-color: hsla(60, 25%, 18%, 1);
 		font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
 		font-size: 1.1rem;
 		position: sticky;
 		top: 0;
 		z-index: 250;
-		/* color: hsl(54, 100%, 72%); */
 	}
+
 	.breadcrumbs-item {
 		display: inline-block;
-		/* padding: 5px 0px; */
-		color: rgb(193, 255, 154);
+		color: hsla(0, 95%, 80%, 1);
 		/* color: rgba(239, 236, 253, 0.9); */
 	}
 	/* a {
