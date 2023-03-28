@@ -3,24 +3,29 @@
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	import Sidebar from '$lib/components/sidebar-resources.svelte';
+	import Sidebar from '$lib/components/sidebar-2.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
 	import ResourcesCategoryCard from '$lib/components/resources-category-card.svelte';
+	import SidebarHeadingResources from '$lib/components/sidebar-heading-resources.svelte';
 
 	const categories = $allCategories.filter((d) => d.type === 'category');
 	const headingTitle = 'Resource categories';
 	const totalQuantity = $articleList.length;
 	const articlesPerCategory = 3;
-	const displayQuantity = articlesPerCategory * allCategories.length;
+	const displayQuantity = articlesPerCategory * $allCategories.length;
 
-	console.log('resources-page');
+	// console.log('resources-page');
 </script>
 
 <RandomQuote />
 <Breadcrumbs />
 
 <div class="container">
-	<Sidebar allThemes={$allThemes} allCategories={$allCategories} allTopics={$allTopics} />
+	<div class="sidebar-container">
+		<SidebarHeadingResources />
+		<Sidebar useThemes={'yes'} useCategories={'yes'} useTopics={'yes'} />
+	</div>
+	<!-- <Sidebar allThemes={$allThemes} allCategories={$allCategories} allTopics={$allTopics} /> -->
 	<div class="posts">
 		<SectionHeading {headingTitle} {displayQuantity} {totalQuantity} />
 		<div class="resources-container">
@@ -48,6 +53,14 @@
 		display: grid;
 		grid-template-columns: 3fr 9fr;
 		margin: 0px 0px 5px 0px;
+	}
+
+	div.sidebar-container {
+		/* margin: 0;
+		padding: 0; */
+		float: left;
+		margin: 10px 30px 00px 0px;
+		flex-flow: column;
 	}
 
 	.resources-container {

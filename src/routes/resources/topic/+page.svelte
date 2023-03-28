@@ -1,44 +1,31 @@
 <script>
 	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
-	import { articleList, allCategories, clickedTheme } from '$lib/json/stores';
-	import { filterCategory } from '$lib/modules/utility_functions';
-	import CategoryList from '$lib/components/category-list.svelte';
+	// import { page } from '$app/stores';
+	import { articleList, allTopics, clickedTopic } from '$lib/json/stores';
+	import { filterTopic } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	import Sidebar from '$lib/components/remove/sidebar.svelte';
-	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
-	import KeyCategories from '$lib/components/key-themes.svelte';
-	// export let data;
-	// export let errors;
+	import SectionHeadingTopic from '$lib/components/section-heading-topic.svelte';
+	import TopicList from '$lib/components/topic-list.svelte';
 
-	$: selectedCategory = '';
-	$: category = 'datadrivenenterprise';
+	$: selectedTopic = $clickedTopic;
 	$: articles = [];
-	let categories = [];
-	let categoryObj = {};
-	console.log('page-theme');
-	// console.log($allCategories);
+	let topics = $allTopics;
+
 	onMount(() => {
-		selectedCategory = $clickedTheme;
-		categories = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
-		categoryObj = $allCategories.filter((d) => d.category == selectedCategory)[0];
-		category = categoryObj.category;
-		articles = filterCategory($articleList, categoryObj);
+		console.log('topic: ', $clickedTopic);
+		selectedTopic = $clickedTopic;
+		articles = filterTopic($articleList, selectedTopic);
 	});
 
-	function categoryClicked(clCategory) {
-		selectedCategory = clCategory;
-		$clickedTheme = selectedCategory;
-		categories = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
-		categoryObj = $allCategories.filter((d) => d.category == selectedCategory)[0];
-		category = categoryObj.category;
-		articles = filterCategory($articleList, categoryObj);
+	function topicClicked(topic) {
+		$clickedTopic = topic;
+		articles = filterTopic($articleList, $clickedTopic);
 	}
 	/** @type {string}*/
-	const headingText = 'Main themes';
+	const headingText = 'Main topics';
 	$: totalQuantity = articles.length;
-	// $: console.log('category-page: ', category, selectedCategory, categories, articles.length);
+	$: console.log('resource-topics: ', topics, totalQuantity);
 </script>
 
 <RandomQuote />
@@ -47,24 +34,24 @@
 <div class="container">
 	<div class="sidebar">
 		<div class="sidebar-header">
-			<p class="sidebar-header-text" />
+			<p class="sidebar-header-text">Resources by topic</p>
 			<p />
 		</div>
-		<p class="categories-header">{headingText}</p>
+		<p class="topics-header">{headingText}</p>
 		<p class="topics">
-			{#each categories as category}
-				<button class="topic topic-box" on:click={() => categoryClicked(category)}
-					>{category}</button
-				>
+			{#each $allTopics as topic}
+				<button class="topic topic-box" on:click={() => topicClicked(topic)}>{topic}</button>
 			{/each}
 		</p>
+		<!-- <KeyCategories headingText={'Resource categories'} {categories} /> -->
+		<!-- <p on:click={() => categoryClicked(category)}>sidebar {category}</p> -->
 	</div>
 	<div class="posts">
-		<SectionHeadingCategory {category} {totalQuantity} />
+		<SectionHeadingTopic topic={selectedTopic} {totalQuantity} />
 		<div class="cards">
 			<!-- <svelte:component this={component} articles={filteredArticles} {category} /> -->
 			{#if articles.length > 0}
-				<CategoryList {articles} {category} />
+				<TopicList {articles} topic={selectedTopic} />
 			{:else}
 				<p>Houston there is a problem in "category-list.svelte"</p>
 			{/if}
@@ -105,7 +92,7 @@
 		color: hsla(251, 100%, 15%, 1);
 		text-align: left;
 	}
-	.categories-header {
+	.topics-header {
 		padding: 5px 0;
 		margin: 10px 0;
 		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
@@ -127,6 +114,7 @@
 		margin: 5px 10px 5px 0;
 		background-color: #eafaff;
 		font-family: Roboto, Arial, Helvetica, sans-serif;
+		cursor: pointer;
 		font-weight: normal;
 		font-size: 1em;
 		color: hsl(251, 100%, 15%);
@@ -135,9 +123,7 @@
 		border: 0.1px solid hsla(251, 32%, 44%, 0.2);
 	}
 	.topic:hover {
-		color: hsl(251, 95%, 33%);
+		color: hsl(251, 100%, 60%);
 		font-weight: bold;
-		background-color: #bff0ff;
-		cursor: pointer;
 	}
 </style>

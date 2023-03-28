@@ -16,6 +16,7 @@
 	}
 	article.excerpt = article.excerpt.split(' ').slice(0, 20).join(' ');
 	// article.excerpt = article.excerpt.replace('...', '').split(' ').slice(0, 15).join(' ');
+	// console.log('component: content-card-c');
 </script>
 
 <div class="post-card">

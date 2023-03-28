@@ -1,20 +1,47 @@
 <script>
 	export let tags;
 	export let size = 1;
+	import { goto } from '$app/navigation';
+	import { clickedTopic } from '$lib/json/stores';
+
 	let boxSize = 'size-' + size;
+	// console.log('component: topic-list-card');
+	function topicClicked(topic) {
+		// @ts-ignore
+		$clickedTopic = topic;
+		goto('/resources/topic/');
+		console.log('key-topic-clicked: ', $clickedTopic);
+	}
 </script>
 
 <p class="topics">
 	<span style="font-size:1.1em;font-weight:bold">Topics:</span>
 	{#each tags as tag}
 		{#if tag != 'NA'}
-			<a class="topic topic-box {boxSize}" href={`/topics/${tag}`}> {tag} </a>
+			<a class="topic topic-box {boxSize}" href={`/resources/topics/${tag}`}> {tag} </a>
 		{:else}
-			<a class="topic topic-box" href={`/topics/untagged`}> untagged </a>
+			<a class="topic topic-box" href={`/resources/topics/untagged`}> untagged </a>
 		{/if}
 	{/each}
 </p>
 
+<!-- <p class="topics">
+	<span style="font-size:1.1em;font-weight:bold">Topics:</span>
+	{#each tags as topic}
+		{#if topic != 'NA'}
+			<button
+				class="topic topic-box {boxSize}"
+				on:click={() => {
+					topicClicked(topic);
+				}}
+			>
+				{topic}
+			</button>
+		{:else}
+			<p>Error</p>
+		{/if}
+	{/each}
+</p> -->
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100;300&display=swap');
 
@@ -47,5 +74,6 @@
 		font-weight: bold;
 		background-color: hsla(195, 89%, 69%, 0.4);
 		outline: 0.2px solid hsla(252, 32%, 44%, 0.2);
+		cursor: pointer;
 	}
 </style>

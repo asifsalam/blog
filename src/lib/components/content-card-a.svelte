@@ -1,4 +1,6 @@
 <script>
+	import { tickFormat } from 'd3';
+
 	function randomIntFromInterval(min, max) {
 		let randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
 		let paddedRandomNumber = randomNumber > 9 ? String(randomNumber) : String('0' + randomNumber);
@@ -22,9 +24,9 @@
 		img_url = baseImgUrl.concat(randomIntFromInterval(1, 33), '.jpg');
 	}
 	if (article.tags.length > 5) {
-		tags = article.tags.slice(0, 5);
+		tags = article.tags.slice(0, 5).map((d) => d.trim());
 	} else {
-		tags = article.tags;
+		tags = article.tags.map((d) => d.trim());
 	}
 	article.excerpt = article.excerpt.split(' ').slice(0, 15).join(' ');
 </script>
@@ -50,9 +52,9 @@
 					Topics:
 					{#each tags as tag}
 						{#if tag != 'NA'}
-							<a class="topic topic-box" href={`/topics/${tag}`}> {tag} </a>
+							<a class="topic topic-box" href={`/resources/topics/${tag}`}> {tag} </a>
 						{:else}
-							<a class="topic topic-box" href={`/topics/untagged`}> untagged </a>
+							<a class="topic topic-box" href={`/resources/topics/untagged`}> untagged </a>
 						{/if}
 					{/each}
 				</p>
@@ -223,7 +225,7 @@
 		background-image: url('/static/img/borders/taj_mahal_border_floral_01.png');
 	} */
 
-	.post-card .read-more {
+	/* .post-card .read-more {
 		display: block;
 		text-align: end;
 		bottom: 0;
@@ -237,7 +239,7 @@
 	.post-card .read-more-link {
 		background-color: hsla(16, 100%, 66%, 0.1);
 		border: 2px solid hsla(251, 100%, 21%, 0.5);
-	}
+	} */
 
 	.post-card .read-more-link a {
 		color: var(--color_link);

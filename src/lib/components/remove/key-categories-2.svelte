@@ -4,13 +4,11 @@
 	/** @type {undefined}*/
 	export let categories;
 	export let headingText = 'Main categories';
-	// console.log('key-categories-categories: ', categories);
 	/** @param {string} category */
 	function categoryClicked(category) {
 		// @ts-ignore
 		$clickedCategory = category;
 		goto('/resources/category');
-		// console.log('key-category-clicked: ', $clickedCategory);
 	}
 </script>
 

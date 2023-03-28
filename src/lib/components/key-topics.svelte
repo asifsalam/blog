@@ -4,12 +4,12 @@
 	/** @type {undefined}*/
 	export let topics;
 	export let headingText = 'Main topics';
-	console.log('key-topics-topics: ', topics);
+	// console.log('key-topics-topics: ', topics);
 	/** @param {string} topic */
 	function topicClicked(topic) {
 		// @ts-ignore
 		$clickedTopic = topic;
-		goto('/topic');
+		goto('/resources/topic/');
 		console.log('key-topic-clicked: ', $clickedTopic);
 	}
 </script>
@@ -20,8 +20,6 @@
 		{#each // @ts-ignore
 		topics as topic}
 			{#if topic != 'NA'}
-				<!-- <p class="topic topic-box" on:click={categoryClicked(category)}></p> -->
-				<!-- <a class="topic topic-box" href={`/resources/${category}`}>{category}</a> -->
 				<button
 					class="topic topic-box"
 					on:click={() => {
@@ -81,6 +79,7 @@
 		color: hsl(251, 95%, 33%);
 		font-weight: bold;
 		background-color: #bff0ff;
+		cursor: pointer;
 	}
 	button {
 	}

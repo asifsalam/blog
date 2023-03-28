@@ -1,7 +1,7 @@
 <script>
 	// import RandomQuote from '$lib/components/tagline-quote.svelte';
 	// import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
-	import Sidebar from '$lib/components/sidebar-resources.svelte';
+	import Sidebar from '$lib/components/remove/sidebar-resources.svelte';
 	import ContentCard from '$lib/components/resources-card.svelte';
 	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
 	import { filterCategory } from '$lib/modules/utility_functions';

@@ -1,29 +1,27 @@
 <script>
-	// import ResourceCategoryBars from './resource-category-bars.svelte';
-	// import KeyThemes from '$lib/components/key-themes.svelte';
-	import KeyCategories from '$lib/components/key-categories-2.svelte';
-	import KeyTopics from '$lib/components/key-topics.svelte';
-	export let allThemes;
-	export let allCategories;
-	export let allTopics;
+	import KeyCategories from '$lib/components/remove/key-categories-2.svelte';
+	import '/src/styles/global.css';
 
-	const categories = allCategories.filter((d) => d.type === 'category').map((d) => d.category);
-	console.log(categories, allTopics);
-	const s1a = 'Links to resources';
-	const s2a = 'Click on a category below to view all the related items.';
-	const s2c = 'Sorted by date, starting with the most recent ones';
-	console.log('sidebar-resources');
+	export let themes;
+
+	const s1a = 'Links to';
+
+	// const s2a = 'And the things that make organizations and individuals good at using it.';
+	const s2a = 'My posts';
+	const s2b = 'Too few. Reading is more enjoyable than writing &#128532;.';
+	const s2c = 'Starting with the most recent ones';
+	console.log('sidebar-blog:');
 </script>
 
 <div class="sidebar">
 	<div class="sidebar-header">
+		<!-- <p class="sidebar-header-leadin">Greetings! This space is:</p> -->
 		<p class="sidebar-header-text">{s1a}&#8212</p>
 		<p class="sidebar-text">{s2a}</p>
+		<p class="sidebar-text">{@html s2b}</p>
+		<!-- <p class="sidebar-text">{s2c}</p> -->
 	</div>
-	<!-- <ResourceCategoryBars {categories} /> -->
-	<KeyCategories headingText={'Main Categories'} {categories} />
-	<!-- <KeyTopics headingText={'All Topics'} topics={$allTopics} /> -->
-	<!-- <KeyThemes {categories}/> -->
+	<KeyCategories categories={themes} />
 </div>
 
 <style>
@@ -42,11 +40,10 @@
 		/* float: left; */
 		height: auto;
 		width: 100%;
-		/* background-color: rgb(255, 254, 243); */
+		background-color: rgb(255, 254, 243);
 		padding: 0 0 10px 0;
 		margin: 0;
 		border-bottom: 2px solid hsl(23, 8%, 50%);
-		border-bottom-style: ridge;
 	}
 
 	.sidebar-header-text {

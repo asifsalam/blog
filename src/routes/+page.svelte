@@ -3,12 +3,14 @@
 	import ContentCard from '$lib/components/content-card-c.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	import Sidebar from '$lib/components/sidebar.svelte';
+	import Sidebar from '$lib/components/sidebar-2.svelte';
+	import SidebarHeadingHome from '$lib/components/sidebar-heading-home.svelte';
 
 	$allCategories.forEach((el) => {
 		el.img = el.img.replace('/static', '');
 	});
-	const themes = $allCategories.filter((d) => d.type === 'theme');
+	// const themes = $allCategories.filter((d) => d.type === 'theme');
+	const themes = $allThemes;
 	console.log('home-page:');
 </script>
 
@@ -17,7 +19,8 @@
 
 <div class="container">
 	<div class="sidebar-container">
-		<Sidebar {themes} />
+		<SidebarHeadingHome />
+		<Sidebar />
 	</div>
 	<div class="main-content">
 		<div class="articles">
@@ -57,8 +60,11 @@
 	}
 
 	div.sidebar-container {
-		margin: 0;
-		padding: 0;
+		/* margin: 0;
+		padding: 0; */
+		float: left;
+		margin: 10px 30px 00px 0px;
+		flex-flow: column;
 	}
 
 	div.main-content {

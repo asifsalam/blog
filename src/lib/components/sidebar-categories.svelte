@@ -9,7 +9,7 @@
 	const s2c = 'Starting with the most recent ones';
 	console.log('sidebar-resources');
 */
-	import KeyCategories from '$lib/components/key-categories-2.svelte';
+	import KeyCategories from '$lib/components/remove/key-categories-2.svelte';
 	export let allCategories;
 
 	const categories = allCategories.map((d) => d.category);

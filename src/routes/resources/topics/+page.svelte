@@ -1,45 +1,32 @@
 <script>
 	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
-	import { articleList, allThemes, clickedTheme } from '$lib/json/stores';
-	import { filterTheme } from '$lib/modules/utility_functions';
-	import CategoryList from '$lib/components/category-list.svelte';
+	import { articleList, allCategories, allTopics, clickedTopic } from '$lib/json/stores';
+	import { filterTopic } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	import Sidebar from '$lib/components/remove/sidebar-resources.svelte';
-	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
-	import KeyThemes from '$lib/components/key-themes.svelte';
-	// export let data;
-	// export let errors;
+	import SectionHeadingTopic from '$lib/components/section-heading-topic.svelte';
+	import TopicList from '$lib/components/topic-list.svelte';
+	// import Sidebar from '$lib/components/sidebar-2.svelte';
+	// import SidebarHeadingTopics from '$lib/components/sidebar-heading-blog.svelte';
 
-	$: selectedTheme = '';
-	$: theme = 'all';
-	$: articles = [];
-	let themes = [];
-	let themeObj = {};
+	// let selectedTopic = '';
+	// let topic = 'all';
+	/** @type {array} */
+	let articles = [];
 
 	onMount(() => {
-		selectedTheme = $clickedTheme;
-		// themes = $allThemes.map((d) => d.category);
-		// categoryObj = $allCategories.filter((d) => d.category == selectedCategory)[0];
-		themes = $allThemes;
-		theme = themes[0];
-		console.log('theme-mounted-1', selectedTheme);
-		console.log('mounted-2', themes);
-		articles = filterTheme($articleList, theme);
+		articles = filterTopic($articleList, $clickedTopic);
 	});
 
-	function themeClicked(clTheme) {
-		console.log(clTheme);
-		selectedTheme = clTheme;
-		$clickedTheme = selectedTheme;
-		theme = selectedTheme;
-		articles = filterTheme($articleList, theme);
+	function topicClicked(clTopic) {
+		$clickedTopic = clTopic;
+		// console.log('TopicClicked', $clickedTopic);
+		articles = filterTopic($articleList, clTopic);
 	}
 	/** @type {string}*/
-	const headingText = 'Main themes';
+	const headingText = 'Topics';
 	$: totalQuantity = articles.length;
-	$: console.log('theme-page: ', theme, selectedTheme, themes, articles.length);
+	console.log('<topic-page>');
 </script>
 
 <RandomQuote />
@@ -48,37 +35,42 @@
 <div class="container">
 	<div class="sidebar">
 		<div class="sidebar-header">
-			<p class="sidebar-header-text">Resources by theme-1</p>
+			<p class="sidebar-header-text">Resources by topic(s)</p>
 			<p />
 		</div>
-		<p class="categories-header">{headingText}</p>
+		<p class="topics-header">{headingText}</p>
 		<p class="topics">
-			{#each themes as theme}
-				<button class="topic topic-box" on:click={() => themeClicked(theme)}>{theme}</button>
+			{#each $allTopics as topic}
+				<button class="topic topic-box" on:click={() => topicClicked(topic)}>{topic}</button>
 			{/each}
 		</p>
 	</div>
 
 	<div class="posts">
-		<SectionHeadingCategory {theme} {totalQuantity} />
+		<SectionHeadingTopic topic={$clickedTopic} {totalQuantity} />
 		<div class="cards">
-			<!-- <svelte:component this={component} articles={filteredArticles} {category} /> -->
 			{#if articles.length > 0}
-				<CategoryList {articles} category={theme} />
+				<TopicList {articles} topic={$clickedTopic} />
 			{:else}
-				<p>Houston there is a problem in "category-list.svelte"</p>
+				<p>No articles for {$clickedTopic} found.</p>
 			{/if}
 		</div>
 	</div>
 </div>
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100;300&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Pridi:wght@200;400&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Crete+Round&display=swap');
+
 	div.container {
 		width: 100%;
 		display: grid;
 		grid-template-columns: 2fr 7fr;
 		margin: 0px 0px 5px 0px;
 	}
+
 	.sidebar {
 		float: left;
 		margin: 10px 30px 00px 0px;
@@ -86,7 +78,6 @@
 	}
 	.sidebar-header {
 		display: block;
-		/* float: left; */
 		height: auto;
 		width: 100%;
 		background-color: rgb(255, 254, 243);
@@ -98,14 +89,13 @@
 		display: block;
 		padding: 0;
 		margin: 0px 0 5px 0;
-		/* font-family: 'Roboto Slab'; */
 		font-family: 'Crete Round';
 		font-size: 1.4em;
 		font-weight: 100;
 		color: hsla(251, 100%, 15%, 1);
 		text-align: left;
 	}
-	.categories-header {
+	.topics-header {
 		padding: 5px 0;
 		margin: 10px 0;
 		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
@@ -135,7 +125,9 @@
 		border: 0.1px solid hsla(251, 32%, 44%, 0.2);
 	}
 	.topic:hover {
-		color: hsl(251, 100%, 60%);
+		color: hsl(251, 95%, 33%);
 		font-weight: bold;
+		background-color: #bff0ff;
+		cursor: pointer;
 	}
 </style>

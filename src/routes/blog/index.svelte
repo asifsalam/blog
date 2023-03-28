@@ -12,7 +12,7 @@
 </script>
 
 <script>
-	import Sidebar from '$lib/components/sidebar-blog.svelte';
+	import Sidebar from '$lib/components/remove/sidebar-blog.svelte';
 	import ContentCard from '$lib/components/content-card-a.svelte';
 	import RandomQuote from '$lib/components/tagline-quote.svelte';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';

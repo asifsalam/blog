@@ -1,5 +1,5 @@
 <script>
-	import KeyCategories from '$lib/components/key-categories-2.svelte';
+	import KeyCategories from '$lib/components/remove/key-categories-2.svelte';
 	import '/src/styles/global.css';
 
 	export let themes;

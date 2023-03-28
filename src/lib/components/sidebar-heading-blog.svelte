@@ -1,14 +1,16 @@
 <script>
-	import KeyThemes from '$lib/components/key-themes.svelte';
-	import SidebarHeadingHome from '$lib/components/sidebar-heading-home.svelte';
 	import '/src/styles/global.css';
-	export let themes;
-	themes = themes.map((d) => d.category);
+
+	const s1a = 'My posts';
+	const s1b = 'Too few. Reading is more enjoyable than writing &#128532;.';
+	const s1c = 'Starting with the most recent ones';
 </script>
 
-<div class="sidebar">
-	<SidebarHeadingHome />
-	<KeyThemes headingText={'Main themes'} categories={themes} />
+<div class="sidebar-header">
+	<!-- <p class="sidebar-header-leadin">Greetings! I am Asif, and this space is:</p> -->
+	<p class="sidebar-header-text">{s1a}&#8212</p>
+	<p class="sidebar-text">{s1b}</p>
+	<p class="sidebar-text">{s1c}</p>
 </div>
 
 <style>
@@ -16,14 +18,9 @@
 	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Scope+One&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-	.sidebar {
-		float: left;
-		margin: 10px 30px 00px 0px;
-		flex-flow: column;
-	}
-
-	/* .sidebar-header {
+	.sidebar-header {
 		display: block;
+		/* float: left; */
 		height: auto;
 		width: 100%;
 		background-color: rgb(255, 254, 243);
@@ -64,5 +61,5 @@
 		content: '□';
 		position: absolute;
 		left: 0;
-	} */
+	}
 </style>

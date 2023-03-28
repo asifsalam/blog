@@ -32,11 +32,4 @@
 <Footer />
 
 <style>
-	/* .main-container {
-		display: flex;
-	} */
-
-	/* .main-content {
-		margin: 0 0 0 0;
-	} */
 </style>

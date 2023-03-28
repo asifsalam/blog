@@ -7,28 +7,12 @@
 		{ name: 'Blog', url: '/blog' },
 		// { name: 'Articles', url: '/articles' },
 		{ name: 'Resources', url: '/resources' },
-		{ name: 'Topics', url: '/topics' },
+		{ name: 'Shayari', url: '/shayari' },
 		{ name: 'Contact', url: '/contact' },
 		{ name: 'About', url: '/about' }
 	];
 
 	$: currentPage = $page.url.pathname;
-
-	$: crumbsList = () => {
-		const tokens = $page.url.pathname.split('/').filter((t) => t !== '');
-		let tokenPath = '';
-		// Create { label, href } pairs for each token.
-		let x = tokens.map((t) => {
-			tokenPath += '/' + t;
-			return {
-				label: t,
-				href: tokenPath
-			};
-		});
-		x.unshift({ label: 'home', href: '/' });
-		return x;
-	};
-	$: crumbs = crumbsList();
 </script>
 
 <header>
@@ -38,11 +22,19 @@
 				{#each menuItems as { url, name }}
 					<li class="nav-item">
 						<!-- we are using the class directive here -->
-						<a
-							class:active={url !== '/' ? currentPage.match(url) : url === currentPage}
-							data-sveltekit-prefetch
-							href={url}>{name}</a
-						>
+						{#if currentPage === '/theme'}
+							{#if url === '/'}
+								<a class:active={true} data-sveltekit-prefetch href={'/'}>Home</a>
+							{:else}
+								<a class:active={false} data-sveltekit-prefetch href={url}>{name}</a>
+							{/if}
+						{:else}
+							<a
+								class:active={url !== '/' ? currentPage.match(url) : url === currentPage}
+								data-sveltekit-prefetch
+								href={url}>{name}</a
+							>
+						{/if}
 					</li>
 				{/each}
 			</ul>

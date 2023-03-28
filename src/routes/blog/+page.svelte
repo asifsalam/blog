@@ -1,10 +1,13 @@
 <script>
-	import { postList, allThemes } from '$lib/json/stores';
+	import { postList, allCategories } from '$lib/json/stores';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
-	import Sidebar from '$lib/components/sidebar-blog.svelte';
+	import Sidebar from '$lib/components/sidebar-2.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
 	import ContentCard from '$lib/components/content-card-a.svelte';
+	import SidebarHeadingBlog from '$lib/components/sidebar-heading-blog.svelte';
+
+	const categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
 
 	let displayQuantity = $postList.length;
 	let headingText = 'My posts';
@@ -17,7 +20,8 @@
 
 <div class="container">
 	<div class="sidebar-container">
-		<Sidebar themes={$allThemes} />
+		<SidebarHeadingBlog />
+		<Sidebar />
 	</div>
 	<div class="main-content">
 		<SectionHeading {category} headingTitle={headingText} {displayQuantity} {totalQuantity} />
@@ -36,12 +40,15 @@
 	div.container {
 		width: 100%;
 		display: grid;
-		grid-template-columns: 2fr 7fr;
+		grid-template-columns: 3fr 7fr;
 		margin: 0px 0px 5px 0px;
 	}
 	div.sidebar-container {
-		margin: 0;
-		padding: 0;
+		/* margin: 0;
+		padding: 0; */
+		float: left;
+		margin: 10px 30px 00px 0px;
+		flex-flow: column;
 	}
 	div.main-content {
 		margin: 0;

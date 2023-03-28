@@ -1,16 +1,17 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { clickedTheme } from '$lib/json/stores';
+	import { clickedCategory } from '$lib/json/stores';
 	/** @type {undefined}*/
-	export let themes;
-	export let headingText = 'Themes';
-	// console.log('key-themes-categories: ', themes);
-	/** @param {string} theme */
-	function themeClicked(theme) {
+	export let allCategories;
+	// console.log(allCategories);
+	export let headingText = 'Categories';
+
+	let categories = allCategories.filter((d) => d.type == 'category');
+	/** @param {string} category */
+	function categoryClicked(category) {
 		// @ts-ignore
-		$clickedTheme = theme;
-		goto('/theme');
-		console.log('theme-clicked: ', $clickedTheme);
+		$clickedCategory = category;
+		goto('/resources/category');
 	}
 </script>
 
@@ -18,16 +19,18 @@
 	<p class="themes-header">{headingText}</p>
 	<p class="topics">
 		{#each // @ts-ignore
-		themes as theme}
-			{#if theme != 'NA'}
+		categories as category}
+			{#if category.category != 'NA'}
+				<!-- <p class="topic topic-box" on:click={categoryClicked(category)}></p> -->
+				<!-- <a class="topic topic-box" href={`/resources/${category}`}>{category}</a> -->
 				<button
 					class="topic topic-box"
 					on:click={() => {
-						themeClicked(theme);
-					}}>{theme}</button
+						categoryClicked(category.category);
+					}}>{category.category}</button
 				>
 			{:else}
-				<p class="topic topic-box" on:click={themeClicked('untagged')}>untagged</p>
+				<p class="topic topic-box" on:click={categoryClicked('untagged')}>untagged</p>
 			{/if}
 		{/each}
 	</p>
@@ -56,6 +59,7 @@
 		display: inline;
 		line-height: 1.5;
 		margin: 0 0 50px 0px;
+
 		font-size: 1.2rem;
 		font-weight: bold;
 	}
@@ -68,6 +72,7 @@
 		font-family: Roboto, Arial, Helvetica, sans-serif;
 		font-weight: normal;
 		font-size: 1em;
+		cursor: pointer;
 		color: hsl(251, 100%, 15%);
 		border-radius: 5px;
 		text-decoration: none;
@@ -78,7 +83,6 @@
 		color: hsl(251, 95%, 33%);
 		font-weight: bold;
 		background-color: #bff0ff;
-		cursor: pointer;
 	}
 	button {
 	}
