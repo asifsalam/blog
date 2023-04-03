@@ -3,6 +3,7 @@
 	import KeyThemes from '$lib/components/key-themes.svelte';
 	import KeyCategories from './key-categories.svelte';
 	import KeyTopics from '$lib/components/key-topics.svelte';
+	import KeyTags from '$lib/components/key-tags.svelte';
 	// import SidebarHeadingHome from '$lib/components/sidebar-heading-home.svelte';
 	import '/src/styles/global.css';
 
@@ -16,14 +17,24 @@
 
 <div class="sidebar">
 	<!-- <SidebarHeadingHome /> -->
-	{#if useThemes == 'yes'}
+
+	<!-- {#if useThemes == 'yes'}
 		<KeyThemes headingText={'Main themes'} themes={$allThemes} />
-	{/if}
+	{/if} 
 	{#if useCategories == 'yes'}
 		<KeyCategories headingText={'Main categories'} allCategories={$allCategories} />
 	{/if}
 	{#if useTopics == 'yes'}
 		<KeyTopics headingText={'Main topics'} topics={$allTopics} />
+	{/if}-->
+	{#if useThemes == 'yes'}
+		<KeyTags headingText={'Main themes'} tags={$allThemes} tagType="theme" />
+	{/if}
+	{#if useCategories == 'yes'}
+		<KeyTags headingText={'Main categories'} tags={$allCategories} tagType="category" />
+	{/if}
+	{#if useTopics == 'yes'}
+		<KeyTags headingText={'Main topics'} tags={$allTopics} tagType="topic" />
 	{/if}
 </div>
 

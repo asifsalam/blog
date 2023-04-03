@@ -3,7 +3,7 @@
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	import Sidebar from '$lib/components/sidebar-2.svelte';
+	import Sidebar from '$lib/components/sidebar-home.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
 	import ResourcesCategoryCard from '$lib/components/resources-category-card.svelte';
 	import SidebarHeadingResources from '$lib/components/sidebar-heading-resources.svelte';

@@ -13,6 +13,7 @@
 		$clickedCategory = category;
 		goto('/resources/category');
 	}
+	console.log('key-categories: ', allCategories);
 </script>
 
 <div class="sidebar-themes">

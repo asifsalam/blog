@@ -44,8 +44,8 @@
 	}
 
 	.themes-header {
-		padding: 5px 0;
-		margin: 10px 0;
+		padding: 10px 0 0 0;
+		margin: 0;
 		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
 		font-size: 1.4em;
 		font-weight: 300;
@@ -56,13 +56,13 @@
 		display: inline;
 		line-height: 1.5;
 		margin: 0 0 50px 0px;
-		font-size: 1.2rem;
+		font-size: 1rem;
 		font-weight: bold;
 	}
 
 	.topic-box {
 		display: inline-block;
-		padding: 0px 5px;
+		padding: 2px 5px;
 		margin: 5px 10px 5px 0;
 		background-color: #eafaff;
 		font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -71,13 +71,14 @@
 		color: hsl(251, 100%, 15%);
 		border-radius: 5px;
 		text-decoration: none;
-		border: 0.1px solid hsla(251, 32%, 44%, 0.2);
+		border: 1px solid hsla(251, 32%, 44%, 0.2);
 	}
 
 	.topic:hover {
-		color: hsl(251, 95%, 33%);
+		color: hsl(253, 39%, 95%);
 		font-weight: bold;
-		background-color: #bff0ff;
+		/* background-color: #bff0ff; */
+		background-color: hsl(251, 100%, 15%);
 		cursor: pointer;
 	}
 	button {

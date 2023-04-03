@@ -14,7 +14,7 @@
 	}
 </script>
 
-<p class="topics">
+<p class="tags">
 	<span style="font-size:1.1em;font-weight:bold">Topics:</span>
 	{#each tags as tag}
 		{#if tag != 'NA'}
@@ -45,9 +45,9 @@
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100;300&display=swap');
 
-	.topics {
+	.tags {
 		display: block;
-		margin: 0 0 3px 0px;
+		margin: 0 0 0px 0px;
 		font-size: smaller;
 	}
 
@@ -62,18 +62,22 @@
 	.topic-box {
 		padding: 0px 2px;
 		margin: 0px 3px;
-		background-color: hsla(195, 89%, 69%, 0.1);
+		/* background-color: hsla(195, 89%, 69%, 0.1); */
+		background-color: #eafaff;
 		color: hsl(251, 100%, 15%);
 		border-radius: 5px;
 		text-decoration: none;
-		border: 0px solid hsla(252, 32%, 44%, 0.2);
+		/* border: 0px solid hsla(252, 32%, 44%, 0.2); */
+		border: 1px solid hsla(251, 32%, 44%, 0.2);
 	}
 
 	.topic:hover {
-		color: hsl(251, 100%, 21%);
-		font-weight: bold;
-		background-color: hsla(195, 89%, 69%, 0.4);
+		/* color: hsl(251, 100%, 21%); */
+		/* font-weight: bold; */
+		/* background-color: hsla(195, 89%, 69%, 0.4); */
 		outline: 0.2px solid hsla(252, 32%, 44%, 0.2);
 		cursor: pointer;
+		color: hsl(253, 39%, 95%);
+		background-color: hsl(251, 100%, 15%);
 	}
 </style>

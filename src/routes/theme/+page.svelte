@@ -6,34 +6,36 @@
 	import CategoryList from '$lib/components/category-list.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	import Sidebar from '$lib/components/remove/sidebar.svelte';
+	import CreateTags from '$lib/components/create-tags.svelte';
+	import SidebarThemeHeading from '$lib/components/sidebar-theme-heading.svelte';
+	// import Sidebar from '$lib/components/remove/sidebar.svelte';
 	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
-	import KeyCategories from '$lib/components/key-themes.svelte';
+	// import KeyCategories from '$lib/components/key-themes.svelte';
 	// export let data;
 	// export let errors;
 
-	$: selectedCategory = '';
-	$: category = 'datadrivenenterprise';
+	$: selectedTheme = '';
+	$: theme = 'datadrivenenterprise';
 	$: articles = [];
-	let categories = [];
-	let categoryObj = {};
+	let themes = [];
+	let themeObj = {};
 	console.log('page-theme');
 	// console.log($allCategories);
 	onMount(() => {
-		selectedCategory = $clickedTheme;
-		categories = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
-		categoryObj = $allCategories.filter((d) => d.category == selectedCategory)[0];
-		category = categoryObj.category;
-		articles = filterCategory($articleList, categoryObj);
+		selectedTheme = $clickedTheme;
+		themes = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
+		themeObj = $allCategories.filter((d) => d.category == selectedTheme)[0];
+		theme = themeObj.category;
+		articles = filterCategory($articleList, themeObj);
 	});
 
-	function categoryClicked(clCategory) {
-		selectedCategory = clCategory;
-		$clickedTheme = selectedCategory;
-		categories = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
-		categoryObj = $allCategories.filter((d) => d.category == selectedCategory)[0];
-		category = categoryObj.category;
-		articles = filterCategory($articleList, categoryObj);
+	function themeClicked(clTheme) {
+		selectedTheme = clTheme;
+		$clickedTheme = selectedTheme;
+		themes = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
+		themeObj = $allCategories.filter((d) => d.category == selectedTheme)[0];
+		theme = themeObj.category;
+		articles = filterCategory($articleList, themeObj);
 	}
 	/** @type {string}*/
 	const headingText = 'Main themes';
@@ -46,25 +48,18 @@
 
 <div class="container">
 	<div class="sidebar">
-		<div class="sidebar-header">
-			<p class="sidebar-header-text" />
-			<p />
-		</div>
-		<p class="categories-header">{headingText}</p>
+		<SidebarThemeHeading />
+		<!-- <p class="themes-header">{headingText}</p> -->
 		<p class="topics">
-			{#each categories as category}
-				<button class="topic topic-box" on:click={() => categoryClicked(category)}
-					>{category}</button
-				>
-			{/each}
+			<CreateTags tags={themes} tagClicked={themeClicked} tagType="theme" {headingText} />
 		</p>
 	</div>
 	<div class="posts">
-		<SectionHeadingCategory {category} {totalQuantity} />
+		<SectionHeadingCategory category={theme} {totalQuantity} headingTitle={'Selected theme: '} />
 		<div class="cards">
 			<!-- <svelte:component this={component} articles={filteredArticles} {category} /> -->
 			{#if articles.length > 0}
-				<CategoryList {articles} {category} />
+				<CategoryList {articles} category={theme} />
 			{:else}
 				<p>Houston there is a problem in "category-list.svelte"</p>
 			{/if}
@@ -84,32 +79,12 @@
 		margin: 10px 30px 00px 0px;
 		flex-flow: column;
 	}
-	.sidebar-header {
-		display: block;
-		/* float: left; */
-		height: auto;
-		width: 100%;
-		background-color: rgb(255, 254, 243);
-		padding: 0 0 10px 0;
+
+	.themes-header {
+		padding: 10px 0 0 0;
 		margin: 0;
-		border-bottom: 2px solid hsl(23, 8%, 50%);
-	}
-	.sidebar-header-text {
-		display: block;
-		padding: 0;
-		margin: 0px 0 5px 0;
-		/* font-family: 'Roboto Slab'; */
-		font-family: 'Crete Round';
-		font-size: 1.4em;
-		font-weight: 100;
-		color: hsla(251, 100%, 15%, 1);
-		text-align: left;
-	}
-	.categories-header {
-		padding: 5px 0;
-		margin: 10px 0;
 		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
-		font-size: 1.4em;
+		font-size: 1.4rem;
 		font-weight: 300;
 		color: hsla(251, 100%, 20%, 0.9);
 	}
@@ -121,7 +96,7 @@
 		font-weight: bold;
 	}
 
-	.topic-box {
+	/* .topic-box {
 		display: inline-block;
 		padding: 0px 5px;
 		margin: 5px 10px 5px 0;
@@ -140,4 +115,33 @@
 		background-color: #bff0ff;
 		cursor: pointer;
 	}
+	.sidebar-header {
+		display: block;
+		 //float: left; 
+		height: auto;
+		width: 100%;
+		background-color: rgb(255, 254, 243);
+		padding: 0 0 10px 0;
+		margin: 0;
+		border-bottom: 2px solid hsl(23, 8%, 50%);
+	}
+	.sidebar-header-text {
+		display: block;
+		padding: 0;
+		margin: 0px 0 5px 0;
+		font-family: 'Crete Round';
+		font-size: 1.4em;
+		font-weight: 100;
+		color: hsla(251, 100%, 15%, 1);
+		text-align: left;
+	}
+	.categories-header {
+		padding: 5px 0;
+		margin: 10px 0;
+		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
+		font-size: 1.4em;
+		font-weight: 300;
+		color: hsla(251, 100%, 20%, 0.9);
+	}
+*/
 </style>

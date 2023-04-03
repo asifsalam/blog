@@ -4,13 +4,26 @@
 </script>
 
 <div class="main-title-wrap">
-	<p class="main-title">
+	<!-- <p class="main-title">
 		a &nbsp
 		<span class="main-title-left">rough guide</span>
 		&nbsp to the &nbsp
 		<span class="main-title-right">data-driven enterprise</span>
-	</p>
-	<div class="title-name-wrap"><p class="title-name">Asif Salam</p></div>
+	</p> -->
+
+	<div class="main-title">
+		<p class="main-title-header">
+			<span class="main-title-minor">the digital &nbsp </span>
+			<span class="main-title-left">peregrinations</span>
+			<span class="main-title-minor">&nbsp of a&nbsp</span>
+			<span class="main-title-right">data scribe</span>
+		</p>
+		<div class="title-name-wrap">
+			<!-- <p class="title-name">Asif Salam</p> -->
+			<p class="title-name">Asif Salam</p>
+		</div>
+	</div>
+
 	<!-- <p class="my-quote">The data-driven life is not worth examining</p> -->
 </div>
 <div class="title-border" />
@@ -24,9 +37,14 @@
 
 	.main-title-wrap {
 		width: 100%;
+		height: 100px;
 		display: grid;
-		grid-template-columns: 15fr 2fr;
-		align-content: space-around;
+		/* grid-template-columns: 15fr 2fr; */
+		grid-template-columns: 1fr;
+		/* align-content: space-around; */
+		align-content: center;
+		justify-content: space-evenly;
+		justify-items: center;
 		padding: 0 0px;
 		margin: 0;
 		background-color: beige;
@@ -46,7 +64,15 @@
 		font-size: 2em;
 		text-align: center;
 		margin: 0;
-		padding: 10px 0;
+		padding: 0px 0;
+	}
+	.main-title-header {
+		margin: 0;
+		padding: 0;
+	}
+
+	.main-title-minor {
+		font-size: 0.85em;
 	}
 
 	.main-title-left {
@@ -73,21 +99,21 @@
 	.title-name-wrap {
 		display: flex;
 		justify-content: flex-end;
-		align-items: center;
+		align-items: end;
 	}
 	.title-name {
 		font-family: 'Great Vibes', 'Pacifico';
-		font-size: 1.8em;
+		font-size: 0.6em;
 		margin: 0;
-		rotate: -34deg;
+		/* rotate: -34deg; */
 		color: var(--heading-color);
+		margin-top: -15px;
 	}
 
 	.title-border {
 		width: 100%;
 		height: 15px;
 		background-image: url('/img/images/geometric-pattern-07.jpg');
-
 		background-position: top;
 		background-color: bisque;
 	}

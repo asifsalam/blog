@@ -1,10 +1,10 @@
 <script>
 	import { articleList, postList, allThemes, allCategories, allTopics } from '$lib/json/stores';
-	import ContentCard from '$lib/components/content-card-c.svelte';
+	import ContentCard from '$lib/components/content-card-large.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	import Sidebar from '$lib/components/sidebar-2.svelte';
-	import SidebarHeadingHome from '$lib/components/sidebar-heading-home.svelte';
+	import Sidebar from '$lib/components/sidebar-home.svelte';
+	import SidebarHeadingHome from '$lib/components/sidebar-home-heading.svelte';
 
 	$allCategories.forEach((el) => {
 		el.img = el.img.replace('/static', '');

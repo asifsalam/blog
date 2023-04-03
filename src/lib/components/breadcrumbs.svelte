@@ -38,6 +38,7 @@
 		margin: 0 0 10px 0;
 		/* background-color: hsla(0, 95%, 15%, 0.9); */
 		background-color: hsla(60, 25%, 18%, 1);
+		background-color: hsla(251, 100%, 20%, 1);
 		font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
 		font-size: 1.1rem;
 		position: sticky;
@@ -47,7 +48,8 @@
 
 	.breadcrumbs-item {
 		display: inline-block;
-		color: hsla(0, 95%, 80%, 1);
+		color: beige;
+		/* color: hsla(0, 95%, 80%, 1); */
 		/* color: rgba(239, 236, 253, 0.9); */
 	}
 	/* a {
@@ -58,11 +60,13 @@
 		/* padding: 5px 0px; */
 		/* color: hsl(240, 100%, 100%); */
 		color: rgb(255 208 0);
+		color: beige;
 	}
 	.breadcrumbs-item-active a {
 		/* color: hsl(240, 100%, 100%); */
 		/* color: hsl(251, 100%, 95%, 1); */
 		color: rgb(255 208 0);
+		color: beige;
 	}
 	li {
 		list-style: none;

@@ -4,7 +4,7 @@ const allCategories = [
         category: 'all',
         title: 'All',
         subCategory: ['all'],
-        img: '/static/img/icons/book-svgrepo-com-2.svg',
+        img: '/img/icons/book-svgrepo-com-2.svg',
         numArticles: 95,
         type: 'all'
     },
@@ -13,16 +13,17 @@ const allCategories = [
         category: 'mypost',
         title: 'My posts',
         subCategory: ['myposts'],
-        img: '/static/img/icons/book-svgrepo-com-2.svg',
+        img: '/img/icons/book-svgrepo-com-2.svg',
         numArticles: 0,
         type: 'mypost'
     },
+
     {
-        id: 101,
-        category: 'book',
-        title: 'Books',
-        subCategory: ['book'],
-        img: '/static/img/icons/book-svgrepo-com-2.svg',
+        id: 100,
+        category: 'all',
+        title: 'All',
+        subCategory: ['all'],
+        img: '/img/icons/book-svgrepo-com-2.svg',
         numArticles: 10,
         type: 'category'
     },
@@ -31,7 +32,7 @@ const allCategories = [
         category: 'guidedlearning',
         subCategory: ['learning', 'tutorial', 'course', 'contest'],
         title: 'Guided Learning',
-        img: '/static/img/icons/tutorials-svgrepo-com.svg',
+        img: '/img/icons/tutorials-svgrepo-com.svg',
         numArticles: 15,
         type: 'category'
     },
@@ -40,7 +41,7 @@ const allCategories = [
         category: 'rstats',
         subCategory: ['rstats'],
         title: 'Rstats',
-        img: '/static/img/icons/r-svgrepo-com.svg',
+        img: '/img/icons/r-svgrepo-com.svg',
         numArticles: 17,
         type: 'category'
     },
@@ -49,7 +50,7 @@ const allCategories = [
         category: 'python',
         subCategory: ['python'],
         title: 'Python',
-        img: '/static/img/icons/python-svgrepo-com.svg',
+        img: '/img/icons/python-svgrepo-com.svg',
         numArticles: 23,
         type: 'category'
     },
@@ -58,7 +59,7 @@ const allCategories = [
         category: 'method',
         title: 'Methods',
         subCategory: ['method', 'model'],
-        img: '/static/img/icons/method-chemistry-svgrepo-com.svg',
+        img: '/img/icons/method-chemistry-svgrepo-com.svg',
         numArticles: 19,
         type: 'category'
     },
@@ -67,8 +68,8 @@ const allCategories = [
         category: 'organization',
         title: 'Organization & Process',
         subCategory: ['organization', 'process'],
-        img: '/static/img/icons/organization-people-group-public-svgrepo-com.svg',
-        img2: '/static/img/icons/process-graph-svgrepo-com.svg',
+        img: '/img/icons/organization-people-group-public-svgrepo-com.svg',
+        img2: '/img/icons/process-graph-svgrepo-com.svg',
         numArticles: 6,
         type: 'category'
     },
@@ -77,7 +78,7 @@ const allCategories = [
         category: 'inspiration',
         title: 'Inspiration',
         subCategory: ['newsletter', 'inspiration', 'example'],
-        img: '/static/img/icons/inspiration-art-svgrepo-com.svg',
+        img: '/img/icons/inspiration-art-svgrepo-com.svg',
         numArticles: 7,
         type: 'category'
     },
@@ -86,7 +87,7 @@ const allCategories = [
         category: 'cautionarytale',
         title: 'Cautionary Tales',
         subCategory: ['cautionarytale', 'pitfall'],
-        img: '/static/img/icons/caution-svgrepo-com.svg',
+        img: '/img/icons/caution-svgrepo-com.svg',
         numArticles: 5,
         type: 'category'
     },
@@ -95,7 +96,7 @@ const allCategories = [
         category: 'dataviz',
         title: 'dataviz',
         subCategory: ['dataviz', 'chart', 'graph', 'visualization', 'visual'],
-        img: '/static/img/icons/caution-svgrepo-com.svg',
+        img: '/img/icons/caution-svgrepo-com.svg',
         numArticles: 15,
         type: 'theme'
     },
@@ -104,7 +105,7 @@ const allCategories = [
         category: 'technique',
         title: 'Technique',
         subCategory: ['technique', 'method'],
-        img: '/static/img/icons/caution-svgrepo-com.svg',
+        img: '/img/icons/caution-svgrepo-com.svg',
         numArticles: 5,
         type: 'theme'
     },
@@ -113,7 +114,7 @@ const allCategories = [
         category: 'pitfall',
         title: 'Pitfall',
         subCategory: ['cautionarytale', 'pitfall'],
-        img: '/static/img/icons/caution-svgrepo-com.svg',
+        img: '/img/icons/caution-svgrepo-com.svg',
         numArticles: 5,
         type: 'theme'
     },
@@ -122,7 +123,7 @@ const allCategories = [
         category: 'datadrivenenterprise',
         title: 'Data Driven Enterprise',
         subCategory: ['datadrivenenterprise'],
-        img: '/static/img/icons/caution-svgrepo-com.svg',
+        img: '/img/icons/caution-svgrepo-com.svg',
         numArticles: 10,
         type: 'theme'
     },
@@ -131,7 +132,7 @@ const allCategories = [
         category: 'dataliteracy',
         title: 'Data Literacy',
         subCategory: ['dataliteracy'],
-        img: '/static/img/icons/caution-svgrepo-com.svg',
+        img: '/img/icons/caution-svgrepo-com.svg',
         numArticles: 13,
         type: 'theme'
     },
@@ -140,7 +141,7 @@ const allCategories = [
         category: 'inspiration',
         title: 'Inspiration',
         subCategory: ['art', 'literature', 'poetry', 'music', 'newsletter', 'example'],
-        img: '/static/img/icons/caution-svgrepo-com.svg',
+        img: '/img/icons/caution-svgrepo-com.svg',
         numArticles: 5,
         type: 'theme'
     },
@@ -149,7 +150,7 @@ const allCategories = [
         category: 'process',
         title: 'Process',
         subCategory: ['workflow', 'process'],
-        img: '/static/img/icons/caution-svgrepo-com.svg',
+        img: '/img/icons/caution-svgrepo-com.svg',
         numArticles: 5,
         type: 'theme'
     }
@@ -165,6 +166,7 @@ const allThemes = ['all',
     'process'];
 
 const allTopics = [
+    'all',
     'mypost',
     'datadrivenenterprise',
     'rstats',
@@ -186,8 +188,7 @@ const allTopics = [
     'poetry',
     'music',
     'newsletter',
-    'example',
-    'all'
+    'example'
 ]
 
 export { allCategories, allThemes, allTopics }

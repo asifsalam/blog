@@ -51,6 +51,7 @@
 		height: inherit;
 		position: sticky;
 		top: 0;
+		height: 40px;
 	}
 
 	ul {
@@ -60,7 +61,7 @@
 		/* overflow: hidden; */
 		/* background-color: rgb(254, 255, 247); */
 		display: flex;
-		gap: 1rem;
+		/* gap: 1rem; */
 		flex-direction: row;
 		justify-content: space-around;
 		height: inherit;
@@ -77,8 +78,8 @@
 		font-family: 'Roboto Slab';
 		text-decoration: none;
 		font-size: 1.2em;
-		padding: 2px 4px;
-		margin: 10px;
+		padding: 1px 2px;
+		/* margin: 4px; */
 	}
 
 	li:hover {
@@ -100,7 +101,7 @@
 
 	a {
 		padding: 5px;
-		margin: 10px;
+		margin: 5px;
 	}
 
 	.nav-container {

@@ -1,6 +1,6 @@
 <script>
 	import ResourcesCard from '$lib/components/resources-card.svelte';
-	import Pagination from '$lib/components/pagination-old.svelte';
+	import Pagination from '$lib/components/remove/pagination-old.svelte';
 
 	export let articles;
 	export let category;

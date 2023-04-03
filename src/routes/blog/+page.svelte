@@ -2,9 +2,9 @@
 	import { postList, allCategories } from '$lib/json/stores';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
-	import Sidebar from '$lib/components/sidebar-2.svelte';
+	import Sidebar from '$lib/components/sidebar-home.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
-	import ContentCard from '$lib/components/content-card-a.svelte';
+	import ContentCard from '$lib/components/content-card-large.svelte';
 	import SidebarHeadingBlog from '$lib/components/sidebar-heading-blog.svelte';
 
 	const categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
@@ -64,6 +64,10 @@
 		align-items: start;
 		column-gap: 1.5rem;
 		row-gap: 1.5rem;
+	}
+
+	.more-posts {
+		text-align: right;
 	}
 
 	/* h1 {
