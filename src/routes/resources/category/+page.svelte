@@ -38,7 +38,7 @@
 	/** @type {string}*/
 	const headingText = 'Main categories';
 	$: totalQuantity = articles.length;
-	$: console.log('category-page: ', category, selectedCategory, categories, totalQuantity);
+	$: console.log('category-page: ', category, selectedCategory, totalQuantity);
 </script>
 
 <RandomQuote />

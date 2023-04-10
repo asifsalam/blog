@@ -17,9 +17,9 @@
 		}
 	}
 
-	function gotoPage(page) {
-		if (page >= 1 && page <= totalPages) {
-			currentPage = page;
+	function gotoPage(subPage) {
+		if (subPage >= 1 && subPage <= totalPages) {
+			currentPage = subPage;
 			onChangePage(currentPage);
 		}
 	}

@@ -16,7 +16,7 @@ export async function load({ fetch }) {
     articleData.forEach((d, i) => {
         articles[i] = parseArticle(d)
     })
-    // console.log(articleData);
+    // console.log("layout-js: ", articleData);
     const repsonse2 = await fetch(postFile);
     const textData2 = await repsonse2.text();
     const postData = xsv.parse(textData2);
@@ -25,6 +25,7 @@ export async function load({ fetch }) {
         posts[i] = parseArticle(d)
     })
     // console.log(postData, posts);
+    articles = [...posts, ...articles];
     return {
         articles, posts, allCategories, allThemes, allTopics
     }

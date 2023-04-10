@@ -15,7 +15,7 @@
 </script>
 
 <p class="tags">
-	<span style="font-size:1.1em;font-weight:bold">Topics:</span>
+	<!-- <span style="font-size:1.1em;font-weight:bold">tags </span> -->
 	{#each tags as tag}
 		{#if tag != 'NA'}
 			<a class="topic topic-box {boxSize}" href={`/resources/topics/${tag}`}> {tag} </a>

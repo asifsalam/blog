@@ -2,17 +2,22 @@
 	import { postList, allCategories } from '$lib/json/stores';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
-	import Sidebar from '$lib/components/sidebar-home.svelte';
+	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
 	import ContentCard from '$lib/components/content-card-large.svelte';
-	import SidebarHeadingBlog from '$lib/components/sidebar-heading-blog.svelte';
+	// import SidebarHeadingBlog from '$lib/components/sidebar-heading-blog.svelte';
+	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 
 	const categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
 
 	let displayQuantity = $postList.length;
-	let headingText = 'My posts';
+	let headingText = 'My scribbles';
 	let totalQuantity = displayQuantity;
 	let category = 'all';
+
+	let sidebarTitle = '';
+	let sidebarLeadinText = 'Not nearly enough. Reading is much more enjoyable!';
+	let sidebarBulletText = [];
 </script>
 
 <RandomQuote />
@@ -20,8 +25,9 @@
 
 <div class="container">
 	<div class="sidebar-container">
-		<SidebarHeadingBlog />
-		<Sidebar />
+		<!-- <SidebarHeadingBlog /> -->
+		<SidebarHeading {sidebarLeadinText} />
+		<SidebarTags useThemes={'yes'} useCategories={'yes'} useTopics={'no'} />
 	</div>
 	<div class="main-content">
 		<SectionHeading {category} headingTitle={headingText} {displayQuantity} {totalQuantity} />

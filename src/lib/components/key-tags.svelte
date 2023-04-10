@@ -63,14 +63,14 @@
 		padding: 0;
 	}
 
-	.themes-header {
+	/* .themes-header {
 		padding: 10px 0 0 0;
 		margin: 0;
 		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
 		font-size: 1.4rem;
 		font-weight: 300;
 		color: hsla(251, 100%, 20%, 0.9);
-	}
+	} */
 
 	.topics {
 		display: inline;

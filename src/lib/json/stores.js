@@ -9,3 +9,4 @@ export const allTopics = writable([]);
 export const clickedCategory = writable('all');
 export const clickedTheme = writable('all');
 export const clickedTopic = writable('all');
+export const excerptLength = writable(100);

@@ -3,7 +3,7 @@
 	export let tagType = 'topic';
 	export let tagClicked = () => {};
 	export let headingText = 'Main themes';
-	console.log('create-tags: ', tagType);
+	// console.log('create-tags: ', tagType);
 </script>
 
 <p class="tags-header">{headingText}</p>

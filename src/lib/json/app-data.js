@@ -12,7 +12,7 @@ const allCategories = [
         id: 1,
         category: 'mypost',
         title: 'My posts',
-        subCategory: ['myposts'],
+        subCategory: ['mypost'],
         img: '/img/icons/book-svgrepo-com-2.svg',
         numArticles: 0,
         type: 'mypost'
@@ -160,7 +160,8 @@ const allThemes = ['all',
     'datadrivenenterprise',
     'dataliteracy',
     'dataviz',
-    'technique',
+    'method',
+    'mypost',
     'pitfall',
     'inspiration',
     'process'];

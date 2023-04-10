@@ -157,7 +157,7 @@ export const quotes = [
         spokenBy: "",
         sourceTitle: "",
         sourceDate: "",
-        attributedTo: "Salvador Dali"
+        attributedTo: "Albert Einstein"
     },
     {
         quoteID: 18,

@@ -5,6 +5,10 @@
 	export let displayQuantity = 10;
 	export let totalQuantity = 50;
 	export let headingTitle = 'Interesting';
+	export let moreItemsClicked = (selectedCategory) => {
+		$clickedCategory = selectedCategory;
+		goto('/resources/category');
+	};
 	function categoryClicked(selectedCategory) {
 		// @ts-ignore
 		$clickedCategory = selectedCategory;
@@ -15,6 +19,29 @@
 <div class="heading">
 	<h1 class="heading-title">{headingTitle}</h1>
 	<h3 class="article-count">
+		{#if totalQuantity > displayQuantity}
+			{displayQuantity}
+		{:else}
+			{totalQuantity}
+		{/if}
+		of
+		<span
+			class="view-all"
+			on:click={() => {
+				moreItemsClicked(category);
+			}}>{totalQuantity}</span
+		>
+		items<br />
+		<p
+			class="article-count view-all"
+			on:click={() => {
+				moreItemsClicked(category);
+			}}
+		>
+			view all
+		</p>
+	</h3>
+	<!-- <h3 class="article-count">
 		{#if totalQuantity > displayQuantity}
 			{displayQuantity}
 		{:else}
@@ -36,7 +63,7 @@
 		>
 			view all
 		</p>
-	</h3>
+	</h3> -->
 </div>
 
 <style>
@@ -83,16 +110,17 @@
 		color: hsla(251, 100%, 20%, 1);
 	}
 
-	.article-count a {
+	/* .article-count a {
 		opacity: 0.7;
 		text-decoration: dotted;
 		text-decoration-color: hsla(251, 100%, 20%, 1);
 		text-decoration-line: underline;
 		text-decoration-thickness: 2px;
 	}
+
 	.article-count a:hover {
 		opacity: 1;
 		text-decoration: underline;
 		text-decoration-thickness: 3px;
-	}
+	} */
 </style>

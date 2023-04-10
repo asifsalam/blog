@@ -93,6 +93,7 @@ function capitalizeFirstLetter(word) {
 }
 
 function filterCategory(articles, category) {
+    // console.log("filterCategory: ", articles, category);
     let result;
     if (category.category === "all") {
         result = articles;

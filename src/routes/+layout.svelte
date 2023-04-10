@@ -1,5 +1,12 @@
 <script>
-	import { articleList, postList, allCategories, allThemes, allTopics } from '/src/lib/json/stores';
+	import {
+		articleList,
+		postList,
+		allCategories,
+		allThemes,
+		allTopics,
+		excerptLength
+	} from '/src/lib/json/stores';
 	// import SiteTitle from '$lib/components/site-title.svelte';
 	import MainTitle from '$lib/components/main-title.svelte';
 	import Navbar from '$lib/components/navbar.svelte';
@@ -8,17 +15,20 @@
 
 	export let data;
 	export let errors;
+	let numArticles = 200;
+	// console.log(data);
 
 	data.allCategories.forEach((element) => {
 		element.img = element.img.replace('/static', '');
 	});
-	const articleData = data.articles.slice(0, 114);
+	const articleData = data.articles.slice(0, numArticles);
 	$articleList = articleData;
 	$postList = data.posts;
 	$allCategories = data.allCategories;
 	$allThemes = data.allThemes;
 	$allTopics = data.allTopics;
-	// console.log(data);
+	$excerptLength = 100;
+	console.log($articleList.slice(20, 30));
 </script>
 
 <svelte:head><title>asifsalam</title></svelte:head>

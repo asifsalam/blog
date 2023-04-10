@@ -7,15 +7,19 @@
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
 	import PaginationList from '$lib/components/pagination-list.svelte';
+	import CategoryList from '$lib/components/category-list-paginate.svelte';
+	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
+	import CreateTags from '$lib/components/create-tags.svelte';
 
 	$: selectedCategory = '';
 	$: category = 'all';
 	$: articles = [];
-	let categories = [];
-	let categoryObj = {};
+	$: categories = [];
+	$: categoryObj = {};
+	$: totalArticles = $articleList.length;
 
 	onMount(() => {
-		console.log('category: ', $clickedCategory);
+		//console.log('category: ', $clickedCategory);
 		selectedCategory = $clickedCategory;
 		categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
 		categoryObj = $allCategories
@@ -23,10 +27,10 @@
 			.filter((d) => d.category == selectedCategory)[0];
 		category = categoryObj.category;
 		articles = filterCategory($articleList, categoryObj);
+		totalArticles = articles.length;
 	});
 
-	function categoryClicked(clCategory) {
-		selectedCategory = clCategory;
+	function categoryClicked(selectedCategory) {
 		$clickedCategory = selectedCategory;
 		categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
 		categoryObj = $allCategories
@@ -34,11 +38,18 @@
 			.filter((d) => d.category == selectedCategory)[0];
 		category = categoryObj.category;
 		articles = filterCategory($articleList, categoryObj);
+		totalArticles = articles.length;
 	}
+	articles = articles;
 	/** @type {string}*/
 	const headingText = 'Main categories';
 	$: totalQuantity = articles.length;
-	$: console.log('category-page: ', category, selectedCategory, categories, totalQuantity);
+	// $: console.log('category-page. articles.length: ', articles.length, 'category: ', category);
+
+	let sidebarTitle = 'This is a temporary title';
+	let sidebarLeadinText =
+		'Just ignore this for the moment. This was used to create and test the pagination component.';
+	let sidebarBulletText = ['Ignore bullet 1', 'ignore bullet 2'];
 </script>
 
 <RandomQuote />
@@ -46,31 +57,22 @@
 
 <div class="container">
 	<div class="sidebar">
-		<div class="sidebar-header">
-			<p class="sidebar-header-text">Resources by category</p>
-			<p />
-		</div>
-		<p class="categories-header">{headingText}</p>
+		<SidebarHeading {sidebarTitle} {sidebarLeadinText} {sidebarBulletText} />
 		<p class="topics">
-			{#each categories as category}
-				<button class="topic topic-box" on:click={() => categoryClicked(category)}
-					>{category}</button
-				>
-			{/each}
+			<CreateTags tags={categories} tagClicked={categoryClicked} tagType="theme" {headingText} />
 		</p>
-		<!-- <KeyCategories headingText={'Resource categories'} {categories} /> -->
-		<!-- <p on:click={() => categoryClicked(category)}>sidebar {category}</p> -->
 	</div>
+
 	<div class="posts">
-		<SectionHeadingCategory {category} {totalQuantity} />
 		{#if articles.length > 0}
-			<PaginationList {articles} {category} />
-		{:else}
-			<p>Houston there is a problem in "category-list.svelte"</p>
+			<SectionHeadingCategory category={$clickedCategory} totalQuantity={totalArticles} />
+			<!-- <CategoryList {articles} category={$clickedCategory} /> -->
+			<PaginationList {articles} category={$clickedCategory} totalQuantity={totalArticles} />
+			<p class="test">this is a test</p>
+			<p>{articles.length}</p>
+			<!-- {:else}
+			<p>Houston there is a problem in "category-list.svelte"</p> -->
 		{/if}
-		<div class="cards">
-			<!-- <svelte:component this={component} articles={filteredArticles} {category} /> -->
-		</div>
 	</div>
 </div>
 
@@ -86,9 +88,18 @@
 		margin: 10px 30px 00px 0px;
 		flex-flow: column;
 	}
-	.sidebar-header {
+
+	.topics {
+		display: inline;
+		line-height: 1.5;
+		margin: 0 0 50px 0px;
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
+
+	/* .sidebar-header {
 		display: block;
-		/* float: left; */
+	
 		height: auto;
 		width: 100%;
 		background-color: rgb(255, 254, 243);
@@ -100,7 +111,6 @@
 		display: block;
 		padding: 0;
 		margin: 0px 0 5px 0;
-		/* font-family: 'Roboto Slab'; */
 		font-family: 'Crete Round';
 		font-size: 1.4em;
 		font-weight: 100;
@@ -115,14 +125,6 @@
 		font-weight: 300;
 		color: hsla(251, 100%, 20%, 0.9);
 	}
-	.topics {
-		display: inline;
-		line-height: 1.5;
-		margin: 0 0 50px 0px;
-		font-size: 1.2rem;
-		font-weight: bold;
-	}
-
 	.topic-box {
 		display: inline-block;
 		padding: 0px 5px;
@@ -140,5 +142,5 @@
 	.topic:hover {
 		color: hsl(251, 100%, 60%);
 		font-weight: bold;
-	}
+	} */
 </style>

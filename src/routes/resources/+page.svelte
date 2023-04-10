@@ -7,12 +7,18 @@
 	import SectionHeading from '$lib/components/section-heading.svelte';
 	import ResourcesCategoryCard from '$lib/components/resources-category-card.svelte';
 	import SidebarHeadingResources from '$lib/components/sidebar-heading-resources.svelte';
+	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 
 	const categories = $allCategories.filter((d) => d.type === 'category');
 	const headingTitle = 'Resource categories';
 	const totalQuantity = $articleList.length;
 	const articlesPerCategory = 3;
-	const displayQuantity = articlesPerCategory * $allCategories.length;
+	const displayQuantity =
+		articlesPerCategory * $allCategories.filter((d) => d.type === 'category').length;
+	const sidebarTitle = '';
+	const sidebarLeadinText = 'Select items by theme, category or tag. <br /> ';
+	const sidebarBulletText = '';
+	// console.log('resources-page: ', displayQuantity, $allCategories);
 
 	// console.log('resources-page');
 </script>
@@ -22,7 +28,8 @@
 
 <div class="container">
 	<div class="sidebar-container">
-		<SidebarHeadingResources />
+		<!-- <SidebarHeadingResources /> -->
+		<SidebarHeading {sidebarTitle} {sidebarLeadinText} {sidebarBulletText} />
 		<Sidebar useThemes={'yes'} useCategories={'yes'} useTopics={'yes'} />
 	</div>
 	<!-- <Sidebar allThemes={$allThemes} allCategories={$allCategories} allTopics={$allTopics} /> -->
