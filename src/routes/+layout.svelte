@@ -28,7 +28,7 @@
 	$allThemes = data.allThemes;
 	$allTopics = data.allTopics;
 	$excerptLength = 100;
-	console.log($articleList.slice(20, 30));
+	// console.log($articleList.slice(20, 30));
 </script>
 
 <svelte:head><title>asifsalam</title></svelte:head>

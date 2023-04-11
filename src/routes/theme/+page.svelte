@@ -40,6 +40,7 @@
 	$: totalQuantity = articles.length;
 	// $: console.log('category-page: ', category, selectedCategory, categories, articles.length);
 	let sidebarTagHeading = 'Main themes';
+	articles = articles;
 </script>
 
 <RandomQuote />
@@ -62,7 +63,9 @@
 	</div>
 	<div class="posts-list">
 		<SectionHeadingBasic selectedTag={theme} {totalQuantity} headingTitle={headingText} />
-		<PaginationList {articles} category={$clickedTheme} {totalQuantity} />
+		{#key theme}
+			<PaginationList {articles} category={theme} {totalQuantity} />
+		{/key}
 
 		<!-- <div class="cards">
 			{#if articles.length > 0}
