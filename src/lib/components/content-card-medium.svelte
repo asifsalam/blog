@@ -18,7 +18,7 @@
 	// article.excerpt = article.excerpt.split(' ').slice(0, 50).join(' ');
 	// const excerptLength = 80;
 	let excerpt = article.excerpt.substring(0, $excerptLength);
-	console.log('content-card: ', excerpt);
+	// console.log('content-card: ', excerpt);
 </script>
 
 <div class="post-container">
@@ -67,7 +67,8 @@
 		width: 100%;
 		/* min-height: 50px; */
 		/* max-height: 200px; */
-		border-top: 1px solid hsla(251, 100%, 28%, 0.9);
+		/* border-top: 1px solid hsla(251, 100%, 28%, 0.9); */
+		border-top: 1px solid hsla(288, 100%, 15%, 0.95);
 		margin: 0;
 		padding: 0;
 	}
@@ -94,14 +95,17 @@
 		margin: auto;
 		height: 20px;
 		background-color: #f5f5dc;
-		font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
 		color: hsl(257, 89%, 21%);
+		font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+		/* background-color: hsla(288, 100%, 15%, 0.95); */
+		/* color: #f5f5dc; */
 		font-size: 0.9rem;
-		font-weight: bold;
+		/* font-weight: bold; */
 		padding-top: 3px;
-		padding-left: 3px;
+		padding-left: 5px;
 		text-decoration: none;
-		border-bottom: 1px dotted hsla(251, 100%, 30%, 0.5);
+		/* border-bottom: 1px dotted hsla(251, 100%, 30%, 0.5); */
+		border-bottom: 1px solid hsla(288, 100%, 15%, 0.95);
 	}
 	.post-main {
 		/* display: grid; */

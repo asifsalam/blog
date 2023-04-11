@@ -4,26 +4,29 @@
 	// import ContentCardA from '$lib/components/content-card-a.svelte';
 	// import ContentCardC from '$lib/components/content-card-c.svelte';
 	import ContentCardMedium from '$lib/components/content-card-medium.svelte';
+	import PaginationExample from '$lib/components/pagination-2.svelte';
 	export let articles;
 	export let category;
 	export let totalQuantity;
 	// console.log('pagination-list: totalQuantity', totalQuantity, articles);
 
 	let numArticles = articles.length;
-	let articlesPerPage = 10;
+	let articlesPerPage = 6;
 	$: totalPages = Math.ceil(totalQuantity / articlesPerPage);
 	$: currentPage = 1;
+	$: pageSet = 5;
 	let startArticleNum = 0;
 	$: articleSet = articles.slice(startArticleNum, articlesPerPage);
-	// console.log('pagination-list-articles: ', articles);
 	//	let currentPage = 1;
+	let trimStart = 0;
+	let trimEnd = trimStart + pageSet;
 
 	function handlePageChange(subPage) {
 		currentPage = subPage;
-		const trimStart = (currentPage - 1) * articlesPerPage;
-		const trimEnd = trimStart + articlesPerPage;
+		trimStart = (currentPage - 1) * articlesPerPage;
+		trimEnd = trimStart + articlesPerPage;
 		articleSet = articles.slice(trimStart, trimEnd);
-		console.log('pagination-list:', articleSet.length);
+		console.log('pagination-list, trimmed set:', articleSet.length);
 		// fetch new data for the current page
 	}
 	/*
@@ -33,8 +36,28 @@
 	articleSet = articleSet;
 </script>
 
-<Pagination {currentPage} {totalPages} onChangePage={handlePageChange} />
-
+<!-- <Pagination {currentPage} {totalPages} onChangePage={handlePageChange} /> -->
+<div class="pagination-container">
+	<div class="page-info">
+		<p class="page-info-details">
+			Total pages: <span style="font-weight:bold;">{totalPages}</span>
+		</p>
+		<p class="page-info-details">
+			Item set: <span style="font-weight:bold;"
+				>{trimStart + 1} - {trimStart + articleSet.length}</span
+			>
+		</p>
+	</div>
+	{#key category}
+		<PaginationExample
+			{currentPage}
+			startPage={1}
+			{totalPages}
+			{pageSet}
+			onChangePage={handlePageChange}
+		/>
+	{/key}
+</div>
 <div class="category-container">
 	{#each articleSet as article, i}
 		<!-- <p>Setting the content {i} {currentPage}</p> -->
@@ -45,6 +68,27 @@
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100;300&display=swap');
+	.pagination-container {
+		margin: 0;
+		padding: 0;
+		/* display: flex; */
+		display: grid;
+		grid-template-columns: 1fr 3fr;
+		justify-content: space-between;
+		align-content: stretch;
+		align-items: flex-start;
+		border-top: 2px dotted hsla(251, 100%, 20%, 0.7);
+	}
+
+	.page-info {
+		margin: 10px 0;
+		padding: 0;
+	}
+
+	.page-info-details {
+		margin: 0px 0;
+		padding: 3px 0;
+	}
 	.category-container {
 		margin: 0;
 		padding: 0;
