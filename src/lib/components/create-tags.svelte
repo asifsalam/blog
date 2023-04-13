@@ -3,14 +3,14 @@
 	export let tagType = 'topic';
 	export let tagClicked = () => {};
 	export let headingText = 'Main themes';
-	// console.log('create-tags: ', tagType);
+	// console.log('create-tags: ', tags, tagType);
 </script>
 
 <p class="tags-header">{headingText}</p>
 {#each // @ts-ignore
 tags as tag}
 	{#if tagType == 'category'}
-		{#if tag.category != 'NA'}
+		{#if tag != 'NA'}
 			<button
 				class="topic topic-box"
 				on:click={() => {

@@ -1,10 +1,10 @@
 <script>
-	import Pagination from '$lib/components/pagination.svelte';
+	// import Pagination from '$lib/components/pagination.svelte';
 	// import ResourcesCard from '$lib/components/resources-card.svelte';
 	// import ContentCardA from '$lib/components/content-card-a.svelte';
 	// import ContentCardC from '$lib/components/content-card-c.svelte';
 	import ContentCardMedium from '$lib/components/content-card-medium.svelte';
-	import PaginationExample from '$lib/components/pagination-2.svelte';
+	import Pagination from '$lib/components/pagination.svelte';
 	export let articles;
 	export let category;
 	export let totalQuantity;
@@ -42,14 +42,20 @@
 		<p class="page-info-details">
 			Total pages: <span style="font-weight:bold;">{totalPages}</span>
 		</p>
-		<p class="page-info-details">
-			Item set: <span style="font-weight:bold;"
-				>{trimStart + 1} - {trimStart + articleSet.length}</span
-			>
-		</p>
+		{#if totalPages > 0}
+			<p class="page-info-details">
+				Item set: <span style="font-weight:bold;"
+					>{trimStart + 1} - {trimStart + articleSet.length}</span
+				>
+			</p>
+		{:else}
+			<p class="page-info-details">
+				Item set: <span style="font-weight:bold;">None</span>
+			</p>
+		{/if}
 	</div>
 	{#key category}
-		<PaginationExample
+		<Pagination
 			{currentPage}
 			startPage={1}
 			{totalPages}

@@ -8,11 +8,17 @@
 	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
 	import CategoryList from '$lib/components/category-list.svelte';
 
+	import CreateTags from '$lib/components/create-tags.svelte';
+	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
+	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
+	import PaginationList from '$lib/components/pagination-list.svelte';
+
 	$: selectedCategory = '';
-	$: category = 'all';
+	$: category = 'dataviz';
 	$: articles = [];
 	let categories = [];
 	let categoryObj = {};
+	let categoriesObj = $allCategories.filter((d) => d.type === 'category');
 
 	onMount(() => {
 		console.log('category: ', $clickedCategory);
@@ -36,9 +42,11 @@
 		articles = filterCategory($articleList, categoryObj);
 	}
 	/** @type {string}*/
-	const headingText = 'Main categories';
+	const headingText = 'Category ';
 	$: totalQuantity = articles.length;
-	$: console.log('category-page: ', category, selectedCategory, totalQuantity);
+	// $: console.log('category-page: ', category, selectedCategory, totalQuantity, categoriesObj);
+	let sidebarTagHeading = 'Categories';
+	articles = articles;
 </script>
 
 <RandomQuote />
@@ -46,31 +54,47 @@
 
 <div class="container">
 	<div class="sidebar">
-		<div class="sidebar-header">
+		<!-- <div class="sidebar-header">
 			<p class="sidebar-header-text">Resources by category</p>
 			<p />
-		</div>
-		<p class="categories-header">{headingText}</p>
+		</div> -->
+		<!-- <p class="categories-header">{headingText}</p>
 		<p class="topics">
 			{#each categories as category}
 				<button class="topic topic-box" on:click={() => categoryClicked(category)}
 					>{category}</button
 				>
 			{/each}
+		</p> -->
+		<SidebarHeading
+			sidebarLeadinText={'Select articles and resources from the categories below.'}
+		/>
+		<p class="topics">
+			<CreateTags
+				tags={categoriesObj}
+				tagClicked={categoryClicked}
+				tagType="category"
+				headingText={sidebarTagHeading}
+			/>
 		</p>
 		<!-- <KeyCategories headingText={'Resource categories'} {categories} /> -->
 		<!-- <p on:click={() => categoryClicked(category)}>sidebar {category}</p> -->
 	</div>
-	<div class="posts">
+	<!-- <div class="posts">
 		<SectionHeadingCategory {category} {totalQuantity} />
 		<div class="cards">
-			<!-- <svelte:component this={component} articles={filteredArticles} {category} /> -->
 			{#if articles.length > 0}
 				<CategoryList {articles} {category} />
 			{:else}
 				<p>Houston there is a problem in "category-list.svelte"</p>
 			{/if}
 		</div>
+	</div> -->
+	<div class="posts-list">
+		<SectionHeadingBasic selectedTag={category} {totalQuantity} headingTitle={headingText} />
+		{#key category}
+			<PaginationList {articles} {category} {totalQuantity} />
+		{/key}
 	</div>
 </div>
 

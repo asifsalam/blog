@@ -74,7 +74,9 @@
 		margin: 0;
 		padding: 0;
 		font-family: 'Roboto Slab', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-		border-top: 3px solid hsla(251, 100%, 28%, 0.9);
+		/* border-top: 3px solid hsla(251, 100%, 28%, 0.9); */
+		/* border-top: solid 4px #999980; */
+		border-top: solid 4px #9999808a;
 		/* border-bottom: 2px dotted hsla(251, 100%, 28%, 0.9); */
 		border-radius: 0px;
 		overflow: hidden;

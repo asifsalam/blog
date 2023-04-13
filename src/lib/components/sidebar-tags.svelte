@@ -17,10 +17,10 @@
 		<KeyTags headingText={'Main themes'} tags={$allThemes} tagType="theme" />
 	{/if}
 	{#if useCategories == 'yes'}
-		<KeyTags headingText={'Main categories'} tags={$allCategories} tagType="category" />
+		<KeyTags headingText={'Categories'} tags={$allCategories} tagType="category" />
 	{/if}
 	{#if useTopics == 'yes'}
-		<KeyTags headingText={'Main topics'} tags={$allTopics} tagType="topic" />
+		<KeyTags headingText={'All tags'} tags={$allTopics} tagType="topic" />
 	{/if}
 </div>
 

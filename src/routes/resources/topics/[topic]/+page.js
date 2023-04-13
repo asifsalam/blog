@@ -2,6 +2,6 @@
 export const load = ({ params }) => {
     const { topic } = params;
 
-    // console.log(params)
+    console.log(params, topic)
     return { topic }
 }

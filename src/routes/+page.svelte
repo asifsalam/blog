@@ -12,19 +12,16 @@
 	import ContentCard from '$lib/components/content-card-large.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	// import Sidebar from '$lib/components/sidebar-home.svelte';
 	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
-	// import SectionHeadingMain from '$lib/components/section-heading-main.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
-	// import SidebarHeadingHome from '$lib/components/sidebar-home-heading.svelte';
 
 	$allCategories.forEach((el) => {
 		el.img = el.img.replace('/static', '');
 	});
 	// const themes = $allCategories.filter((d) => d.type === 'theme');
 	const themes = $allThemes;
-	console.log('home-page:');
+	// console.log('home-page:');
 	let sidebarTitle = '';
 	let sidebarLeadinText =
 		'Greetings! My name is Asif. <br/> And you have wittingly or otherwise chanced upon this space, which is:';
@@ -45,13 +42,13 @@
 		// @ts-ignore
 		$clickedTheme = 'all';
 		goto('/blog');
-		console.log('morePostsClicked: ', selectedCategory);
+		// console.log('morePostsClicked: ', selectedCategory);
 	}
 	function moreLinksClicked(selectedCategory) {
 		// @ts-ignore
 		$clickedCategory = 'all';
 		goto('/resources/category');
-		console.log('moreLinksClicked: ', selectedCategory);
+		// console.log('moreLinksClicked: ', selectedCategory);
 	}
 </script>
 
@@ -61,14 +58,10 @@
 <div class="container">
 	<div class="sidebar-container">
 		<SidebarHeading {sidebarTitle} {sidebarLeadinText} {sidebarBulletText} />
-		<!-- <SidebarHeadingHome /> -->
-		<!-- <Sidebar /> -->
 		<SidebarTags useThemes={'yes'} useCategories={'no'} />
 	</div>
 	<div class="main-content">
 		<div class="articles">
-			<!-- <h1>Latest posts</h1> -->
-			<!-- <SectionHeadingMain totalQuantity={8} headingTitle={'Latest posts'} /> -->
 			<SectionHeading
 				headingTitle={headingTitlePosts}
 				displayQuantity={displayQuantityPosts}
@@ -83,7 +76,6 @@
 			<p class="more-posts"><a href="\blog">More posts</a></p>
 		</div>
 		<div class="articles">
-			<!-- <h1>Latest links</h1> -->
 			<SectionHeading
 				headingTitle={headingTitleLinks}
 				displayQuantity={displayQuantityLinks}
@@ -100,9 +92,6 @@
 	</div>
 </div>
 
-<!-- <p>{article.body}</p> -->
-
-<!-- <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p> -->
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Sanchez&family=Pridi&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Scope+One&display=swap');
@@ -116,8 +105,6 @@
 	}
 
 	div.sidebar-container {
-		/* margin: 0;
-		padding: 0; */
 		float: left;
 		margin: 10px 30px 00px 0px;
 		flex-flow: column;
@@ -144,11 +131,4 @@
 		font-size: 1.2rem;
 		margin: 5px 0 10px 0;
 	}
-
-	/* h1 {
-		font-family: 'Sanchez';
-		font-weight: normal;
-		margin: 0px 0px 10px 0px;
-		color: var(--heading-color);
-	} */
 </style>

@@ -8,12 +8,17 @@
 	import SectionHeadingTopic from '$lib/components/section-heading-topic.svelte';
 	import TopicList from '$lib/components/topic-list.svelte';
 
-	$: selectedTopic = $clickedTopic;
+	import CreateTags from '$lib/components/create-tags.svelte';
+	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
+	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
+	import PaginationList from '$lib/components/pagination-list.svelte';
+
+	$: selectedTopic = 'rstats';
 	$: articles = [];
 	let topics = $allTopics;
 
 	onMount(() => {
-		console.log('topic: ', $clickedTopic);
+		// console.log('topic: ', $clickedTopic);
 		selectedTopic = $clickedTopic;
 		articles = filterTopic($articleList, selectedTopic);
 	});
@@ -25,7 +30,10 @@
 	/** @type {string}*/
 	const headingText = 'Main topics';
 	$: totalQuantity = articles.length;
-	$: console.log('resource-topics: ', topics, totalQuantity);
+	// $: console.log('resource-topics: ', topics, totalQuantity);
+	let sidebarTagHeading = 'All tags';
+	articles = articles;
+	selectedTopic = $clickedTopic;
 </script>
 
 <RandomQuote />
@@ -33,7 +41,7 @@
 
 <div class="container">
 	<div class="sidebar">
-		<div class="sidebar-header">
+		<!-- <div class="sidebar-header">
 			<p class="sidebar-header-text">Resources by topic</p>
 			<p />
 		</div>
@@ -42,20 +50,36 @@
 			{#each $allTopics as topic}
 				<button class="topic topic-box" on:click={() => topicClicked(topic)}>{topic}</button>
 			{/each}
-		</p>
+		</p> -->
 		<!-- <KeyCategories headingText={'Resource categories'} {categories} /> -->
 		<!-- <p on:click={() => categoryClicked(category)}>sidebar {category}</p> -->
+		<SidebarHeading
+			sidebarLeadinText={'Select articles and resources from the categories and tags below.'}
+		/>
+		<p class="topics">
+			<CreateTags
+				tags={topics}
+				tagClicked={topicClicked}
+				tagType="topic"
+				headingText={sidebarTagHeading}
+			/>
+		</p>
 	</div>
-	<div class="posts">
+	<!-- <div class="posts">
 		<SectionHeadingTopic topic={selectedTopic} {totalQuantity} />
 		<div class="cards">
-			<!-- <svelte:component this={component} articles={filteredArticles} {category} /> -->
 			{#if articles.length > 0}
 				<TopicList {articles} topic={selectedTopic} />
 			{:else}
 				<p>Houston there is a problem in "category-list.svelte"</p>
 			{/if}
 		</div>
+	</div> -->
+	<div class="posts-list">
+		<SectionHeadingBasic selectedTag={selectedTopic} {totalQuantity} headingTitle={headingText} />
+		{#key topic}
+			<PaginationList {articles} category={selectedTopic} {totalQuantity} />
+		{/key}
 	</div>
 </div>
 

@@ -108,7 +108,8 @@
 		/* height: 50px; */
 		width: 100%;
 		margin: 0px 0 0 0px;
-		border-bottom: 2px solid var(--heading-color);
+		/* border-bottom: 2px solid var(--heading-color); */
+		border-bottom: 2px solid #999980;
 		position: sticky;
 		top: 0;
 	}

@@ -6,8 +6,8 @@
 		allThemes,
 		allTopics,
 		excerptLength
-	} from '/src/lib/json/stores';
-	// import SiteTitle from '$lib/components/site-title.svelte';
+	} from '$lib/json/stores.js';
+
 	import MainTitle from '$lib/components/main-title.svelte';
 	import Navbar from '$lib/components/navbar.svelte';
 	import Footer from '$lib/components/footer.svelte';
@@ -16,7 +16,6 @@
 	export let data;
 	export let errors;
 	let numArticles = 200;
-	// console.log(data);
 
 	data.allCategories.forEach((element) => {
 		element.img = element.img.replace('/static', '');
@@ -28,7 +27,6 @@
 	$allThemes = data.allThemes;
 	$allTopics = data.allTopics;
 	$excerptLength = 100;
-	// console.log($articleList.slice(20, 30));
 </script>
 
 <svelte:head><title>asifsalam</title></svelte:head>

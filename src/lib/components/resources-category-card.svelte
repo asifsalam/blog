@@ -12,7 +12,7 @@
 		// @ts-ignore
 		$clickedCategory = selectedCategory;
 		goto('/resources/category');
-		console.log('resources-category-card-clicked: ', $clickedCategory);
+		// console.log('resources-category-card-clicked: ', $clickedCategory);
 	}
 </script>
 

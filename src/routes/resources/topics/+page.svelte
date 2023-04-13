@@ -4,29 +4,40 @@
 	import { filterTopic } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	import SectionHeadingTopic from '$lib/components/section-heading-topic.svelte';
-	import TopicList from '$lib/components/topic-list.svelte';
+	import CreateTags from '$lib/components/create-tags.svelte';
+	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
+	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
+	import PaginationList from '$lib/components/pagination-list.svelte';
+
+	//import SectionHeadingTopic from '$lib/components/section-heading-topic.svelte';
+	//import TopicList from '$lib/components/topic-list.svelte';
 	// import Sidebar from '$lib/components/sidebar-2.svelte';
 	// import SidebarHeadingTopics from '$lib/components/sidebar-heading-blog.svelte';
 
-	// let selectedTopic = '';
-	// let topic = 'all';
+	let selectedTopic = 'rstats';
+	let topics = $allTopics;
 	/** @type {array} */
 	let articles = [];
 
 	onMount(() => {
-		articles = filterTopic($articleList, $clickedTopic);
+		selectedTopic = $clickedTopic;
+		articles = filterTopic($articleList, selectedTopic);
 	});
 
-	function topicClicked(clTopic) {
-		$clickedTopic = clTopic;
+	function topicClicked(topic) {
+		$clickedTopic = topic;
+		selectedTopic = $clickedTopic;
 		// console.log('TopicClicked', $clickedTopic);
 		articles = filterTopic($articleList, clTopic);
 	}
 	/** @type {string}*/
-	const headingText = 'Topics';
+	const headingText = 'Tag';
 	$: totalQuantity = articles.length;
-	console.log('<topic-page>');
+	console.log('<topics-page>');
+	let sidebarTagHeading = 'All tags';
+
+	articles = articles;
+	selectedTopic = selectedTopic;
 </script>
 
 <RandomQuote />
@@ -34,7 +45,7 @@
 
 <div class="container">
 	<div class="sidebar">
-		<div class="sidebar-header">
+		<!-- <div class="sidebar-header">
 			<p class="sidebar-header-text">Resources by topic(s)</p>
 			<p />
 		</div>
@@ -43,17 +54,34 @@
 			{#each $allTopics as topic}
 				<button class="topic topic-box" on:click={() => topicClicked(topic)}>{topic}</button>
 			{/each}
+		</p> -->
+
+		<SidebarHeading sidebarLeadinText={'Select articles and resources from the tags below.'} />
+		<p class="topics">
+			<CreateTags
+				tags={topics}
+				tagClicked={topicClicked}
+				tagType="topic"
+				headingText={sidebarTagHeading}
+			/>
 		</p>
 	</div>
 
 	<div class="posts">
-		<SectionHeadingTopic topic={$clickedTopic} {totalQuantity} />
+		<!-- <SectionHeadingTopic topic={$clickedTopic} {totalQuantity} />
 		<div class="cards">
 			{#if articles.length > 0}
 				<TopicList {articles} topic={$clickedTopic} />
 			{:else}
 				<p>No articles for {$clickedTopic} found.</p>
 			{/if}
+		</div> -->
+
+		<div class="posts-list">
+			<SectionHeadingBasic selectedTag={$clickedTopic} {totalQuantity} headingTitle={headingText} />
+			{#key selectedTopic}
+				<PaginationList {articles} category={selectedTopic} {totalQuantity} />
+			{/key}
 		</div>
 	</div>
 </div>

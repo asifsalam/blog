@@ -3,6 +3,9 @@
 	import '/src/styles/global.css';
 	export let sidebarTitle = '';
 	export let sidebarLeadinText = '';
+	/**
+	 * @type {string | any[]}
+	 */
 	export let sidebarBulletText = [];
 </script>
 
@@ -32,7 +35,8 @@
 		background-color: rgb(255, 254, 243);
 		padding: 0 0 6px 0;
 		margin: 0;
-		border-bottom: 3px dotted hsl(23, 8%, 50%);
+		/* border-bottom: 3px dotted hsl(23, 8%, 50%); */
+		border-bottom: 3px solid #9999808a;
 	}
 	.sidebar-title {
 		display: block;

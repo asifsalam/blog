@@ -8,6 +8,11 @@
 	import SectionHeadingTopic from '$lib/components/section-heading-topic.svelte';
 	import TopicList from '$lib/components/topic-list.svelte';
 
+	import CreateTags from '$lib/components/create-tags.svelte';
+	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
+	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
+	import PaginationList from '$lib/components/pagination-list.svelte';
+
 	$: topic = data.topic;
 	$: articles = filterTopic($articleList, topic);
 	// console.log('topic', data.topic);
@@ -22,9 +27,10 @@
 		articles = filterTopic($articleList, clTopic);
 	}
 	/** @type {string}*/
-	const headingText = 'Topic';
+	const headingText = 'Tag';
 	$: totalQuantity = articles.length;
 	// $: console.log('topics-page: articles ', articles);
+	let sidebarTagHeading = 'All tags';
 </script>
 
 <RandomQuote />
@@ -32,26 +38,41 @@
 
 <div class="container">
 	<div class="sidebar">
-		<div class="sidebar-header">
+		<!-- <div class="sidebar-header">
 			<p class="sidebar-header-text">Items by [topic]</p>
 			<p />
-		</div>
-		<p class="topics-header">{headingText}</p>
+		</div> -->
+		<SidebarHeading sidebarLeadinText={'Select articles and resources from the tags below.'} />
+		<p class="topics">
+			<CreateTags
+				tags={$allTopics}
+				tagClicked={topicClicked}
+				tagType="topic"
+				headingText={sidebarTagHeading}
+			/>
+		</p>
+		<!-- <p class="topics-header">{headingText}</p>
 		<p class="topics">
 			{#each $allTopics as topic}
-				<!-- <button class="topic topic-box" on:click={() => topicClicked(topic)}>{topic}</button> -->
 				<a class="topic topic-box" href={`/resources/topics/${topic}`}> {topic} </a>
-			{/each}
-		</p>
+			{/each} -->
+		<!-- </p> -->
 	</div>
 	<div class="posts">
-		<SectionHeadingTopic {topic} {totalQuantity} />
+		<!-- <SectionHeadingTopic {topic} {totalQuantity} />
 		<div class="cards">
 			{#if articles.length > 0}
 				<TopicList {articles} {topic} />
 			{:else}
 				<p>No articles found on {topic}</p>
 			{/if}
+		</div> -->
+
+		<div class="posts-list">
+			<SectionHeadingBasic selectedTag={$clickedTopic} {totalQuantity} headingTitle={headingText} />
+			{#key topic}
+				<PaginationList {articles} category={topic} {totalQuantity} />
+			{/key}
 		</div>
 	</div>
 </div>

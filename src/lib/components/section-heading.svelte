@@ -41,29 +41,6 @@
 			view all
 		</p>
 	</h3>
-	<!-- <h3 class="article-count">
-		{#if totalQuantity > displayQuantity}
-			{displayQuantity}
-		{:else}
-			{totalQuantity}
-		{/if}
-		of
-		<span
-			class="view-all"
-			on:click={() => {
-				categoryClicked('all');
-			}}>{totalQuantity}</span
-		>
-		items<br />
-		<p
-			class="article-count view-all"
-			on:click={() => {
-				categoryClicked('all');
-			}}
-		>
-			view all
-		</p>
-	</h3> -->
 </div>
 
 <style>
@@ -74,6 +51,7 @@
 		font-family: 'Sanchez';
 		margin: 0;
 	}
+
 	.heading {
 		/* background-image: url('https://unsplash.com/photos/VWcPlbHglYc'); */
 		display: grid;
@@ -109,18 +87,4 @@
 		text-decoration: underline 4px;
 		color: hsla(251, 100%, 20%, 1);
 	}
-
-	/* .article-count a {
-		opacity: 0.7;
-		text-decoration: dotted;
-		text-decoration-color: hsla(251, 100%, 20%, 1);
-		text-decoration-line: underline;
-		text-decoration-thickness: 2px;
-	}
-
-	.article-count a:hover {
-		opacity: 1;
-		text-decoration: underline;
-		text-decoration-thickness: 3px;
-	} */
 </style>

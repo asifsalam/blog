@@ -3,11 +3,10 @@
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	import Sidebar from '$lib/components/sidebar-home.svelte';
+	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
+	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
 	import ResourcesCategoryCard from '$lib/components/resources-category-card.svelte';
-	import SidebarHeadingResources from '$lib/components/sidebar-heading-resources.svelte';
-	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 
 	const categories = $allCategories.filter((d) => d.type === 'category');
 	const headingTitle = 'Resource categories';
@@ -16,7 +15,8 @@
 	const displayQuantity =
 		articlesPerCategory * $allCategories.filter((d) => d.type === 'category').length;
 	const sidebarTitle = '';
-	const sidebarLeadinText = 'Select items by theme, category or tag. <br /> ';
+	const sidebarLeadinText =
+		'Select items by category or tag. Categories are simply a set of tags.<br /> ';
 	const sidebarBulletText = '';
 	// console.log('resources-page: ', displayQuantity, $allCategories);
 
@@ -30,7 +30,7 @@
 	<div class="sidebar-container">
 		<!-- <SidebarHeadingResources /> -->
 		<SidebarHeading {sidebarTitle} {sidebarLeadinText} {sidebarBulletText} />
-		<Sidebar useThemes={'yes'} useCategories={'yes'} useTopics={'yes'} />
+		<SidebarTags useThemes={'no'} useCategories={'yes'} useTopics={'yes'} />
 	</div>
 	<!-- <Sidebar allThemes={$allThemes} allCategories={$allCategories} allTopics={$allTopics} /> -->
 	<div class="posts">

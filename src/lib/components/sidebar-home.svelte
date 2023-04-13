@@ -16,17 +16,6 @@
 </script>
 
 <div class="sidebar">
-	<!-- <SidebarHeadingHome /> -->
-
-	<!-- {#if useThemes == 'yes'}
-		<KeyThemes headingText={'Main themes'} themes={$allThemes} />
-	{/if} 
-	{#if useCategories == 'yes'}
-		<KeyCategories headingText={'Main categories'} allCategories={$allCategories} />
-	{/if}
-	{#if useTopics == 'yes'}
-		<KeyTopics headingText={'Main topics'} topics={$allTopics} />
-	{/if}-->
 	{#if useThemes == 'yes'}
 		<KeyTags headingText={'Main themes'} tags={$allThemes} tagType="theme" />
 	{/if}
@@ -34,7 +23,7 @@
 		<KeyTags headingText={'Main categories'} tags={$allCategories} tagType="category" />
 	{/if}
 	{#if useTopics == 'yes'}
-		<KeyTags headingText={'Main topics'} tags={$allTopics} tagType="topic" />
+		<KeyTags headingText={'All tags'} tags={$allTopics} tagType="topic" />
 	{/if}
 </div>
 
