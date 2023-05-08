@@ -1,32 +1,42 @@
 <script>
 	import { excerptLength } from '$lib/json/stores';
+	import { getImageUrl } from '$lib/modules/utility_functions';
 	import TopicListCard from '$lib/components/topic-list-card.svelte';
-	const twitterLogoUrl = 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg';
+	import TagListCard from '$lib/components/tag-list-card.svelte';
+	const twitterLogoUrl = '/img/icons/twitter-svgrepo-com-1.svg';
 	export let article;
 	let tags;
 	let img_url;
-	if (article.img_url != 'non') {
-		img_url = article.img_url;
-	} else {
-		img_url = 'https://picsum.photos/200/300';
-	}
-	if (article.tags.length > 4) {
-		tags = article.tags.slice(0, 4);
+	img_url = getImageUrl(article);
+
+	if (article.tags.length > 7) {
+		tags = article.tags.slice(0, 7);
+	} else if (article.tags.lenght < 1) {
+		tags = ['all'];
 	} else {
 		tags = article.tags;
 	}
-	// article.excerpt = article.excerpt.split(' ').slice(0, 50).join(' ');
-	// const excerptLength = 80;
+
 	let excerpt = article.excerpt.substring(0, $excerptLength);
-	// console.log('content-card: ', excerpt);
+	// console.log('cc-med: ', article.img_url);
 </script>
 
 <div class="post-container">
 	<div class="left-container">
-		<a class="articleId-link" href={article.link} target="_blank" rel="noopener noreferrer">
-			<p class="articleId">{article.link_id}</p>
-		</a>
-		<div class="left-image" style="background-image: url({img_url}); filter:sepia(0.9)" />
+		<div class="articleId-container">
+			<!-- <a href="https://twitter.com">
+				<img class="site-logo3" src={twitterLogoUrl} alt="" srcset="" />
+			</a> -->
+			<a class="articleId-link" href={article.link} target="_blank" rel="noopener noreferrer">
+				<p class="articleId">{article.link_id}</p>
+			</a>
+		</div>
+		<div class="image-container">
+			<a class="left-image" href={article.link}>
+				<!-- <img class="site-logo2" src={img_url} alt="" srcset="" /> -->
+				<div class="left-image" style="background-image: url({img_url}); filter:sepia(0.5)" />
+			</a>
+		</div>
 	</div>
 	<div class="post-main">
 		<div class="post-title">
@@ -53,8 +63,16 @@
 			</a>
 		</div>
 	</div>
-	<div class="topics"><TopicListCard {tags} size={2} /></div>
-	<!-- <div class="post-content" style="background-image: url({img_url}); filter:sepia(0.2)"> -->
+	<div class="tags">
+		{#if article.link_type === 'twitter'}
+			<a class="logo-container" href="https://twitter.com">
+				<img class="site-logo" src={twitterLogoUrl} alt="" srcset="" /></a
+			>
+		{/if}
+		<div class="topics">
+			<TopicListCard {tags} size={2} />
+		</div>
+	</div>
 </div>
 
 <style>
@@ -63,55 +81,84 @@
 	.post-container {
 		display: grid;
 		grid-template-columns: 1fr 4fr;
-		grid-template-rows: auto;
 		width: 100%;
-		/* min-height: 50px; */
-		/* max-height: 200px; */
-		/* border-top: 1px solid hsla(251, 100%, 28%, 0.9); */
-		border-top: 1px solid hsla(288, 100%, 15%, 0.95);
-		margin: 0;
-		padding: 0;
+		min-height: 50px;
+		max-height: 200px;
+		border-top: solid 2px #9999808a;
+		overflow: overlay;
 	}
+
 	.left-container {
+		width: 100%;
+		min-height: 50px;
+		max-height: 400px;
+		display: flex;
+		flex-direction: column;
 	}
-	.left-image {
-		height: 100%;
-		/* padding-left: 100%; */
-		/* width: 30%; */
-		background-size: cover;
-		background-position: center;
-		background-blend-mode: color-burn;
-		background-color: hsl(55deg 100% 98% / 25%);
+
+	.articleId-container {
+		height: 24px;
+		background-color: #f5f5dc;
+		border-bottom: 1px solid black;
+		display: flex;
+		flex-direction: row;
 	}
+
 	.articleId-link {
 		margin: 0;
 		padding: 0;
 		text-decoration: none;
 	}
+
 	.articleId-link:hover {
 		text-decoration: underline;
 	}
+
 	.articleId {
-		margin: auto;
-		height: 20px;
-		background-color: #f5f5dc;
+		margin: 0;
 		color: hsl(257, 89%, 21%);
 		font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
-		/* background-color: hsla(288, 100%, 15%, 0.95); */
-		/* color: #f5f5dc; */
 		font-size: 0.9rem;
-		/* font-weight: bold; */
-		padding-top: 3px;
-		padding-left: 5px;
+		padding: 4px 0 2px 4px;
 		text-decoration: none;
-		/* border-bottom: 1px dotted hsla(251, 100%, 30%, 0.5); */
-		border-bottom: 1px solid hsla(288, 100%, 15%, 0.95);
 	}
+
+	.image-container {
+		width: 100%;
+		height: 100%;
+	}
+
+	.left-image {
+		/* width: 100%; */
+		height: 100%;
+		background-color: black;
+		/* object-fit: cover; */
+		background-size: cover;
+		background-position: center;
+	}
+
+	.logo-container {
+		height: 30px;
+		width: 30px;
+		margin-top: 3px;
+		padding-right: 10px;
+	}
+
+	.site-logo {
+		/* height: 30px; */
+		width: 30px;
+		/* display: inline; */
+		height: 100%;
+		position: relative;
+		left: 0;
+		top: 0;
+	}
+
+	.site-logo:hover {
+		filter: brightness(0.5);
+	}
+
 	.post-main {
-		/* display: grid; */
-		/* grid-template-columns: 1fr 2fr; */
-		/* grid-template-rows: auto; */
-		/* grid-template-columns: 1fr; */
 		width: 100%;
 		min-height: 20px;
 		margin: 0;
@@ -143,7 +190,6 @@
 		font-family: 'Roboto', Georgia, 'Times New Roman', Times, serif;
 		font-size: 1rem;
 		font-weight: bold;
-		/* font-style: italic; */
 		color: hsla(251, 100%, 20%, 0.7);
 		margin: 0px 0px 5px 10px;
 		padding: 0;
@@ -157,28 +203,6 @@
 		font-style: normal;
 		color: hsla(250, 100%, 5%, 0.8);
 		margin: 0px 0px 0px p3x;
-		/* width: 100%; */
-	}
-
-	.post-content {
-		display: grid;
-		grid-template-columns: 1fr 2fr;
-		grid-template-rows: auto auto;
-		height: 100%;
-		width: 100%;
-		background-position: center;
-		background-blend-mode: color-burn;
-		background-color: hsl(55deg 100% 98% / 25%);
-		background-size: cover;
-	}
-
-	.left-content {
-		width: 100%;
-		height: 100%;
-		z-index: 0;
-		color: white;
-		font-weight: 400;
-		margin: 0;
 	}
 
 	.right-content {
@@ -187,18 +211,6 @@
 		z-index: 3;
 		margin: 5px 0 0 10px;
 		color: black;
-		/* background-size: cover;
-		background-position: center;
-		background-blend-mode: color-burn;
-		background-color: hsl(55deg 100% 98% / 85%); */
-	}
-
-	.site-logo {
-		width: 10%;
-		position: absolute;
-		left: 0.2%;
-		bottom: 0.2%;
-		filter: saturate(0.3);
 	}
 
 	.right-content .excerpt {
@@ -230,21 +242,32 @@
 		margin-left: 5px;
 		transition: margin 0.3s, opacity 0.3s;
 	}
-
-	.topics {
-		/* display: block; */
-		/* line-clamp: 2; */
-		line-height: 1.7;
-		/* margin: 4px 0 4px 0px; */
-		padding: 4px 0;
-		/* height: 2rem;
-		white-space: nowrap; */
-		font-weight: bold;
-		/* background-color: hsl(55deg 100% 98% / 85%); */
+	.tags {
+		display: flex;
+		align-items: flex-start;
+		/* margin: 5px 0 5px 0px; */
+		padding: 3px 0px;
+		/* font-weight: bold; */
 		grid-column-start: 1;
 		grid-column-end: 3;
-		background: linear-gradient(hsl(55deg 100% 98% / 90%), hsl(55deg 100% 98% / 100%));
-		border-bottom: 1px dotted hsla(251, 100%, 30%, 0.3);
+		border-top: 1px solid hsla(251, 100%, 30%, 0.1);
+		/* background: linear-gradient(hsl(55deg 100% 98% / 90%), hsl(55deg 100% 98% / 100%)); */
+		border-bottom: 1px solid hsla(251, 100%, 30%, 0.1);
+		z-index: 5;
+	}
+
+	.topics {
+		line-height: 1.7;
+		margin-top: 3px;
+		/* padding: 4px 4px; */
+		padding: 0px 0px 0px 0px;
+		display: flex;
+		/* align-items: center; */
+		/* font-weight: bold; */
+		grid-column-start: 1;
+		grid-column-end: 3;
+		background: linear-gradient(hsl(55deg 100% 98% / 50%), hsl(55deg 100% 98% / 100%));
+
 		z-index: 5;
 	}
 </style>

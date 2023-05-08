@@ -5,7 +5,7 @@
 	import { quotes } from '$lib/json/quotes';
 	import { randomIntFromInterval } from '$lib/modules/utility_functions.js';
 	export let quoteIndex = randomIntFromInterval(0, 29);
-	quoteIndex = 10;
+
 	let quoteToUse = quotes[quoteIndex];
 	let quote = quoteToUse.quotation.replaceAll('\n', '<br>');
 	let transitionParams = {

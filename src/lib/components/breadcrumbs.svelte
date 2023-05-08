@@ -38,9 +38,10 @@
 		margin: 0 0 10px 0;
 		/* background-color: hsla(0, 95%, 15%, 0.9); */
 		/* background-color: hsla(60, 25%, 18%, 1); */
-		background-color: #9999805c;
+		/* background-color: #9999805c; */
 		/* background-color: hsla(251, 100%, 20%, 1); */
-		background-color: #9999801f;
+		/* background-color: #9999801f; */
+		background-color: #f1f1e4f5;
 		border-top: 1px solid #9999808f;
 		border-bottom: 1px solid #9999808f;
 		font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;

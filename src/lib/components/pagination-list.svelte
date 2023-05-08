@@ -3,15 +3,19 @@
 	// import ResourcesCard from '$lib/components/resources-card.svelte';
 	// import ContentCardA from '$lib/components/content-card-a.svelte';
 	// import ContentCardC from '$lib/components/content-card-c.svelte';
-	import ContentCardMedium from '$lib/components/content-card-medium.svelte';
+	import { fade, slide, fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+	import { itemsPerPage } from '$lib/json/stores';
+	import ContentCardMedium from '$lib/components/content-card-medium-v3.svelte';
 	import Pagination from '$lib/components/pagination.svelte';
+	import KeyCategories from './key-categories.svelte';
 	export let articles;
 	export let category;
 	export let totalQuantity;
 	// console.log('pagination-list: totalQuantity', totalQuantity, articles);
 
 	let numArticles = articles.length;
-	let articlesPerPage = 6;
+	let articlesPerPage = $itemsPerPage;
 	$: totalPages = Math.ceil(totalQuantity / articlesPerPage);
 	$: currentPage = 1;
 	$: pageSet = 5;
@@ -64,13 +68,17 @@
 		/>
 	{/key}
 </div>
-<div class="category-container">
-	{#each articleSet as article, i}
-		<!-- <p>Setting the content {i} {currentPage}</p> -->
-		<ContentCardMedium {article} />
-		<!-- <ResourcesCard {article} {category} /> -->
-	{/each}
-</div>
+{#key articleSet}
+	<div
+		class="category-container"
+		out:fly={{ delay: 0, duration: 200, opacity: 0, x: -100 }}
+		in:fly={{ delay: 250, duration: 200, x: 200 }}
+	>
+		{#each articleSet as article, i}
+			<ContentCardMedium {article} />
+		{/each}
+	</div>
+{/key}
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100;300&display=swap');

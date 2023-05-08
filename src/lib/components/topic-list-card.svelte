@@ -10,7 +10,7 @@
 		// @ts-ignore
 		$clickedTopic = topic;
 		goto('/resources/topic/');
-		console.log('key-topic-clicked: ', $clickedTopic);
+		// console.log('topic-card: ', $clickedTopic);
 	}
 </script>
 
@@ -18,9 +18,9 @@
 	<!-- <span style="font-size:1.1em;font-weight:bold">tags </span> -->
 	{#each tags as tag}
 		{#if tag != 'NA'}
-			<a class="topic topic-box {boxSize}" href={`/resources/topics/${tag}`}> {tag} </a>
+			<a class="topic topic-box {boxSize}" href={`/resources/topics/${tag}`}>{tag}</a>
 		{:else}
-			<a class="topic topic-box" href={`/resources/topics/untagged`}> untagged </a>
+			<a class="topic topic-box" href={`/resources/topics/untagged`}>untagged</a>
 		{/if}
 	{/each}
 </p>
@@ -60,8 +60,9 @@
 	}
 
 	.topic-box {
-		padding: 0px 2px;
-		margin: 0px 3px;
+		padding: 0px 4px;
+		/* margin: 0px 3px; */
+		margin: 0px 5px 3px 0px;
 		/* background-color: hsla(195, 89%, 69%, 0.1); */
 		background-color: #eafaff;
 		color: hsl(251, 100%, 15%);
@@ -69,6 +70,7 @@
 		text-decoration: none;
 		/* border: 0px solid hsla(252, 32%, 44%, 0.2); */
 		border: 1px solid hsla(251, 32%, 44%, 0.2);
+		display: inline-block;
 	}
 
 	.topic:hover {

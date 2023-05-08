@@ -1,5 +1,19 @@
 import * as d3 from 'd3';
 
+function getImageUrl(article) {
+    //grab a random image if img_type is "rep"lace
+    const baseImageUrl = '/img/images/geometric-pattern-';
+    const minImg = 1;
+    const maxImg = 34; //max number of images in /img/images/folder
+    let img_url;
+    if (article.img_type === "rep") {
+        img_url = baseImageUrl.concat(paddedRandomIntFromInterval(minImg, maxImg), '.jpg');
+    } else {
+        img_url = article.img_url;
+    }
+    return (img_url)
+}
+
 function randomIntFromInterval(min, max) {
     // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -70,7 +84,7 @@ function parseArticle(d) {
         excerpt: d.article_excerpt,
         // img_file: d.img_file,
         img_url: d.img_url,
-        // img_type: d.img_type,
+        img_type: d.img_type,
         link: d.link,
         link_id: d.link_id,
         link_type: d.link_type,
@@ -172,5 +186,5 @@ function filterTopic1(articles, topic) {
 
 export {
     randomIntFromInterval, paddedRandomIntFromInterval, parsePosts, parseArticle, capitalizeFirstLetter, loadArticles, loadPosts,
-    filterCategory, filterTheme, filterTopic
+    filterCategory, filterTheme, filterTopic, getImageUrl
 } 

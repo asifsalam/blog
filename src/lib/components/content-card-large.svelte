@@ -1,16 +1,36 @@
 <script>
 	import TopicListCard from '$lib/components/topic-list-card.svelte';
-	const twitterLogoUrl = 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg';
+	import TagListCard from '$lib/components/tag-list-card.svelte';
+	import { paddedRandomIntFromInterval, getImageUrl } from '$lib/modules/utility_functions';
+
+	const twitterLogoUrl = '/img/icons/twitter-svgrepo-com-2.svg';
+	const baseImageUrl = '/img/images/geometric-pattern-';
 	export let article;
 
 	let tags;
 	let img_url;
 
-	if (article.img_url != 'non') {
-		img_url = article.img_url;
-	} else {
-		img_url = 'https://picsum.photos/200/300';
-	}
+	// if (article.img_type === 'rep' || article.img_type === 'non') {
+	// 	img_url = baseImgUrl.concat(paddedRandomIntFromInterval(1, 34), '.jpg');
+	// } else {
+	// 	img_url = article.img_url;
+	// }
+
+	// if (article.img_type != 'rep') {
+	// 	img_url = article.img_url;
+	// } else {
+
+	// 	img_url = baseImgUrl.concat(paddedRandomIntFromInterval(1, 34), '.jpg');
+	// }
+
+	// if (article.img_url.includes('geometric-pattern')) {
+	// 	img_url = baseImageUrl.concat(paddedRandomIntFromInterval(1, 34), '.jpg');
+	// } else {
+	// 	img_url = article.img_url;
+	// }
+
+	img_url = getImageUrl(article);
+
 	if (article.tags.length > 4) {
 		tags = article.tags.slice(0, 4);
 	} else {
@@ -22,6 +42,7 @@
 		article.excerpt = article.excerpt.substring(0, excerptLength);
 
 	// article.excerpt = article.excerpt.replace('...', '').split(' ').slice(0, 15).join(' ');
+	// console.log('cc-lrg: ', img_url, article);
 </script>
 
 <div class="post-main">
@@ -38,16 +59,22 @@
 			</p>
 		{/if}
 	</div>
-	<div class="topics"><TopicListCard {tags} size={2} /></div>
+	<!-- <div class="topics"><TagListCard {tags} size={2} /></div> -->
+	<div class="tags">
+		{#if article.link_type === 'twitter'}
+			<a class="logo-container" href="https://twitter.com">
+				<img class="site-logo" src={twitterLogoUrl} alt="" srcset="" /></a
+			>
+		{/if}
+		<div class="topics">
+			<TagListCard {tags} size={2} />
+		</div>
+	</div>
 
-	<div class="post-content" style="background-image: url({img_url}); filter:sepia(0.2)">
-		<div class="left-content">
+	<!-- <div class="post-content" style="background-image: url({img_url}); filter:sepia(0.2)"> -->
+	<div class="post-content">
+		<div class="left-content" style="background-image: url({img_url}); filter:sepia(0.3)">
 			<!-- <div class="background-image" style="background-image: url({img_url}); filter:sepia(0.3)" /> -->
-			{#if article.link_type === 'twitter'}
-				<a href="https://twitter.com"
-					><img class="site-logo" src={twitterLogoUrl} alt="" srcset="" /></a
-				>
-			{/if}
 		</div>
 		<div class="right-content">
 			<a href={article.link} class="excerpt-linked">
@@ -127,7 +154,7 @@
 
 	.post-content {
 		display: grid;
-		grid-template-columns: 1fr 2fr;
+		grid-template-columns: 1fr 3fr;
 		grid-template-rows: auto auto;
 		height: 100%;
 		width: 100%;
@@ -162,13 +189,13 @@
 		background-color: hsl(55deg 100% 98% / 85%);
 	}
 
-	.site-logo {
-		width: 10%;
+	/* .site-logo {
+		width: 30%;
 		position: absolute;
 		left: 0.2%;
 		bottom: 0.2%;
-		filter: saturate(0.3);
-	}
+		filter: saturate(0.6);
+	} */
 
 	.right-content .excerpt {
 		font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -242,6 +269,37 @@
 		background-color: hsl(55deg 100% 98% / 85%);
 		grid-column-start: 1;
 		grid-column-end: 3;
-		border-bottom: 1px dotted hsla(251, 100%, 30%, 0.3);
+		/* border-bottom: 1px dotted hsla(251, 100%, 30%, 0.3); */
+	}
+
+	.tags {
+		display: flex;
+		align-items: flex-start;
+		/* margin: 5px 0 5px 0px; */
+		padding: 2px 0px;
+		/* font-weight: bold; */
+		grid-column-start: 1;
+		grid-column-end: 3;
+		border-top: 1px solid hsla(251, 100%, 30%, 0.1);
+		/* background: linear-gradient(hsl(55deg 100% 98% / 90%), hsl(55deg 100% 98% / 100%)); */
+		border-bottom: 1px solid hsla(251, 100%, 30%, 0.1);
+		z-index: 5;
+	}
+	.logo-container {
+		height: 30px;
+		width: 30px;
+		/* margin-top: 3px; */
+		padding-right: 5px;
+	}
+
+	.site-logo {
+		/* height: 30px; */
+		width: 30px;
+		/* display: inline; */
+		height: 100%;
+		position: relative;
+		left: 0;
+		top: 0;
+		filter: saturate(0.6);
 	}
 </style>

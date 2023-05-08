@@ -19,7 +19,7 @@
 		margin: 0;
 	}
 	.heading {
-		background-image: url('https://unsplash.com/photos/VWcPlbHglYc');
+		/* background-image: url('/img/images/geometric-pattern-01.jpg'); */
 		display: grid;
 		grid-template-columns: 4fr 1fr;
 		height: 4em;
