@@ -40,9 +40,9 @@
 		font-size: smaller;
 	}
 
-	.size-1 {
+	/* .size-1 {
 		font-size: 0.9rem;
-	}
+	} */
 
 	.size-2 {
 		font-size: 1rem;

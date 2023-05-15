@@ -3,7 +3,7 @@
 	import { page } from '$app/stores';
 	import { articleList, allCategories, clickedTheme } from '$lib/json/stores';
 	import { filterCategory } from '$lib/modules/utility_functions';
-	import CategoryList from '$lib/components/category-list.svelte';
+	// import CategoryList from '$lib/components/category-list.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import CreateTags from '$lib/components/create-tags.svelte';
@@ -16,7 +16,7 @@
 	$: articles = [];
 	let themes = [];
 	let themeObj = {};
-	console.log('page-theme');
+	// console.log('page-theme');
 
 	onMount(() => {
 		selectedTheme = $clickedTheme;
@@ -66,14 +66,6 @@
 		{#key theme}
 			<PaginationList {articles} category={theme} {totalQuantity} />
 		{/key}
-
-		<!-- <div class="cards">
-			{#if articles.length > 0}
-				<CategoryList {articles} category={theme} />
-			{:else}
-				<p>No relevant resources found</p>
-			{/if}
-		</div> -->
 	</div>
 </div>
 

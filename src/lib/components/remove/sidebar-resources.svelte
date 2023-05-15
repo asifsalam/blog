@@ -2,7 +2,7 @@
 	// import ResourceCategoryBars from './resource-category-bars.svelte';
 	// import KeyThemes from '$lib/components/key-themes.svelte';
 	import KeyCategories from '$lib/components/remove/key-categories-2.svelte';
-	import KeyTopics from '$lib/components/key-topics.svelte';
+	import KeyTopics from '$lib/components/remove/key-topics.svelte';
 	export let allThemes;
 	export let allCategories;
 	export let allTopics;

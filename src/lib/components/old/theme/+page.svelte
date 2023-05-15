@@ -3,13 +3,13 @@
 	import { page } from '$app/stores';
 	import { articleList, allCategories, clickedTheme } from '$lib/json/stores';
 	import { filterCategory } from '$lib/modules/utility_functions';
-	import CategoryList from '$lib/components/category-list.svelte';
+	import CategoryList from '$lib/components/remove/category-list.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import CreateTags from '$lib/components/create-tags.svelte';
-	import SidebarThemeHeading from '$lib/components/sidebar-theme-heading.svelte';
+	import SidebarThemeHeading from '$lib/components/remove/sidebar-theme-heading.svelte';
 	// import Sidebar from '$lib/components/remove/sidebar.svelte';
-	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
+	import SectionHeadingCategory from '$lib/components/remove/section-heading-category.svelte';
 	// import KeyCategories from '$lib/components/key-themes.svelte';
 	// export let data;
 	// export let errors;

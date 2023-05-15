@@ -5,8 +5,8 @@
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
-	import CategoryList from '$lib/components/category-list.svelte';
+	// import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
+	// import CategoryList from '$lib/components/category-list.svelte';
 
 	import CreateTags from '$lib/components/create-tags.svelte';
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
@@ -54,18 +54,6 @@
 
 <div class="container">
 	<div class="sidebar">
-		<!-- <div class="sidebar-header">
-			<p class="sidebar-header-text">Resources by category</p>
-			<p />
-		</div> -->
-		<!-- <p class="categories-header">{headingText}</p>
-		<p class="topics">
-			{#each categories as category}
-				<button class="topic topic-box" on:click={() => categoryClicked(category)}
-					>{category}</button
-				>
-			{/each}
-		</p> -->
 		<SidebarHeading
 			sidebarLeadinText={'Select articles and resources from the categories below.'}
 		/>
@@ -77,19 +65,7 @@
 				headingText={sidebarTagHeading}
 			/>
 		</p>
-		<!-- <KeyCategories headingText={'Resource categories'} {categories} /> -->
-		<!-- <p on:click={() => categoryClicked(category)}>sidebar {category}</p> -->
 	</div>
-	<!-- <div class="posts">
-		<SectionHeadingCategory {category} {totalQuantity} />
-		<div class="cards">
-			{#if articles.length > 0}
-				<CategoryList {articles} {category} />
-			{:else}
-				<p>Houston there is a problem in "category-list.svelte"</p>
-			{/if}
-		</div>
-	</div> -->
 	<div class="posts-list">
 		<SectionHeadingBasic selectedTag={category} {totalQuantity} headingTitle={headingText} />
 		{#key category}
@@ -110,9 +86,8 @@
 		margin: 10px 30px 00px 0px;
 		flex-flow: column;
 	}
-	.sidebar-header {
+	/* .sidebar-header {
 		display: block;
-		/* float: left; */
 		height: auto;
 		width: 100%;
 		background-color: rgb(255, 254, 243);
@@ -124,7 +99,6 @@
 		display: block;
 		padding: 0;
 		margin: 0px 0 5px 0;
-		/* font-family: 'Roboto Slab'; */
 		font-family: 'Crete Round';
 		font-size: 1.4em;
 		font-weight: 100;
@@ -138,7 +112,7 @@
 		font-size: 1.4em;
 		font-weight: 300;
 		color: hsla(251, 100%, 20%, 0.9);
-	}
+	} */
 	.topics {
 		display: inline;
 		line-height: 1.5;
@@ -147,7 +121,7 @@
 		font-weight: bold;
 	}
 
-	.topic-box {
+	/* .topic-box {
 		display: inline-block;
 		padding: 0px 5px;
 		margin: 5px 10px 5px 0;
@@ -164,5 +138,5 @@
 	.topic:hover {
 		color: hsl(251, 100%, 60%);
 		font-weight: bold;
-	}
+	} */
 </style>

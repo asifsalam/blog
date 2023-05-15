@@ -3,7 +3,7 @@
 	// import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Sidebar from '$lib/components/remove/sidebar-resources.svelte';
 	import ContentCard from '$lib/components/resources-card.svelte';
-	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
+	import SectionHeadingCategory from '$lib/components/remove/section-heading-category.svelte';
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import { allCategories } from '$lib/json/stores.js';
 	import { page } from '$app/stores';

@@ -1,6 +1,6 @@
 <script>
-	import KeyThemes from '$lib/components/key-themes.svelte';
-	import SidebarHeadingHome from '$lib/components/sidebar-home-heading.svelte';
+	import KeyThemes from '$lib/components/remove/key-themes.svelte';
+	import SidebarHeadingHome from '$lib/components/remove/sidebar-home-heading.svelte';
 	import '/src/styles/global.css';
 	export let themes;
 	export let categories;

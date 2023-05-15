@@ -9,6 +9,8 @@
 		clickedCategory
 	} from '$lib/json/stores';
 	import { goto } from '$app/navigation';
+	import { fade } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
 	import ContentCard from '$lib/components/content-card-large.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
@@ -16,9 +18,9 @@
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
 
-	$allCategories.forEach((el) => {
-		el.img = el.img.replace('/static', '');
-	});
+	// $allCategories.forEach((el) => {
+	// 	el.img = el.img.replace('/static', '');
+	// });
 	// const themes = $allCategories.filter((d) => d.type === 'theme');
 	const themes = $allThemes;
 	// console.log('home-page:');
@@ -42,55 +44,54 @@
 		// @ts-ignore
 		$clickedTheme = 'all';
 		goto('/blog');
-		// console.log('morePostsClicked: ', selectedCategory);
 	}
 	function moreLinksClicked(selectedCategory) {
 		// @ts-ignore
 		$clickedCategory = 'all';
 		goto('/resources/category');
-		// console.log('moreLinksClicked: ', selectedCategory);
 	}
 </script>
 
 <RandomQuote />
 <Breadcrumbs />
-
-<div class="container">
-	<div class="sidebar-container">
-		<SidebarHeading {sidebarTitle} {sidebarLeadinText} {sidebarBulletText} />
-		<SidebarTags useThemes={'yes'} useCategories={'no'} />
-	</div>
-	<div class="main-content">
-		<div class="articles">
-			<SectionHeading
-				headingTitle={headingTitlePosts}
-				displayQuantity={displayQuantityPosts}
-				totalQuantity={totalQuantityPosts}
-				moreItemsClicked={morePostsClicked}
-			/>
-			<div class="posts">
-				{#each $postList.slice(0, displayQuantityPosts) as post}
-					<ContentCard article={post} />
-				{/each}
-			</div>
-			<p class="more-posts"><a href="\blog">More posts</a></p>
+{#key $articleList.length}
+	<div class="container" transition:fade={{ delay: 250, duration: 300 }}>
+		<div class="sidebar-container">
+			<SidebarHeading {sidebarTitle} {sidebarLeadinText} {sidebarBulletText} />
+			<SidebarTags useThemes={'yes'} useCategories={'no'} />
 		</div>
-		<div class="articles">
-			<SectionHeading
-				headingTitle={headingTitleLinks}
-				displayQuantity={displayQuantityLinks}
-				totalQuantity={totalQuantityLinks}
-				moreItemsClicked={moreLinksClicked}
-			/>
-			<div class="posts">
-				{#each $articleList.slice(0, displayQuantityLinks) as article}
-					<ContentCard {article} />
-				{/each}
+		<div class="main-content">
+			<div class="articles">
+				<SectionHeading
+					headingTitle={headingTitlePosts}
+					displayQuantity={displayQuantityPosts}
+					totalQuantity={totalQuantityPosts}
+					moreItemsClicked={morePostsClicked}
+				/>
+				<div class="posts">
+					{#each $postList.slice(0, displayQuantityPosts) as post}
+						<ContentCard article={post} />
+					{/each}
+				</div>
+				<p class="more-posts"><a href="\blog">More posts</a></p>
 			</div>
-			<p class="more-posts"><a href="\resources">More links</a></p>
+			<div class="articles">
+				<SectionHeading
+					headingTitle={headingTitleLinks}
+					displayQuantity={displayQuantityLinks}
+					totalQuantity={totalQuantityLinks}
+					moreItemsClicked={moreLinksClicked}
+				/>
+				<div class="posts">
+					{#each $articleList.slice(0, displayQuantityLinks) as article}
+						<ContentCard {article} />
+					{/each}
+				</div>
+				<p class="more-posts"><a href="\resources">More links</a></p>
+			</div>
 		</div>
 	</div>
-</div>
+{/key}
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Sanchez&family=Pridi&display=swap');

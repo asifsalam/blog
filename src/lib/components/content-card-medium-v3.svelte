@@ -2,7 +2,7 @@
 	import { excerptLength } from '$lib/json/stores';
 	import { getImageUrl } from '$lib/modules/utility_functions';
 	import TopicListCard from '$lib/components/topic-list-card.svelte';
-	import TagListCard from '$lib/components/tag-list-card.svelte';
+	// import TagListCard from '$lib/components/tag-list-card.svelte';
 	const twitterLogoUrl = '/img/icons/twitter-svgrepo-com-1.svg';
 	export let article;
 	let tags;
@@ -11,7 +11,7 @@
 
 	if (article.tags.length > 7) {
 		tags = article.tags.slice(0, 7);
-	} else if (article.tags.lenght < 1) {
+	} else if (article.tags.length < 1) {
 		tags = ['all'];
 	} else {
 		tags = article.tags;
@@ -24,16 +24,12 @@
 <div class="post-container">
 	<div class="left-container">
 		<div class="articleId-container">
-			<!-- <a href="https://twitter.com">
-				<img class="site-logo3" src={twitterLogoUrl} alt="" srcset="" />
-			</a> -->
 			<a class="articleId-link" href={article.link} target="_blank" rel="noopener noreferrer">
 				<p class="articleId">{article.link_id}</p>
 			</a>
 		</div>
 		<div class="image-container">
 			<a class="left-image" href={article.link}>
-				<!-- <img class="site-logo2" src={img_url} alt="" srcset="" /> -->
 				<div class="left-image" style="background-image: url({img_url}); filter:sepia(0.5)" />
 			</a>
 		</div>
@@ -55,10 +51,8 @@
 		<div class="right-content">
 			<a href={article.link} class="excerpt-linked">
 				<p class="excerpt" style="text-decoration:none">
-					<!-- {excerpt} -->
 					{article.excerpt.substring(0, $excerptLength)}
 					<span class="read-more">&#8212 read more</span>
-					<!-- &#x2026 -->
 				</p>
 			</a>
 		</div>
@@ -129,10 +123,8 @@
 	}
 
 	.left-image {
-		/* width: 100%; */
 		height: 100%;
 		background-color: black;
-		/* object-fit: cover; */
 		background-size: cover;
 		background-position: center;
 	}
@@ -145,9 +137,7 @@
 	}
 
 	.site-logo {
-		/* height: 30px; */
 		width: 30px;
-		/* display: inline; */
 		height: 100%;
 		position: relative;
 		left: 0;
@@ -207,7 +197,6 @@
 
 	.right-content {
 		width: 100%;
-		/* height: 100%; */
 		z-index: 3;
 		margin: 5px 0 0 10px;
 		color: black;
@@ -219,9 +208,7 @@
 		font-size: 1rem;
 		line-height: 110%;
 		margin: 0;
-		/* margin: 5px 0px 2px 10px; */
 		flex: 1;
-		/* min-height: 80px; */
 	}
 
 	.excerpt-linked {
@@ -229,9 +216,9 @@
 	}
 
 	.read-more {
-		/* text-decoration: underline; */
 		font-weight: bold;
 	}
+
 	.read-more:hover {
 		font-weight: bold;
 		text-decoration: underline;
@@ -245,13 +232,10 @@
 	.tags {
 		display: flex;
 		align-items: flex-start;
-		/* margin: 5px 0 5px 0px; */
 		padding: 3px 0px;
-		/* font-weight: bold; */
 		grid-column-start: 1;
 		grid-column-end: 3;
 		border-top: 1px solid hsla(251, 100%, 30%, 0.1);
-		/* background: linear-gradient(hsl(55deg 100% 98% / 90%), hsl(55deg 100% 98% / 100%)); */
 		border-bottom: 1px solid hsla(251, 100%, 30%, 0.1);
 		z-index: 5;
 	}
@@ -259,15 +243,11 @@
 	.topics {
 		line-height: 1.7;
 		margin-top: 3px;
-		/* padding: 4px 4px; */
 		padding: 0px 0px 0px 0px;
 		display: flex;
-		/* align-items: center; */
-		/* font-weight: bold; */
 		grid-column-start: 1;
 		grid-column-end: 3;
 		background: linear-gradient(hsl(55deg 100% 98% / 50%), hsl(55deg 100% 98% / 100%));
-
 		z-index: 5;
 	}
 </style>

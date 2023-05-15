@@ -5,8 +5,9 @@
 	import { filterTopic } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	import SectionHeadingTopic from '$lib/components/section-heading-topic.svelte';
+	import SectionHeadingTopic from '$lib/components/remove/section-heading-topic.svelte';
 	import TopicList from '$lib/components/topic-list.svelte';
+	// import TagList from '$lib/components/tag-list.svelte';
 
 	$: topic = data.topic;
 	$: articles = filterTopic($articleList, topic);

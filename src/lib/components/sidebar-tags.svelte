@@ -1,11 +1,11 @@
 <script>
 	import { allThemes, allCategories, allTopics } from '$lib/json/stores';
+	import KeyTags from '$lib/components/key-tags.svelte';
+	import '/src/styles/global.css';
 	// import KeyThemes from '$lib/components/key-themes.svelte';
 	// import KeyCategories from './key-categories.svelte';
 	// import KeyTopics from '$lib/components/key-topics.svelte';
-	import KeyTags from '$lib/components/key-tags.svelte';
 	// import SidebarHeadingHome from '$lib/components/sidebar-heading-home.svelte';
-	import '/src/styles/global.css';
 
 	export let useThemes = 'yes';
 	export let useCategories = 'yes';

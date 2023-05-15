@@ -74,9 +74,6 @@
 	}
 
 	.topic:hover {
-		/* color: hsl(251, 100%, 21%); */
-		/* font-weight: bold; */
-		/* background-color: hsla(195, 89%, 69%, 0.4); */
 		outline: 0.2px solid hsla(252, 32%, 44%, 0.2);
 		cursor: pointer;
 		color: hsl(253, 39%, 95%);

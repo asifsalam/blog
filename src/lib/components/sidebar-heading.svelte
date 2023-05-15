@@ -1,5 +1,5 @@
 <script>
-	import Sidebar from './remove/sidebar.svelte';
+	// import Sidebar from './remove/sidebar.svelte';
 	import '/src/styles/global.css';
 	export let sidebarTitle = '';
 	export let sidebarLeadinText = '';

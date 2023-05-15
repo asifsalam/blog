@@ -3,12 +3,12 @@
 	import { page } from '$app/stores';
 	import { articleList, allThemes, clickedTheme } from '$lib/json/stores';
 	import { filterTheme } from '$lib/modules/utility_functions';
-	import CategoryList from '$lib/components/category-list.svelte';
+	import CategoryList from '$lib/components/remove/category-list.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import Sidebar from '$lib/components/remove/sidebar-resources.svelte';
-	import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
-	import KeyThemes from '$lib/components/key-themes.svelte';
+	import SectionHeadingCategory from '$lib/components/remove/section-heading-category.svelte';
+	import KeyThemes from '$lib/components/remove/key-themes.svelte';
 	// export let data;
 	// export let errors;
 

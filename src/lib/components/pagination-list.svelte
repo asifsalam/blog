@@ -8,7 +8,7 @@
 	import { itemsPerPage } from '$lib/json/stores';
 	import ContentCardMedium from '$lib/components/content-card-medium-v3.svelte';
 	import Pagination from '$lib/components/pagination.svelte';
-	import KeyCategories from './key-categories.svelte';
+	// import KeyCategories from './key-categories.svelte';
 	export let articles;
 	export let category;
 	export let totalQuantity;

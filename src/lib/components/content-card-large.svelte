@@ -1,5 +1,5 @@
 <script>
-	import TopicListCard from '$lib/components/topic-list-card.svelte';
+	// import TopicListCard from '$lib/components/topic-list-card.svelte';
 	import TagListCard from '$lib/components/tag-list-card.svelte';
 	import { paddedRandomIntFromInterval, getImageUrl } from '$lib/modules/utility_functions';
 

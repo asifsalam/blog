@@ -15,7 +15,7 @@
 
 	export let data;
 	export let errors;
-	let numArticles = 200;
+	let numArticles = 350;
 
 	data.allCategories.forEach((element) => {
 		element.img = element.img.replace('/static', '');
