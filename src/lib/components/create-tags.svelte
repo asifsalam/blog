@@ -58,7 +58,8 @@ tags as tag}
 		display: inline-block;
 		padding: 2px 5px;
 		margin: 3px 10px 3px 0;
-		background-color: #eafaff;
+		/* background-color: #eafaff; */
+		background-color: hsla(196, 67%, 54%, 0.07);
 		font-family: Roboto, Arial, Helvetica, sans-serif;
 		font-weight: normal;
 		/* font-size: 16em; */

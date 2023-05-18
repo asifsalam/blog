@@ -1,7 +1,7 @@
 <script>
 	import { excerptLength } from '$lib/json/stores';
 	import { getImageUrl } from '$lib/modules/utility_functions';
-	import TopicListCard from '$lib/components/topic-list-card.svelte';
+	import TopicListCard from '$lib/components/topic-list-card-v2.svelte';
 	// import TagListCard from '$lib/components/tag-list-card.svelte';
 	const twitterLogoUrl = '/img/icons/twitter-svgrepo-com-1.svg';
 	export let article;
@@ -10,7 +10,7 @@
 	img_url = getImageUrl(article);
 
 	if (article.tags.length > 7) {
-		tags = article.tags.slice(0, 7);
+		tags = article.tags.slice(0, 6);
 	} else if (article.tags.length < 1) {
 		tags = ['all'];
 	} else {
@@ -57,16 +57,17 @@
 			</a>
 		</div>
 	</div>
-	<div class="tags">
+	<!-- <div class="tags">
 		{#if article.link_type === 'twitter'}
 			<a class="logo-container" href="https://twitter.com">
 				<img class="site-logo" src={twitterLogoUrl} alt="" srcset="" /></a
 			>
 		{/if}
 		<div class="topics">
-			<TopicListCard {tags} size={2} />
+			<TopicListCard {tags} size={1} />
 		</div>
-	</div>
+	</div> -->
+	<TopicListCard {tags} link_type={article.link_type} size={2} />
 </div>
 
 <style>
@@ -77,7 +78,7 @@
 		grid-template-columns: 1fr 4fr;
 		width: 100%;
 		min-height: 50px;
-		max-height: 200px;
+		max-height: 250px;
 		border-top: solid 2px #9999808a;
 		overflow: overlay;
 	}
@@ -198,7 +199,7 @@
 	.right-content {
 		width: 100%;
 		z-index: 3;
-		margin: 5px 0 0 10px;
+		/* margin: 5px 0 0 10px; */
 		color: black;
 	}
 
@@ -209,6 +210,7 @@
 		line-height: 110%;
 		margin: 0;
 		flex: 1;
+		margin: 5px 0 3px 10px;
 	}
 
 	.excerpt-linked {

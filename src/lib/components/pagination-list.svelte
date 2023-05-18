@@ -1,18 +1,12 @@
 <script>
-	// import Pagination from '$lib/components/pagination.svelte';
-	// import ResourcesCard from '$lib/components/resources-card.svelte';
-	// import ContentCardA from '$lib/components/content-card-a.svelte';
-	// import ContentCardC from '$lib/components/content-card-c.svelte';
 	import { fade, slide, fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { itemsPerPage } from '$lib/json/stores';
 	import ContentCardMedium from '$lib/components/content-card-medium-v3.svelte';
 	import Pagination from '$lib/components/pagination.svelte';
-	// import KeyCategories from './key-categories.svelte';
 	export let articles;
 	export let category;
 	export let totalQuantity;
-	// console.log('pagination-list: totalQuantity', totalQuantity, articles);
 
 	let numArticles = articles.length;
 	let articlesPerPage = $itemsPerPage;
@@ -111,20 +105,7 @@
 		align-items: start;
 		column-gap: 1.5rem;
 		row-gap: 1.5rem;
-		/* grid-gap: 10px 15px; */
-		/* max-height: 1000px; */
-		/* overflow: scroll; */
 		align-content: start;
 		/* margin-bottom: 15px; */
 	}
-
-	/* div.posts {
-		margin: 0;
-		padding: 0;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		align-items: start;
-		column-gap: 1.5rem;
-		row-gap: 1.5rem;
-	} */
 </style>

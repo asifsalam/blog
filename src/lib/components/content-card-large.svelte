@@ -1,6 +1,6 @@
 <script>
-	// import TopicListCard from '$lib/components/topic-list-card.svelte';
-	import TagListCard from '$lib/components/tag-list-card.svelte';
+	import TopicListCard from '$lib/components/topic-list-card-v2.svelte';
+	// import TagListCard from '$lib/components/tag-list-card.svelte';
 	import { paddedRandomIntFromInterval, getImageUrl } from '$lib/modules/utility_functions';
 
 	const twitterLogoUrl = '/img/icons/twitter-svgrepo-com-2.svg';
@@ -9,25 +9,6 @@
 
 	let tags;
 	let img_url;
-
-	// if (article.img_type === 'rep' || article.img_type === 'non') {
-	// 	img_url = baseImgUrl.concat(paddedRandomIntFromInterval(1, 34), '.jpg');
-	// } else {
-	// 	img_url = article.img_url;
-	// }
-
-	// if (article.img_type != 'rep') {
-	// 	img_url = article.img_url;
-	// } else {
-
-	// 	img_url = baseImgUrl.concat(paddedRandomIntFromInterval(1, 34), '.jpg');
-	// }
-
-	// if (article.img_url.includes('geometric-pattern')) {
-	// 	img_url = baseImageUrl.concat(paddedRandomIntFromInterval(1, 34), '.jpg');
-	// } else {
-	// 	img_url = article.img_url;
-	// }
 
 	img_url = getImageUrl(article);
 
@@ -40,9 +21,6 @@
 	const excerptLength = 200;
 	if (article.excerpt.length >= excerptLength)
 		article.excerpt = article.excerpt.substring(0, excerptLength);
-
-	// article.excerpt = article.excerpt.replace('...', '').split(' ').slice(0, 15).join(' ');
-	// console.log('cc-lrg: ', img_url, article);
 </script>
 
 <div class="post-main">
@@ -58,17 +36,6 @@
 				<span class="article-date">{article.post_date}</span>
 			</p>
 		{/if}
-	</div>
-	<!-- <div class="topics"><TagListCard {tags} size={2} /></div> -->
-	<div class="tags">
-		{#if article.link_type === 'twitter'}
-			<a class="logo-container" href="https://twitter.com">
-				<img class="site-logo" src={twitterLogoUrl} alt="" srcset="" /></a
-			>
-		{/if}
-		<div class="topics">
-			<TagListCard {tags} size={2} />
-		</div>
 	</div>
 
 	<!-- <div class="post-content" style="background-image: url({img_url}); filter:sepia(0.2)"> -->
@@ -86,6 +53,12 @@
 			</a>
 		</div>
 	</div>
+	<TopicListCard {tags} link_type={article.link_type} size={2} />
+	<!-- <div class="tags">
+		<div class="topics-1">
+			
+		</div>
+	</div> -->
 </div>
 
 <style>
@@ -280,26 +253,22 @@
 		/* font-weight: bold; */
 		grid-column-start: 1;
 		grid-column-end: 3;
-		border-top: 1px solid hsla(251, 100%, 30%, 0.1);
-		/* background: linear-gradient(hsl(55deg 100% 98% / 90%), hsl(55deg 100% 98% / 100%)); */
-		border-bottom: 1px solid hsla(251, 100%, 30%, 0.1);
+		/* border-top: 1px solid hsla(251, 100%, 30%, 0.1);
+		border-bottom: 1px solid hsla(251, 100%, 30%, 0.1); */
 		z-index: 5;
 	}
-	.logo-container {
+	/* .logo-container {
 		height: 30px;
 		width: 30px;
-		/* margin-top: 3px; */
 		padding-right: 5px;
-	}
+	} */
 
-	.site-logo {
-		/* height: 30px; */
+	/* .site-logo {
 		width: 30px;
-		/* display: inline; */
 		height: 100%;
 		position: relative;
 		left: 0;
 		top: 0;
 		filter: saturate(0.6);
-	}
+	} */
 </style>

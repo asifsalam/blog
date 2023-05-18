@@ -52,7 +52,8 @@
 		padding: 0px 2px;
 		margin: 0px 3px;
 		/* background-color: hsla(195, 89%, 69%, 0.1); */
-		background-color: #eafaff;
+		/* background-color: #eafaff; */
+		background-color: hsla(196, 67%, 54%, 0.1);
 		color: hsla(251, 100%, 15%, 0.7);
 		border-radius: 5px;
 		text-decoration: none;

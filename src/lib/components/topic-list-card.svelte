@@ -5,13 +5,6 @@
 	import { clickedTopic } from '$lib/json/stores';
 
 	let boxSize = 'size-' + size;
-	// console.log('component: topic-list-card');
-	function topicClicked(topic) {
-		// @ts-ignore
-		$clickedTopic = topic;
-		goto('/resources/topic/');
-		// console.log('topic-card: ', $clickedTopic);
-	}
 </script>
 
 <p class="tags">
@@ -25,29 +18,12 @@
 	{/each}
 </p>
 
-<!-- <p class="topics">
-	<span style="font-size:1.1em;font-weight:bold">Topics:</span>
-	{#each tags as topic}
-		{#if topic != 'NA'}
-			<button
-				class="topic topic-box {boxSize}"
-				on:click={() => {
-					topicClicked(topic);
-				}}
-			>
-				{topic}
-			</button>
-		{:else}
-			<p>Error</p>
-		{/if}
-	{/each}
-</p> -->
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100;300&display=swap');
 
 	.tags {
 		display: block;
-		margin: 0 0 0px 0px;
+		margin: 0px;
 		font-size: smaller;
 	}
 
@@ -61,14 +37,11 @@
 
 	.topic-box {
 		padding: 0px 4px;
-		/* margin: 0px 3px; */
 		margin: 0px 5px 3px 0px;
-		/* background-color: hsla(195, 89%, 69%, 0.1); */
-		background-color: #eafaff;
+		background-color: hsla(196, 67%, 54%, 0.1);
 		color: hsl(251, 100%, 15%);
 		border-radius: 5px;
 		text-decoration: none;
-		/* border: 0px solid hsla(252, 32%, 44%, 0.2); */
 		border: 1px solid hsla(251, 32%, 44%, 0.2);
 		display: inline-block;
 	}

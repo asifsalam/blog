@@ -1,8 +1,10 @@
 <script>
-	import ResourcesCard from '$lib/components/resources-card.svelte';
+	import ContentCardSmall from '$lib/components/content-card-small-v1.svelte';
+	import ContentCardMedium from './content-card-medium-v3.svelte';
 	import { clickedCategory } from '$lib/json/stores';
 	import { goto } from '$app/navigation';
 	import { allCategories } from '$lib/json/stores';
+	import ContentCardMediumV3 from './content-card-medium-v3.svelte';
 	export let articles;
 	export let category;
 	export let displayArticles = 5;
@@ -55,7 +57,9 @@
 		</h3>
 	</div>
 	{#each articles.slice(0, displayArticles) as article}
-		<ResourcesCard {article} {category} />
+		<!-- <ContentCardSmall {article} {category} /> -->
+		<!-- <ContentCardMediumV3 {article} /> -->
+		<ContentCardSmall {article} {category} />
 	{/each}
 </div>
 
