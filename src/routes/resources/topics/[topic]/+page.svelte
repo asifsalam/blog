@@ -6,8 +6,6 @@
 	import { filterTopic } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	// import SectionHeadingTopic from '$lib/components/section-heading-topic.svelte';
-	// import TopicList from '$lib/components/topic-list.svelte';
 	import CreateTags from '$lib/components/create-tags.svelte';
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
@@ -20,10 +18,11 @@
 	function topicClicked(clTopic) {
 		$clickedTopic = clTopic;
 		topic = clTopic;
-		console.log('topics[Topic]Clicked', clTopic);
+		// console.log('topics[Topic]Clicked', clTopic, `/resources/topics/${topic}`);
 		articles = filterTopic($articleList, clTopic);
-		goto('/resources/topics/${}');
+		goto(`/resources/topics/${topic}`);
 	}
+
 	/** @type {string}*/
 	const headingText = 'Tag';
 	$: totalQuantity = articles.length;

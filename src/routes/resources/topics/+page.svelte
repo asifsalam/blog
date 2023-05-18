@@ -25,7 +25,8 @@
 		selectedTopic = $clickedTopic;
 		console.log('topics-page-function-clicked: ', $clickedTopic);
 		articles = filterTopic($articleList, selectedTopic);
-		goto('/resources/topics');
+		// goto('/resources/topics');
+		goto(`/resources/topics/${topic}`);
 	}
 	/** @type {string}*/
 	const headingText = 'Tag';
@@ -80,7 +81,7 @@
 		margin: 10px 30px 00px 0px;
 		flex-flow: column;
 	}
-	.sidebar-header {
+	/* .sidebar-header {
 		display: block;
 		height: auto;
 		width: 100%;
@@ -88,8 +89,8 @@
 		padding: 0 0 10px 0;
 		margin: 0;
 		border-bottom: 2px solid hsl(23, 8%, 50%);
-	}
-	.sidebar-header-text {
+	} */
+	/* .sidebar-header-text {
 		display: block;
 		padding: 0;
 		margin: 0px 0 5px 0;
@@ -98,15 +99,15 @@
 		font-weight: 100;
 		color: hsla(251, 100%, 15%, 1);
 		text-align: left;
-	}
-	.topics-header {
+	} */
+	/* .topics-header {
 		padding: 5px 0;
 		margin: 10px 0;
 		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
 		font-size: 1.4em;
 		font-weight: 300;
 		color: hsla(251, 100%, 20%, 0.9);
-	}
+	} */
 	.topics {
 		display: inline;
 		line-height: 1.5;
@@ -115,7 +116,7 @@
 		font-weight: bold;
 	}
 
-	.topic-box {
+	/* .topic-box {
 		display: inline-block;
 		padding: 0px 5px;
 		margin: 5px 10px 5px 0;
@@ -127,11 +128,11 @@
 		border-radius: 5px;
 		text-decoration: none;
 		border: 0.1px solid hsla(251, 32%, 44%, 0.2);
-	}
-	.topic:hover {
+	} */
+	/* .topic:hover {
 		color: hsl(251, 95%, 33%);
 		font-weight: bold;
 		background-color: #bff0ff;
 		cursor: pointer;
-	}
+	} */
 </style>

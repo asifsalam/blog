@@ -11,12 +11,11 @@
 	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
 	import PaginationList from '$lib/components/pagination-list.svelte';
 
-	$: selectedTheme = '';
-	$: theme = 'datadrivenenterprise';
+	$: selectedTheme = $clickedTheme;
+	$: theme = $clickedTheme;
 	$: articles = [];
 	let themes = [];
 	let themeObj = {};
-	// console.log('page-theme');
 
 	onMount(() => {
 		selectedTheme = $clickedTheme;
@@ -24,6 +23,7 @@
 		themeObj = $allCategories.filter((d) => d.category == selectedTheme)[0];
 		theme = themeObj.category;
 		articles = filterCategory($articleList, themeObj);
+		// console.log(articles[0].link_id);
 	});
 
 	function themeClicked(clTheme) {
@@ -33,7 +33,6 @@
 		themeObj = $allCategories.filter((d) => d.category == selectedTheme)[0];
 		theme = themeObj.category;
 		articles = filterCategory($articleList, themeObj);
-		// console.log('themes-page:', themes, themeObj, theme, articles);
 	}
 	/** @type {string}*/
 	const headingText = 'Selected theme: ';
@@ -60,6 +59,7 @@
 				headingText={sidebarTagHeading}
 			/>
 		</p>
+		<!-- <SidebarTags useThemes={'yes'} useCategories={'no'} useTopics={'no'} /> -->
 	</div>
 	<div class="posts-list">
 		<SectionHeadingBasic selectedTag={theme} {totalQuantity} headingTitle={headingText} />
@@ -81,16 +81,16 @@
 		margin: 10px 30px 00px 0px;
 		flex-flow: column;
 	}
-	div.posts {
+	/* div.posts {
 		margin: 0;
 		padding: 0;
 		display: grid;
-		/* grid-template-columns: 1fr 1fr; */
+
 		grid-template-columns: 1fr 1fr;
 		align-items: start;
 		column-gap: 1.5rem;
 		row-gap: 1.5rem;
-	}
+	} */
 
 	/* .themes-header {
 		padding: 10px 0 0 0;

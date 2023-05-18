@@ -18,9 +18,6 @@
 	const sidebarLeadinText =
 		'Select items by category or tag. Categories are simply a set of tags.<br /> ';
 	const sidebarBulletText = '';
-	// console.log('resources-page: ', displayQuantity, $allCategories);
-
-	// console.log('resources-page');
 </script>
 
 <RandomQuote />

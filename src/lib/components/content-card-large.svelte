@@ -54,11 +54,6 @@
 		</div>
 	</div>
 	<TopicListCard {tags} link_type={article.link_type} size={2} />
-	<!-- <div class="tags">
-		<div class="topics-1">
-			
-		</div>
-	</div> -->
 </div>
 
 <style>

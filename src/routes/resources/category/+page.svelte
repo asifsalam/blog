@@ -5,8 +5,6 @@
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
-	// import SectionHeadingCategory from '$lib/components/section-heading-category.svelte';
-	// import CategoryList from '$lib/components/category-list.svelte';
 
 	import CreateTags from '$lib/components/create-tags.svelte';
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
@@ -16,6 +14,7 @@
 	$: selectedCategory = '';
 	$: category = 'dataviz';
 	$: articles = [];
+
 	let categories = [];
 	let categoryObj = {};
 	let categoriesObj = $allCategories.filter((d) => d.type === 'category');
@@ -86,33 +85,7 @@
 		margin: 10px 30px 00px 0px;
 		flex-flow: column;
 	}
-	/* .sidebar-header {
-		display: block;
-		height: auto;
-		width: 100%;
-		background-color: rgb(255, 254, 243);
-		padding: 0 0 10px 0;
-		margin: 0;
-		border-bottom: 2px solid hsl(23, 8%, 50%);
-	}
-	.sidebar-header-text {
-		display: block;
-		padding: 0;
-		margin: 0px 0 5px 0;
-		font-family: 'Crete Round';
-		font-size: 1.4em;
-		font-weight: 100;
-		color: hsla(251, 100%, 15%, 1);
-		text-align: left;
-	}
-	.categories-header {
-		padding: 5px 0;
-		margin: 10px 0;
-		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
-		font-size: 1.4em;
-		font-weight: 300;
-		color: hsla(251, 100%, 20%, 0.9);
-	} */
+
 	.topics {
 		display: inline;
 		line-height: 1.5;
@@ -120,23 +93,4 @@
 		font-size: 1.2rem;
 		font-weight: bold;
 	}
-
-	/* .topic-box {
-		display: inline-block;
-		padding: 0px 5px;
-		margin: 5px 10px 5px 0;
-		background-color: #eafaff;
-		font-family: Roboto, Arial, Helvetica, sans-serif;
-		cursor: pointer;
-		font-weight: normal;
-		font-size: 1em;
-		color: hsl(251, 100%, 15%);
-		border-radius: 5px;
-		text-decoration: none;
-		border: 0.1px solid hsla(251, 32%, 44%, 0.2);
-	}
-	.topic:hover {
-		color: hsl(251, 100%, 60%);
-		font-weight: bold;
-	} */
 </style>

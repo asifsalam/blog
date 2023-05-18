@@ -73,8 +73,9 @@
 						<ContentCard article={post} />
 					{/each}
 				</div>
-				<p class="more-posts"><a href="\blog">More posts</a></p>
+				<!-- <p class="more-posts"><a href="\blog">More posts</a></p> -->
 			</div>
+			<div class="section-break" />
 			<div class="articles">
 				<SectionHeading
 					headingTitle={headingTitleLinks}
@@ -87,7 +88,7 @@
 						<ContentCard {article} />
 					{/each}
 				</div>
-				<p class="more-posts"><a href="\resources">More links</a></p>
+				<!-- <p class="more-posts"><a href="\resources">More links</a></p> -->
 			</div>
 		</div>
 	</div>
@@ -127,9 +128,20 @@
 		row-gap: 1.5rem;
 	}
 
+	div.section-break {
+		background-image: url('/img/borders/taj_mahal_border_floral_03.png');
+		height: 15px;
+		background-size: contain;
+		margin: 10px 0;
+		padding: 0;
+	}
 	.more-posts {
 		text-align: right;
 		font-size: 1.2rem;
 		margin: 5px 0 10px 0;
+	}
+
+	.articles {
+		margin-bottom: 20px;
 	}
 </style>
