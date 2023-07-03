@@ -35,6 +35,18 @@ export async function load({ fetch }) {
         posts[i] = parseArticle(d)
     })
 
+    posts = posts.sort((first, second) =>
+        // new Date(second.date).getTime() - new Date(first.date).getTime()
+        second.link_id - first.link_id
+    )
+    posts = posts.sort((a, b) => {
+        if (a.link_id > b.link_id) {
+            return -1;
+        } else {
+            return 1;
+        }
+    });
+    // console.log(posts);
     // articles = [...posts, ...articles];
     return {
         articles, posts, allCategories, allThemes, allTopics

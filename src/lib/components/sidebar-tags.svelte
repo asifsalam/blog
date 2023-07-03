@@ -3,8 +3,8 @@
 	import KeyTags from '$lib/components/key-tags.svelte';
 	import '/src/styles/global.css';
 
-	export let useThemes = 'yes';
-	export let useCategories = 'yes';
+	export let useThemes = 'no';
+	export let useCategories = 'no';
 	export let useTopics = 'no';
 </script>
 

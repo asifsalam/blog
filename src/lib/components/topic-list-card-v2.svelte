@@ -26,8 +26,6 @@
 			<a class="topic-box" href={`/resources/topics/untagged`}>untagged</a>
 		{/if}
 	{/each}
-	<!-- </p> -->
-	<!-- </div> -->
 </div>
 
 <style>

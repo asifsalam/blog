@@ -56,7 +56,7 @@
 		width: 100%;
 		display: grid;
 		grid-template-columns: 3fr 9fr;
-		margin: 0px 0px 5px 0px;
+		margin: 10px 0px 5px 0px;
 	}
 
 	div.sidebar-container {

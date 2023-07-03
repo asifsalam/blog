@@ -18,10 +18,6 @@
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
 
-	// $allCategories.forEach((el) => {
-	// 	el.img = el.img.replace('/static', '');
-	// });
-	// const themes = $allCategories.filter((d) => d.type === 'theme');
 	const themes = $allThemes;
 	// console.log('home-page:');
 	let sidebarTitle = '';
@@ -50,6 +46,7 @@
 		$clickedCategory = 'all';
 		goto('/resources/category');
 	}
+	// console.log($postList);
 </script>
 
 <RandomQuote />
@@ -103,7 +100,7 @@
 		width: 100%;
 		display: grid;
 		grid-template-columns: 3fr 7fr;
-		margin: 0px 0px 5px 0px;
+		margin: 10px 0px 5px 0px;
 	}
 
 	div.sidebar-container {
@@ -121,7 +118,6 @@
 		margin: 0;
 		padding: 0;
 		display: grid;
-		/* grid-template-columns: 1fr 1fr; */
 		grid-template-columns: 1fr 1fr;
 		align-items: start;
 		column-gap: 1.5rem;
@@ -135,11 +131,11 @@
 		margin: 10px 0;
 		padding: 0;
 	}
-	.more-posts {
+	/* .more-posts {
 		text-align: right;
 		font-size: 1.2rem;
 		margin: 5px 0 10px 0;
-	}
+	} */
 
 	.articles {
 		margin-bottom: 20px;

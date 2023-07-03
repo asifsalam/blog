@@ -27,6 +27,7 @@
 	$allThemes = data.allThemes;
 	$allTopics = data.allTopics;
 	$excerptLength = 100;
+	// console.log($postList);
 </script>
 
 <svelte:head><title>asifsalam</title></svelte:head>

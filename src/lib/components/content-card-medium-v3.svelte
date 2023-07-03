@@ -57,16 +57,7 @@
 			</a>
 		</div>
 	</div>
-	<!-- <div class="tags">
-		{#if article.link_type === 'twitter'}
-			<a class="logo-container" href="https://twitter.com">
-				<img class="site-logo" src={twitterLogoUrl} alt="" srcset="" /></a
-			>
-		{/if}
-		<div class="topics">
-			<TopicListCard {tags} size={1} />
-		</div>
-	</div> -->
+
 	<TopicListCard {tags} link_type={article.link_type} size={2} />
 </div>
 

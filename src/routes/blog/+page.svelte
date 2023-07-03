@@ -33,11 +33,11 @@
 		<SectionHeading {category} headingTitle={headingText} {displayQuantity} {totalQuantity} />
 		<div class="articles">
 			<div class="posts">
-				{#each $postList.slice(0, 10) as post}
+				{#each $postList.slice(0, 50) as post}
 					<ContentCard article={post} />
 				{/each}
 			</div>
-			<p class="more-posts"><a href="\blog">More posts</a></p>
+			<!-- <p class="more-posts"><a href="\blog">More posts</a></p> -->
 		</div>
 	</div>
 </div>
@@ -47,7 +47,7 @@
 		width: 100%;
 		display: grid;
 		grid-template-columns: 3fr 7fr;
-		margin: 0px 0px 5px 0px;
+		margin: 10px 0px 5px 0px;
 	}
 	div.sidebar-container {
 		/* margin: 0;

@@ -1,0 +1,16 @@
+---
+preview_image: '/img/images/geometric-pattern-04.jpg'
+author: Shashi Tharoor
+title: The Book of Everything
+published: true
+post_date: '2022-05-15'
+excerpt: This is a summary of  blog post 3 that will display in the article list. This is a summary of blog post 1 that will display in the article list. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error doloremque omnis animi, eligendi magni a voluptatum, vitae, consequuntur rerum illum odit fugit assumenda rem dolores inventore iste reprehenderit maxime! Iusto.This is a summary of blog post 1 that will display in the article list. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error doloremque omnis animi, eligendi magni a voluptatum, vitae, consequuntur rerum illum odit fugit assumenda rem dolores inventore iste reprehenderit maxime! Iusto.
+categories:
+  - 'datadrivenenterprise'
+  - 'excel'
+  - 'powerbi'
+  - 'd3js'
+  - 'mypost'
+---
+
+This is blog post 3 with content.

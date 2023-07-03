@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,500;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Lancelot&family=Maiden+Orange&family=Noto+Serif+Thai:wght@300;400&family=Offside&family=Scope+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Pridi&family=Sanchez&display=swap');
+
+/* 
+Allura - handwriting font
+Delius - slight handwriting
+Great Vibes - handwriting
+Libre baskerville - slight handwriting - Headline?
+DM Sans - Sans font
+Yellowtail - handwriting Astigmatic, 1 style
+Pacifico - handwrting, 1 style
+Calligraffitti - handwriting, too much
+Crimson Pro - slight - headline?
+Meddon - slant handwriting, too much
+Antik Slab - Slight serif - too basic
+Amiri - light serif - too basic
+Proza Libre - slight handwriting
+Bad Script - handwriting
+Marck Script - handwriting
+ */
+:root {
+	/* colors */
+	--main-color: hsl(250, 100%, 25%);
+	--hue1: 250;
+	--heading-text: var(--hue) 100% 21% --text: var(--hue) 4.8% 28.9%;
+	--accent1: var(--hue) 43.6% 57.5%;
+	--accent2: var(--hue) 71.4% 95.9%;
+	--bg: hsl(55, 100%, 98%);
+	--bg-highlight: hsl(60, 56%, 91%);
+	--bg-accent1: var(--hue) 100% 99.6%;
+	--color_white: #fff;
+	--color_prime: #5ad67d;
+	--color_grey: #e2e2e2;
+	--color_grey_dark: #a2a2a2;
+	--color_link: #b7ffbc;
+
+	/* box-shadows */
+	--boxs-sm: 4px 6px 8px hsl(var(--accent1) / 14%), -3px 3px 18px 2px hsl(var(--accent1) / 12%),
+		2px 5px 10px -3px hsl(var(--accent1) / 20%);
+	--boxs-lg: 0px 8px 10px hsl(var(--accent1) / 14%), 0px 3px 14px 2px hsl(var(--accent1) / 12%),
+		0px 5px 5px -3px hsl(var(--accent1) / 20%);
+}
+
+@font-face {
+	font-family: 'Amal Baik';
+	src: url('/fonts/Amal\ Baik.ttf');
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Dista Calista';
+	src: url('/fonts/Ditsa\ Calista\ DEMO.ttf');
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Bukhari';
+	src: url('fonts/BukhariScript-lemD.ttf');
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'RedThinker';
+	src: url('/fonts/RedThinker-Light.ttf');
+	font-style: normal;
+	font-weight: 200;
+}
+
+@font-face {
+	font-family: 'Delik';
+	src: url('/fonts/DelikFreeTrial.ttf');
+	font-style: normal;
+	font-weight: 400;
+}
+
+/* h2 {
+	font-size: 2rem;
+} */
+
+.main-content P {
+	font-size: 1.3rem;
+}
+
+code {
+	/* width: 850px; */
+	font-size: 1.2rem;
+}
+
+.main-content img {
+	max-width: 90%;
+}
+
+li {
+	font-size: 1.2rem;
+}
+
+pre {
+	width: 850px;
+	box-sizing: border-box;
+	/* width: 100%; */
+	overflow-x: scroll;
+	background-color: #321506;
+	border: hsla(20, 79%, 11%, 0.5) 2px solid;
+	border-radius: 10px;
+}
+
+code {
+	box-sizing: border-box;
+	/* width: 850px; */
+	overflow-x: scroll;
+	/* background-color: #dda384; */
+}
+
+a {
+	color: #6e2d2de8;
+}

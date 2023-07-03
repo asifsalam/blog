@@ -78,17 +78,19 @@
 	.main-title-left {
 		height: 100%;
 		font-family: 'Dista Calista';
+		/* font-family: 'Test 1'; */
 		color: var(--heading-color);
-		font-size: 1.5em;
+		font-size: 1.7em;
 		text-align: center;
 		margin: 0;
 		padding: 0;
 	}
 
 	.main-title-right {
-		font-family: 'IBM Plex Mono';
+		/* font-family: 'IBM Plex Mono'; */
+		font-family: 'Demora';
 		color: var(--heading-color);
-		font-size: 1.2em;
+		font-size: 1.4em;
 		font-weight: 100;
 		text-align: left;
 		letter-spacing: 0px;
@@ -103,7 +105,7 @@
 	}
 	.title-name {
 		font-family: 'Great Vibes', 'Pacifico';
-		font-size: 0.6em;
+		font-size: 1em;
 		margin: 0;
 		/* rotate: -34deg; */
 		color: var(--heading-color);

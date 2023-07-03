@@ -19,6 +19,10 @@ function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+/**
+ * @param {number} min
+ * @param {number} max
+ */
 function paddedRandomIntFromInterval(min, max) {
     let randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
     let paddedRandomNumber = randomNumber > 9 ? String(randomNumber) : String('0' + randomNumber);
@@ -41,8 +45,9 @@ function loadPosts(postApi = '/api/posts.json') {
 
 };
 
-
-
+/**
+ * @param {any[] | Promise<{ allPosts: any; }>} posts
+ */
 function parsePosts(posts) {
 
     posts.forEach((d) => {
@@ -80,22 +85,24 @@ function loadArticles(numArticles = 0, dataFile = "/static/data/processed_links-
 function parseArticle(d) {
     return {
         // id: d.id,
-        author: d.article_author,
-        excerpt: d.article_excerpt,
-        // img_file: d.img_file,
-        img_url: d.img_url,
-        img_type: d.img_type,
-        link: d.link,
-        link_id: d.link_id,
-        link_type: d.link_type,
-        // media_type: d.media_type,
-        post_date: d.post_date,
-        // processed_date: d.processed_date,
         sequence: d.sequence,
-        // site: d.site_manual,
-        // status: d.status,
+        link_id: d.link_id,
+        link: d.link,
+        title: d.article_title,
+        author: d.article_author,
+        post_date: d.post_date,
+        excerpt: d.article_excerpt,
         tags: d.categories.split(';'),
-        title: d.article_title
+        site: d.site_manual,
+        link_type: d.link_type,
+        img_type: d.img_type,
+        img_url: d.img_url,
+        author_image: d.author_image,
+        author_url: d.author_url
+        // img_file: d.img_file,        
+        // media_type: d.media_type,
+        // processed_date: d.processed_date,
+        // status: d.status,        
     };
 }
 

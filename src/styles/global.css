@@ -57,6 +57,18 @@ Marck Script - handwriting
 	font-weight: 400;
 }
 
+@font-face {
+	font-family: 'Demora';
+	/* src: url('/fonts/trial/DemoraItalic-p7LxD.otf'); */
+	src: url('/fonts/trial/Demora-w1Wr6.otf');
+	/* src: url('fonts/trial/TimeburnerBold-peGR.ttf'); */
+	/* src: url('/fonts/trial/Gepestev-nRJgO.ttf'); */
+	/* src: url('/fonts/trial/Timeburner-xJB8.ttf'); */
+	/* src: url('/fonts/trial/TrenchThin-aZ1J.ttf'); */
+	/* font-style: italic; */
+	/* font-weight: 600; */
+}
+
 /* 
 @font-face {
 	font-family: 'Dista Calista';

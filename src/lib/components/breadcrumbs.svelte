@@ -35,7 +35,7 @@
 <style>
 	.breadcrumbs {
 		padding: 0;
-		margin: 0 0 10px 0;
+		margin: 0 0 0px 0;
 		background-color: #f1f1e4f5;
 		border-top: 1px solid #9999808f;
 		border-bottom: 1px solid #9999808f;

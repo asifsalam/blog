@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,500;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Lancelot&family=Maiden+Orange&family=Noto+Serif+Thai:wght@300;400&family=Offside&family=Scope+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Pridi&family=Sanchez&display=swap');
+
+/* 
+Allura - handwriting font
+Delius - slight handwriting
+Great Vibes - handwriting
+Libre baskerville - slight handwriting - Headline?
+DM Sans - Sans font
+Yellowtail - handwriting Astigmatic, 1 style
+Pacifico - handwrting, 1 style
+Calligraffitti - handwriting, too much
+Crimson Pro - slight - headline?
+Meddon - slant handwriting, too much
+Antik Slab - Slight serif - too basic
+Amiri - light serif - too basic
+Proza Libre - slight handwriting
+Bad Script - handwriting
+Marck Script - handwriting
+ */
+
+@font-face {
+	font-family: 'Amal Baik';
+	src: url('/fonts/Amal\ Baik.ttf');
+	font-style: normal;
+	font-weight: 400;
+}
+
+/* 
+@font-face {
+	font-family: 'Dista Calista';
+	src: url('../../static/fonts/Ditsa\ Calista\ DEMO.ttf');
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Bukhari';
+	src: url('../../static/fonts/BukhariScript-lemD.ttf');
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'blog-title-1';
+	src: url('../../static/fonts/RedThinker-Light.ttf');
+	font-style: normal;
+	font-weight: 200;
+}
+
+@font-face {
+	font-family: 'blog-title';
+	src: url('../../static/fonts/DelikFreeTrial.ttf');
+	font-style: normal;
+	font-weight: 400;
+} */
+
+body {
+	background-color: rgb(255, 254, 243);
+	margin: 0;
+	width: 1200px;
+	margin: auto;
+	/* align-items: center; */
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'Libre Baskerville', 'Roboto Slab', Georgia, 'Times New Roman', Times, serif;
+	font-weight: 200;
+}
+
+h4,
+a,
+p,
+li {
+	font-family: 'Roboto', Verdana, 'Geneva', Tahoma, sans-serif;
+	font-weight: normal;
+}
+
+q {
+	font-family: 'Lancelot', 'Bukhari';
+}
+
+blockquote {
+	font-family: 'Lancelot', 'Bad Script', 'Libre Baskerville', 'Delius', Georgia, 'Times New Roman', Times, serif;
+}

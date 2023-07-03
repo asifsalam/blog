@@ -64,21 +64,21 @@ Marck Script - handwriting
 
 @font-face {
 	font-family: 'Bukhari';
-	src: url('../../static/fonts/BukhariScript-lemD.ttf');
+	src: url('/fonts/BukhariScript-lemD.ttf');
 	font-style: normal;
 	font-weight: 400;
 }
 
 @font-face {
 	font-family: 'RedThinker';
-	src: url('../../static/fonts/RedThinker-Light.ttf');
+	src: url('/fonts/RedThinker-Light.ttf');
 	font-style: normal;
 	font-weight: 200;
 }
 
 @font-face {
 	font-family: 'Delik';
-	src: url('../../static/fonts/DelikFreeTrial.ttf');
+	src: url('/fonts/DelikFreeTrial.ttf');
 	font-style: normal;
 	font-weight: 400;
 }
@@ -113,4 +113,8 @@ q {
 
 blockquote {
 	font-family: 'Lancelot', 'Bad Script', 'Libre Baskerville', 'Delius', Georgia, 'Times New Roman', Times, serif;
+}
+
+code {
+	font-size: large;
 }
