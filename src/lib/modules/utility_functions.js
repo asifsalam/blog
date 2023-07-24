@@ -4,7 +4,7 @@ function getImageUrl(article) {
     //grab a random image if img_type is "rep"lace
     const baseImageUrl = '/img/images/geometric-pattern-';
     const minImg = 1;
-    const maxImg = 34; //max number of images in /img/images/folder
+    const maxImg = 72; //max number of images in /img/images folder
     let img_url;
     if (article.img_type === "rep") {
         img_url = baseImageUrl.concat(paddedRandomIntFromInterval(minImg, maxImg), '.jpg');
@@ -85,14 +85,14 @@ function loadArticles(numArticles = 0, dataFile = "/static/data/processed_links-
 function parseArticle(d) {
     return {
         // id: d.id,
-        sequence: d.sequence,
+        // sequence: d.sequence,
         link_id: d.link_id,
         link: d.link,
         title: d.article_title,
         author: d.article_author,
         post_date: d.post_date,
         excerpt: d.article_excerpt,
-        tags: d.categories.split(';'),
+        tags: d.concatenate.split(';'),
         site: d.site_manual,
         link_type: d.link_type,
         img_type: d.img_type,

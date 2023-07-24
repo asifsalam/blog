@@ -115,7 +115,7 @@
 	.title-border {
 		width: 100%;
 		height: 15px;
-		background-image: url('/img/images/geometric-pattern-07.jpg');
+		background-image: url('/img/borders/border-01.jpg');
 		background-position: top;
 		background-color: bisque;
 	}

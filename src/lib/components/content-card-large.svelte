@@ -7,10 +7,11 @@
 	const baseImageUrl = '/img/images/geometric-pattern-';
 	export let article;
 
-	let tags;
+	let tags = [];
 	let img_url;
 
 	img_url = getImageUrl(article);
+	// console.log('content-card: ', article);
 
 	if (article.tags.length > 4) {
 		tags = article.tags.slice(0, 4);

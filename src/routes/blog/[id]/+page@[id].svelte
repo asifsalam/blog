@@ -10,7 +10,7 @@
 	import TopicListCard from '$lib/components/topic-list-card.svelte';
 	let postData = data.postData;
 	const tags = postData.metadata.categories;
-	// console.log($page.params.id);
+	console.log('[id-page', $page.params.id);
 </script>
 
 {#key $page.params.id}

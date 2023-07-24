@@ -17,7 +17,7 @@
 			title: d.title
 		}))
 		.slice(0, 5);
-	// console.log(posts);
+	console.log(posts);
 </script>
 
 <!-- <RandomQuote /> -->

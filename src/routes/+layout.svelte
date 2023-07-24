@@ -15,6 +15,7 @@
 
 	export let data;
 	export let errors;
+	// console.log('layout.svelte-articles: ', data.articles);
 	let numArticles = 350;
 
 	data.allCategories.forEach((element) => {
@@ -27,7 +28,7 @@
 	$allThemes = data.allThemes;
 	$allTopics = data.allTopics;
 	$excerptLength = 100;
-	// console.log($postList);
+	// console.log('layout-svelte: ', $articleList);
 </script>
 
 <svelte:head><title>asifsalam</title></svelte:head>
