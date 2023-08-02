@@ -1,31 +1,14 @@
 <script>
+	import { group_outros } from 'svelte/internal';
+
 	export let tags;
 	export let tagType = 'tag';
 	export let tagClicked = () => {};
 	export let headingText = 'Main themes';
+	console.log('create-tags: ', tags);
+	console.log('create-tags: ', tagType);
 
-	const removeTagGroup = ['level', 'format', 'type'];
-	let index = [];
-	let nPosts = [];
-	if (tagType === 'tag') {
-		tags = tags.filter((d) => !removeTagGroup.includes(d.name));
-		tags.forEach((d, i) => {
-			let filteredNArticles = [];
-			let filteredTags = [];
-			d.nArticles.forEach((x, i) => {
-				if (x > 4) {
-					filteredNArticles.push(x);
-					filteredTags.push(d.tags[i]);
-				}
-			});
-			// console.log(i, d.nArticles);
-			// console.log(filteredNArticles, filteredTags);
-			d.tags = filteredTags;
-			d.nArticles = filteredNArticles;
-		});
-		console.log('create-tags; ', tags);
-	}
-	// console.log('create-tags: ', tagType, tags);
+	console.log('create-tags: ', tagType, tags);
 </script>
 
 <p class="tags-header">{headingText}</p>
@@ -54,35 +37,41 @@ tags as tag}
 			<p class="topic tag-box" on:click={tagClicked('untagged')}>untagged</p>
 		{/if}
 	{:else if tagType == 'tag'}
-		<p class="tag-type">
-			{tag.name}
-		</p>
-		{#each tag.tags as subTag}
-			{#if tag != 'NA'}
-				<button
-					class="topic tag-box"
-					on:click={() => {
-						tagClicked(subTag);
-					}}>{subTag}</button
-				>
-			{:else}
-				<p class="tag-box" on:click={tagClicked('untagged')}>untagged</p>
-			{/if}
-		{/each}
+		<div class="tag-group">
+			<p class="tag-type">
+				{tag.title}
+			</p>
+			{#each tag.tags.slice(0, 10) as subTag}
+				{#if subTag != 'NA'}
+					<button
+						class="topic tag-box"
+						on:click={() => {
+							tagClicked(subTag);
+						}}>{subTag}</button
+					>
+				{:else}
+					<p class="tag-box" on:click={tagClicked('untagged')}>untagged</p>
+				{/if}
+			{/each}
+		</div>
 	{/if}
 {/each}
 
 <style>
 	.tags-header {
 		padding: 10px 0 0 0;
-		margin: 0;
+		margin: 0 0 5px 0;
 		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
 		font-size: 1.4rem;
 		font-weight: 300;
 		color: hsla(251, 100%, 20%, 0.9);
+		border-bottom: 1px solid hsla(251, 100%, 20%, 0.2);
+	}
+	.tag-group {
+		padding: 0 0 10px 0;
 	}
 	.tag-type {
-		padding: 10px 0 0 0;
+		padding: 0px 0 0 0;
 		margin: 0;
 		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
 		font-size: 1.2rem;

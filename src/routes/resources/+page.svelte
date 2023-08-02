@@ -30,6 +30,8 @@
 	const sidebarLeadinText =
 		'Select items by category or tag. Categories are simply a set of tags.<br /> ';
 	const sidebarBulletText = '';
+
+	console.log('resources: ', $categories);
 </script>
 
 <RandomQuote />
@@ -39,13 +41,14 @@
 	<div class="sidebar-container">
 		<!-- <SidebarHeadingResources /> -->
 		<SidebarHeading {sidebarTitle} {sidebarLeadinText} {sidebarBulletText} />
-		<SidebarTags useThemes={'no'} useCategories={'yes'} useTopics={'yes'} />
+		<SidebarTags useThemes={'no'} useCategories={'yes'} useTags={'yes'} />
 	</div>
 	<!-- <Sidebar allThemes={$allThemes} allCategories={$allCategories} allTopics={$allTopics} /> -->
 	<div class="posts">
 		<SectionHeading {headingTitle} {displayQuantity} {totalQuantity} />
 		<div class="resources-container">
 			{#each $categories as category}
+				<!-- {category.category} -->
 				<div class="category-container-1">
 					<ResourcesCategoryCard
 						articles={filterCategory($articleList, category)}

@@ -10,6 +10,7 @@
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
 	import PaginationList from '$lib/components/pagination-list.svelte';
+	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 
 	$: topic = data.tag;
 	$: articles = filterTopic($articleList, topic);
@@ -26,7 +27,7 @@
 	/** @type {string}*/
 	const headingText = 'Tag';
 	$: totalQuantity = articles.length;
-	let sidebarTagHeading = 'All tags';
+	let sidebarTagHeading = 'Other tags';
 	topic = topic;
 </script>
 
@@ -36,6 +37,7 @@
 <div class="container">
 	<div class="sidebar">
 		<SidebarHeading sidebarLeadinText={'Select articles and resources from the tags below.'} />
+		<SidebarTags useThemes={'no'} useCategories={'yes'} />
 		<p class="topics">
 			<CreateTags
 				tags={$tags}
@@ -106,7 +108,7 @@
 	.topics {
 		display: inline;
 		line-height: 1.5;
-		margin: 0 0 50px 0px;
+		margin: 0 0 0px 0px;
 		font-size: 1.2rem;
 		font-weight: bold;
 	}

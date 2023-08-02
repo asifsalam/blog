@@ -3,13 +3,13 @@
 	import ContentCardMedium from './content-card-medium-v3.svelte';
 	import { clickedCategory } from '$lib/json/stores';
 	import { goto } from '$app/navigation';
-	import { allCategories } from '$lib/json/stores';
+	// import { allCategories } from '$lib/json/stores';
 	import ContentCardMediumV3 from './content-card-medium-v3.svelte';
 	export let articles;
 	export let category;
 	export let displayArticles = 5;
-	let categories = $allCategories;
-
+	// let categories = $allCategories;
+	// console.log('resources-category-card: ', category);
 	function categoryClicked(selectedCategory) {
 		// @ts-ignore
 		$clickedCategory = selectedCategory;
@@ -24,7 +24,7 @@
 		<h2
 			class="category-title view-all"
 			on:click={() => {
-				categoryClicked(category.category);
+				categoryClicked(category.name);
 			}}
 		>
 			{category.title.toLowerCase()}
@@ -39,14 +39,14 @@
 			<span
 				class="view-all"
 				on:click={() => {
-					categoryClicked(category.category);
+					categoryClicked(category.name);
 				}}>{articles.length}</span
 			>
 			items<br />
 			<p
 				class="article-count view-all"
 				on:click={() => {
-					categoryClicked(category.category);
+					categoryClicked(category.name);
 				}}
 			>
 				view all

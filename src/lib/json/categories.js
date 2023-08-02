@@ -23,8 +23,8 @@ const categories = [
         name: "cautionary-tale",
         title: "cautionary tale",
         img: "/img/icons/caution-svgrepo-com.svg",
-        subCategory: ["dubious", "peril", "caution", "punditry", "mistake", "dystopian", "challenge", "speculation", "pitfall", "viztortion"],
-        nArticles: 102
+        subCategory: ["dubious", "peril", "punditry", "mistake", "dystopian", "challenge", "speculation", "pitfall", "viztortion"],
+        nArticles: 79
     },
     {
         id: "245",
@@ -106,7 +106,8 @@ const categories = [
         img: "/img/icons/tools-svgrepo-com.svg",
         subCategory: ["toolbox", "tool", "framework", "toolkit", "package", "feature", "function", "component"],
         nArticles: 224
-    }];
+    }
+];
 
 const themes = [
     {
@@ -178,60 +179,38 @@ const themes = [
 const tags = [
     {
         type: "tag",
-        name: "level",
-        title: "level",
-        tags: ["basics", "fundamentals", "speculation", "advanced", "overview", "introduction", "intermediate", "definition", "explainer", "example", "getting-started", "beginner"],
-        nArticles: ["38", "14", "0", "7", "42", "30", "10", "4", "72", "84", "6", "1"]
-    },
-    {
-        type: "tag",
-        name: "format",
-        title: "format",
-        tags: ["book", "notebook", "video", "article", "online", "package", "booklet", "site", "quote", "pdf", "audio", "multiformat", "application", "poetry", "service", "website", "podcast", "slides", "app", "interactive", "blog", "talk", "course", "presentation", "lecture", "post", "interview", "paper", "website"],
-        nArticles: ["80", "2", "31", "69", "14", "93", "1", "32", "1", "1", "1", "0", "8", "1", "1", "0", "15", "4", "15", "19", "11", "13", "53", "7", "6", "562", "12", "28", "0"]
-    },
-    {
-        type: "tag",
-        name: "style",
-        title: "style",
-        tags: ["promise", "dubious", "caution", "mistake", "dystopian", "cautionary-tale", "peril", "challenge", "punditry"],
-        nArticles: ["1", "23", "24", "1", "1", "22", "12", "4", "2"]
-    },
-    {
-        type: "tag",
-        name: "type",
-        title: "type",
-        tags: ["guide", "review", "recommendation", "repo", "template", "docs", "report", "gallery", "viewpoint", "formal", "taxonomy", "opinion", "case", "pr", "general", "discussion", "cheatsheet", "architecture", "essay", "exercise", "resource", "tutorial", "reference", "statement", "description", "code", "research", "project", "list", "news", "advice", "dataset", "certification", "recipe", "how-to", "demo", "perspective", "visual", "source", "terminology", "tip", "infographic"],
-        nArticles: ["42", "19", "16", "4", "1", "4", "2", "1", "6", "1", "1", "22", "5", "101", "71", "1", "11", "1", "1", "5", "15", "137", "2", "1", "5", "10", "41", "8", "83", "8", "36", "22", "4", "1", "125", "3", "19", "53", "20", "1", "16", "9"]
-    },
-    {
-        type: "tag",
         name: "topic",
         title: "topic",
-        tags: ["toolkit", "design", "toolbox", "method", "workflow", "health", "data-art", "technique", "platform", "data", "standard", "use-case", "framework", "component", "tool", "principle", "function", "feature", "ecosystem", "process", "benefit", "technology", "root-cause", "guideline", "organization", "privacy", "practice", "methodology", "knowledge-management", "open", "infrastructure", "roadmap", "concept", "theory"],
-        nArticles: ["2", "41", "0", "65", "10", "2", "3", "230", "2", "574", "2", "1", "3", "2", "110", "6", "3", "11", "1", "40", "2", "458", "1", "0", "5", "1", "4", "27", "1", "9", "1", "1", "29", "5"]
-    },
-    {
-        type: "tag",
-        name: "technology",
-        title: "technology",
-        tags: ["ggplot", "kubernetes", "python", "observable", "svelte", "nasa", "data-illustrator", "keras", "ggmap", "html", "tidyverse", "sql", "rl", "world-bank", "dendogram", "javascript", "powerbi", "lodash", "weapons", "azure", "arcgis", "spark", "d3js", "stamen-maps", "google", "tableau", "plot", "slopegraph", "docker", "chord", "rstats", "mongodb", "storage", "postgres", "generative", "highcharter", "powerpoint", "vega", "kibana", "radial-tree", "jupyter", "software", "pandas", "highchart", "dax", "leaflet", "excel", "open-source", "svg", "matplotlib", "tensorflow", "word", "lasso", "css", "t-sne", "chat-bot", "canvas", "bezier", "looker", "pca", "ggplot2", "dnn"],
-        nArticles: ["34", "1", "50", "1", "0", "1", "1", "1", "1", "2", "24", "4", "4", "1", "1", "28", "11", "1", "1", "3", "1", "1", "67", "1", "2", "3", "36", "1", "1", "1", "257", "1", "0", "1", "6", "1", "6", "1", "1", "1", "2", "0", "1", "1", "1", "2", "6", "5", "5", "2", "5", "1", "1", "3", "5", "1", "2", "1", "1", "2", "17", "1"]
+        tags: ["data", "technology", "technique", "tool", "method", "design", "process", "concept", "methodology", "feature", "workflow"],
+        nArticles: ["574", "458", "230", "110", "65", "41", "40", "29", "27", "11", "10"]
     },
     {
         type: "tag",
         name: "area",
         title: "area",
-        tags: ["survival-analysis", "finance", "k-means", "bayesian", "bi", "survey", "text-mining", "usage", "philosophy", "project-management", "predictive-maintenance", "anomaly-detection", "predictive-modeling", "mfa", "glm", "image-processing", "classification", "eda", "reproducible-research", "web-scraping", "animation", "regression", "timeseries", "big-data", "sports", "mlops", "quality", "analysis", "development", "model", "ops", "exploration", "data-story", "interaction", "open-data", "deployment", "data-driven-decision", "coding", "inference", "statistics", "automation", "effect", "clustering", "scientific-method", "geospatial", "forecasting", "network-graph", "dl", "data-preparation", "api", "dashboard", "cpi", "ml-project-management", "nosql", "probability", "data-mining", "unit-test", "drl", "periodic", "monte-carlo", "imputation", "ab-testing", "interpretation", "encoding", "feature-visualization", "unsupervised", "logic", "graphics", "image-generation", "image-recognition", "lda", "causality", "style", "feature-selection", "simulation", "journalism", "data-governance", "hardware", "optimization", "polling", "pie-chart", "vision", "uncertainty", "real-time", "palette", "database", "data-driven", "testing", "hierarchichal-model", "flow-field", "count", "zero-inflated", "search", "self-driving-car", "food", "gam", "no-code", "lingtypology", "history", "analytics", "stats", "ml", "nlp", "data-processing", "colour", "ai", "3d", "graph", "chart", "feature-engineering"],
-        nArticles: ["1", "1", "1", "5", "42", "3", "9", "4", "2", "3", "0", "2", "3", "1", "1", "1", "3", "3", "0", "6", "26", "4", "8", "6", "4", "6", "1", "56", "48", "10", "7", "3", "8", "1", "3", "3", "2", "2", "5", "53", "4", "1", "5", "2", "58", "10", "10", "23", "19", "7", "2", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "2", "2", "1", "2", "1", "1", "1", "1", "1", "1", "2", "1", "1", "2", "5", "1", "3", "1", "1", "1", "2", "1", "3", "3", "4", "10", "3", "1", "1", "1", "1", "42", "1", "1", "1", "1", "1", "1", "12", "257", "153", "12", "14", "32", "122", "10", "33", "31", "4"]
+        tags: ["stats", "ml", "ai", "geospatial", "analysis", "statistics", "development", "bi", "search", "graph", "colour", "chart", "animation", "dl", "data-preparation", "data-processing", "analytics", "nlp", "forecasting", "model", "network-graph", "data-driven", "3d"],
+        nArticles: ["257", "153", "122", "58", "56", "53", "48", "42", "42", "33", "32", "31", "26", "23", "19", "14", "12", "12", "10", "10", "10", "10", "10"]
     },
-
+    {
+        type: "tag",
+        name: "style",
+        title: "style",
+        tags: ["dubious", "cautionary-tale", "peril"],
+        nArticles: ["23", "22", "13"]
+    },
+    {
+        type: "tag",
+        name: "technology",
+        title: "technology",
+        tags: ["rstats", "d3js", "python", "plot", "javascript", "tidyverse", "ggplot2", "powerbi"],
+        nArticles: ["257", "67", "50", "36", "28", "24", "17", "11"]
+    },
     {
         type: "tag",
         name: "other",
         title: "other",
-        tags: ["writing", "science", "vintage", "purpose", "population", "film", "validation", "sankey", "press", "medicine", "cricket", "interesting", "maturity", "betting", "reproducible", "ethics", "toread", "annotation", "semantic", "export", "my-post", "brain", "unique", "mathematics", "biology", "image", "eating", "expert", "misuse", "mortality", "investing", "communication", "accident", "inspiration", "digital-art", "environment", "experiment", "training", "data-discovery", "microsoft", "google-viz", "misc", "outlier", "storytelling", "award", "art", "random-forest", "humour", "viztortion", "geometric", "competition", "reproducability", "perception", "formula", "paid", "free", "abuse"],
-        nArticles: ["1", "117", "1", "1", "1", "1", "1", "3", "1", "1", "1", "2", "1", "1", "2", "1", "1", "1", "1", "1", "3", "1", "1", "6", "1", "4", "1", "1", "2", "1", "1", "1", "1", "91", "1", "2", "1", "6", "1", "3", "1", "1", "2", "14", "2", "125", "1", "3", "2", "1", "2", "1", "3", "1", "6", "25", "1"]
+        tags: ["art", "science", "inspiration", "free", "storytelling"],
+        nArticles: ["125", "117", "91", "25", "14"]
     }
 ];
 

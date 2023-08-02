@@ -73,10 +73,10 @@
 	} */
 
 	.tags {
-		display: inline;
+		/* display: inline; */
 		line-height: 1.5;
-		margin: 0 0 50px 0px;
-		font-size: 1rem;
-		font-weight: bold;
+		/* margin: 50px 0 50px 0px; */
+		/* font-size: 1rem; */
+		/* font-weight: bold; */
 	}
 </style>

@@ -58,7 +58,7 @@
 	<div class="container" transition:fade={{ delay: 250, duration: 300 }}>
 		<div class="sidebar-container">
 			<SidebarHeading {sidebarTitle} {sidebarLeadinText} {sidebarBulletText} />
-			<SidebarTags useThemes={'yes'} useCategories={'no'} />
+			<SidebarTags useThemes={'yes'} useCategories={'yes'} />
 		</div>
 		<div class="main-content">
 			<div class="articles">

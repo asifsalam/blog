@@ -1,10 +1,11 @@
 <script>
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { articleList, categories, allCategories, clickedCategory } from '$lib/json/stores';
+	import { articleList, categories, themes, clickedCategory } from '$lib/json/stores';
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
+	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 
 	import CreateTags from '$lib/components/create-tags.svelte';
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
@@ -14,13 +15,14 @@
 	$: selectedCategory = '';
 	$: category = 'data-viz';
 	$: articles = [];
-
+	// console.log($categories);
 	// let allCategories = [];
 	let categoryObj = {};
 	// let categoriesObj = $categories.filter((d) => d.type === 'category');
 
 	onMount(() => {
 		console.log('category: ', $clickedCategory);
+
 		// selectedCategory = $clickedCategory;
 		// categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
 		// categoryObj = $allCategories
@@ -59,6 +61,7 @@
 		<SidebarHeading
 			sidebarLeadinText={'Select articles and resources from the categories below.'}
 		/>
+		<SidebarTags useThemes={'yes'} />
 		<p class="topics">
 			<CreateTags
 				tags={$categories}
@@ -67,6 +70,7 @@
 				headingText={sidebarTagHeading}
 			/>
 		</p>
+		<SidebarTags useTags={'yes'} />
 	</div>
 	<div class="posts-list">
 		<SectionHeadingBasic selectedTag={category} {totalQuantity} headingTitle={headingText} />

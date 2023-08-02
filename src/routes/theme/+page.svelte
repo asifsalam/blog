@@ -10,6 +10,7 @@
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
 	import PaginationList from '$lib/components/pagination-list.svelte';
+	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 
 	$: selectedTheme = $clickedTheme;
 	$: theme = $clickedTheme;
@@ -74,7 +75,7 @@
 				headingText={sidebarTagHeading}
 			/>
 		</p>
-		<!-- <SidebarTags useThemes={'yes'} useCategories={'no'} useTopics={'no'} /> -->
+		<SidebarTags useThemes={'no'} useCategories={'yes'} useTopics={'no'} />
 	</div>
 	<div class="posts-list">
 		<SectionHeadingBasic selectedTag={theme} {totalQuantity} headingTitle={headingText} />

@@ -43,7 +43,7 @@ export async function load({ fetch }) {
     const siteData = articles.filter((d) => d.link_type === "site");
 
     // articles = articles.slice(0, 5);
-
+    // console.log("layout.js: ", categories);
     return {
         articles, posts, themes, categories, tags, allCategories, allThemes, allTopics
     }

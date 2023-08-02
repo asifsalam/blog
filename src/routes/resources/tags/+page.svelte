@@ -17,6 +17,7 @@
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
 	import PaginationList from '$lib/components/pagination-list.svelte';
+	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 
 	$: selectedTopic = 'rstats';
 	let topics = $allTopics;
@@ -54,7 +55,7 @@
 	const headingText = 'Tag';
 	$: totalQuantity = articles.length;
 	// console.log('tags-topics-selectedTopic: ', $tags, topics, selectedTopic);
-	let sidebarTagHeading = 'All tags';
+	let sidebarTagHeading = 'Other tags';
 	articles = articles;
 	selectedTopic = $clickedTopic;
 </script>
@@ -65,6 +66,7 @@
 <div class="container">
 	<div class="sidebar">
 		<SidebarHeading sidebarLeadinText={'Select articles and resources from the tags below.'} />
+		<SidebarTags useCategories={'yes'} />
 		<p class="topics">
 			<CreateTags
 				tags={$tags}

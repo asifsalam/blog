@@ -18,7 +18,6 @@
 
 	export let data;
 	export let errors;
-	// console.log('layout.svelte-data: ', data);
 	let numArticles = 350;
 
 	data.allCategories.forEach((element) => {
@@ -34,7 +33,7 @@
 	$allThemes = data.allThemes;
 	$allTopics = data.allTopics;
 	$excerptLength = 100;
-	// console.log('layout-svelte: ', $postList);
+	// console.log('layout-svelte: ', $categories);
 </script>
 
 <svelte:head><title>asifsalam</title></svelte:head>
