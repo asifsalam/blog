@@ -2,6 +2,9 @@
 	import {
 		articleList,
 		postList,
+		themes,
+		categories,
+		tags,
 		allCategories,
 		allThemes,
 		allTopics,
@@ -15,7 +18,7 @@
 
 	export let data;
 	export let errors;
-	// console.log('layout.svelte-articles: ', data.articles);
+	// console.log('layout.svelte-data: ', data);
 	let numArticles = 350;
 
 	data.allCategories.forEach((element) => {
@@ -24,11 +27,14 @@
 	const articleData = data.articles.slice(0, numArticles);
 	$articleList = articleData;
 	$postList = data.posts;
+	$themes = data.themes;
+	$categories = data.categories;
+	$tags = data.tags;
 	$allCategories = data.allCategories;
 	$allThemes = data.allThemes;
 	$allTopics = data.allTopics;
 	$excerptLength = 100;
-	// console.log('layout-svelte: ', $articleList);
+	// console.log('layout-svelte: ', $postList);
 </script>
 
 <svelte:head><title>asifsalam</title></svelte:head>

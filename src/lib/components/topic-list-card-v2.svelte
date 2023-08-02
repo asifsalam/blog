@@ -21,9 +21,9 @@
 	<!-- <span style="font-size:1.1em;font-weight:bold">tags </span> -->
 	{#each tags as tag}
 		{#if tag != 'NA'}
-			<a class="topic-box {boxSize}" href={`/resources/topics/${tag}`}>{tag}</a>
+			<a class="topic-box {boxSize}" href={`/resources/tags/${tag}`}>{tag}</a>
 		{:else}
-			<a class="topic-box" href={`/resources/topics/untagged`}>untagged</a>
+			<a class="topic-box" href={`/resources/tags/untagged`}>untagged</a>
 		{/if}
 	{/each}
 </div>
@@ -35,7 +35,8 @@
 		display: flex;
 		/* align-items: flex-start; */
 		align-items: center;
-		padding: 0px 0px;
+		/* padding: 0px 0px; */
+		padding: 0px 0px 5px 0px;
 		grid-column-start: 1;
 		grid-column-end: 3;
 		border-top: 1px solid hsla(251, 100%, 30%, 0.1);
@@ -50,7 +51,7 @@
 
 	.size-1 {
 		font-size: 0.9rem;
-		height: 25px;
+		height: 20px;
 	}
 
 	.size-2 {
@@ -61,7 +62,7 @@
 	.topic-box {
 		padding: 0px 4px;
 		margin: 3px 5px 3px 0px;
-		background-color: hsla(196, 67%, 54%, 0.1);
+		background-color: hsla(196, 67%, 54%, 0.05);
 		color: hsl(251, 100%, 15%);
 		border-radius: 5px;
 		text-decoration: none;
@@ -83,6 +84,7 @@
 		width: 30px;
 		/* margin-top: 3px; */
 		padding-right: 7px;
+		align-self: self-end;
 	}
 
 	.site-logo.size-2 {
@@ -99,6 +101,7 @@
 		width: 25px;
 		/* margin-top: 3px; */
 		padding-right: 5px;
+		align-self: self-end;
 	}
 
 	.site-logo.size-2 {

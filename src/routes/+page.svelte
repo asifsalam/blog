@@ -2,9 +2,12 @@
 	import {
 		articleList,
 		postList,
-		allThemes,
-		allCategories,
-		allTopics,
+		// allThemes,
+		// themes,
+		// categories,
+		// tags,
+		// allCategories,
+		// allTopics,
 		clickedTheme,
 		clickedCategory
 	} from '$lib/json/stores';
@@ -18,7 +21,7 @@
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
 
-	const themes = $allThemes;
+	// const themes = $allThemes;
 	// console.log('home-page:');
 	let sidebarTitle = '';
 	let sidebarLeadinText =

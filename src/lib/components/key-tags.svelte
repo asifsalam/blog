@@ -3,7 +3,7 @@
 	import { clickedCategory, clickedTheme, clickedTopic } from '$lib/json/stores';
 	import CreateTags from '$lib/components/create-tags.svelte';
 	/** @type {undefined}*/
-	export let tagType = 'topic';
+	export let tagType = 'theme';
 	export let tags;
 	export let headingText = 'Main themes';
 
@@ -27,28 +27,28 @@
 		console.log('category-clicked: ', $clickedCategory);
 	}
 
-	function topicClicked(tag) {
+	function tagClicked(tag) {
 		// @ts-ignore
 		$clickedTopic = tag;
-		goto('/resources/topic/');
-		console.log('key-topic-clicked: ', $clickedTopic);
+		console.log('key-tag-clicked: ', $clickedTopic);
+		goto(`/resources/tags/`);
 	}
-	// console.log('key-tags: ', tags);
+	console.log('key-tags: ', tagType, tags);
 </script>
 
 <div class="sidebar-themes">
 	<!-- <p class="themes-header">{headingText}</p> -->
 	{#if tagType == 'theme'}
-		<p class="topics">
+		<p class="tags">
 			<CreateTags {tags} tagClicked={themeClicked} {tagType} {headingText} />
 		</p>
 	{:else if tagType == 'category'}
-		<p class="topics">
+		<p class="tags">
 			<CreateTags {tags} tagClicked={categoryClicked} {tagType} {headingText} />
 		</p>
-	{:else if tagType == 'topic'}
-		<p class="topics">
-			<CreateTags {tags} tagClicked={topicClicked} {tagType} {headingText} />
+	{:else if tagType == 'tag'}
+		<p class="tags">
+			<CreateTags {tags} {tagClicked} {tagType} {headingText} />
 		</p>
 	{/if}
 </div>
@@ -72,7 +72,7 @@
 		color: hsla(251, 100%, 20%, 0.9);
 	} */
 
-	.topics {
+	.tags {
 		display: inline;
 		line-height: 1.5;
 		margin: 0 0 50px 0px;

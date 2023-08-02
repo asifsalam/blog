@@ -58,7 +58,7 @@
 		</div>
 	</div>
 
-	<TopicListCard {tags} link_type={article.link_type} size={2} />
+	<TopicListCard {tags} link_type={article.link_type} size={1} />
 </div>
 
 <style>

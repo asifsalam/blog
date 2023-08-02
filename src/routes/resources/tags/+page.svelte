@@ -1,8 +1,15 @@
 <script>
-	export let data;
-	// import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	import { articleList, filteredArticles, allTopics, tags, clickedTopic } from '$lib/json/stores';
+	import {
+		articleList,
+		themes,
+		categories,
+		tags,
+		allCategories,
+		allTopics,
+		clickedTopic
+	} from '$lib/json/stores';
 	import { filterTopic, filterTag } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
@@ -11,23 +18,45 @@
 	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
 	import PaginationList from '$lib/components/pagination-list.svelte';
 
-	$: topic = data.topic;
-	$: articles = filterTopic($articleList, topic);
-	console.log('topics-[topic]-', data.topic);
+	$: selectedTopic = 'rstats';
+	let topics = $allTopics;
+	let tagObj = {};
+	/** @type {Array} */
+	let articles = [];
 
-	function topicClicked(clTopic) {
-		$clickedTopic = clTopic;
-		topic = clTopic;
-		// console.log('topics[Topic]Clicked', clTopic, `/resources/topics/${topic}`);
-		articles = filterTag($articleList, clTopic);
-		goto(`/resources/topics/${topic}`);
+	onMount(() => {
+		selectedTopic = $clickedTopic;
+		articles = filterTag($articleList, selectedTopic, $tags);
+		// console.log(selectedTopic);
+	});
+
+	function tagClicked(tag) {
+		// @ts-ignore
+		$clickedTopic = tag;
+		console.log('key-tag-clicked: ', $clickedTopic);
+		goto(`/resources/tags/`);
+	}
+
+	function topicClicked(selectedTag) {
+		// $clickedTopic = topic;
+		// selectedTopic = $clickedTopic;
+		// console.log('topics-page-function-clicked: ', $clickedTopic);
+		// articles = filterTag($articleList, selectedTopic);
+		// goto(`/resources/topics/${topic}`);
+		$clickedTopic = selectedTag;
+		console.log('topics-page-function-clicked: ', $clickedTopic);
+		tagObj = $tags.filter((d) => d.name == selectedTag)[0];
+		// articles = filterTag($articleList, tagObj);
+		goto(`/resources/tags/${selectedTag}`);
 	}
 
 	/** @type {string}*/
 	const headingText = 'Tag';
 	$: totalQuantity = articles.length;
+	// console.log('tags-topics-selectedTopic: ', $tags, topics, selectedTopic);
 	let sidebarTagHeading = 'All tags';
-	topic = topic;
+	articles = articles;
+	selectedTopic = $clickedTopic;
 </script>
 
 <RandomQuote />
@@ -45,14 +74,20 @@
 			/>
 		</p>
 	</div>
-	<div class="posts">
-		<div class="posts-list">
-			<SectionHeadingBasic selectedTag={topic} {totalQuantity} headingTitle={headingText} />
-			{#key topic}
-				<PaginationList {articles} category={topic} {totalQuantity} />
-			{/key}
+	{#key $clickedTopic}
+		<div class="posts">
+			<div class="posts-list">
+				<SectionHeadingBasic
+					selectedTag={selectedTopic}
+					{totalQuantity}
+					headingTitle={headingText}
+				/>
+				{#key selectedTopic}
+					<PaginationList {articles} category={selectedTopic} {totalQuantity} />
+				{/key}
+			</div>
 		</div>
-	</div>
+	{/key}
 </div>
 
 <style>
@@ -65,14 +100,14 @@
 		width: 100%;
 		display: grid;
 		grid-template-columns: 2fr 5fr;
-		margin: 0px 0px 5px 0px;
+		margin: 0px 0px 10px 0px;
 	}
+
 	.sidebar {
 		float: left;
 		margin: 10px 30px 00px 0px;
 		flex-flow: column;
 	}
-
 	/* .sidebar-header {
 		display: block;
 		height: auto;
@@ -81,9 +116,8 @@
 		padding: 0 0 10px 0;
 		margin: 0;
 		border-bottom: 2px solid hsl(23, 8%, 50%);
-	}
-
-	.sidebar-header-text {
+	} */
+	/* .sidebar-header-text {
 		display: block;
 		padding: 0;
 		margin: 0px 0 5px 0;
@@ -92,9 +126,8 @@
 		font-weight: 100;
 		color: hsla(251, 100%, 15%, 1);
 		text-align: left;
-	}
-
-	.topics-header {
+	} */
+	/* .topics-header {
 		padding: 5px 0;
 		margin: 10px 0;
 		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
@@ -102,7 +135,6 @@
 		font-weight: 300;
 		color: hsla(251, 100%, 20%, 0.9);
 	} */
-
 	.topics {
 		display: inline;
 		line-height: 1.5;
@@ -123,8 +155,8 @@
 		border-radius: 5px;
 		text-decoration: none;
 		border: 0.1px solid hsla(251, 32%, 44%, 0.2);
-	}
-	.topic:hover {
+	} */
+	/* .topic:hover {
 		color: hsl(251, 95%, 33%);
 		font-weight: bold;
 		background-color: #bff0ff;

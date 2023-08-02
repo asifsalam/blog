@@ -116,7 +116,7 @@ function capitalizeFirstLetter(word) {
 function filterCategory(articles, category) {
     // console.log("filterCategory: ", articles, category);
     let result;
-    if (category.category === "all") {
+    if (category.name === "all") {
         result = articles;
     } else {
         result = articles.filter((x) => {
@@ -131,6 +131,33 @@ function filterCategory(articles, category) {
             }
         });
     }
+    return result;
+}
+
+function filterArticles(articles, selection) {
+    let result;
+    // console.log("filterCategory: ", articles, category);
+    if (selection.type === "theme") {
+        if (selection.name == "all") {
+            result = articles
+        } else {
+            result = articles.filter((x) => {
+                let includesSelection = false;
+                if (x.tags.includes(selection.name)) {
+                    return x
+                }
+            });
+        }
+
+    } else
+        if (selection.type === "category") {
+            if (selection.name === "all") {
+                result = articles;
+            } else {
+                result = articles.slice(1, 7);
+            }
+        }
+
     return result;
 }
 
@@ -160,6 +187,22 @@ function filterTheme(articles, theme) {
     // let numArticles = result.length;
     return result;
 }
+
+function filterTag(articles, tag, tags) {
+    // console.log(tag)
+    let result;
+    if (tag === "all") {
+        result = articles;
+    } else {
+        result = articles.filter((x) => {
+            // console.log(x);
+            return (x.tags.includes(tag));
+        });
+    }
+    console.log(`function filterTag: ${result.length} items.`)
+    return result;
+}
+
 
 function filterTopic(articles, topic) {
     let result;
@@ -193,5 +236,5 @@ function filterTopic1(articles, topic) {
 
 export {
     randomIntFromInterval, paddedRandomIntFromInterval, parsePosts, parseArticle, capitalizeFirstLetter, loadArticles, loadPosts,
-    filterCategory, filterTheme, filterTopic, getImageUrl
+    filterCategory, filterTheme, filterTag, filterTopic, filterArticles, getImageUrl
 } 

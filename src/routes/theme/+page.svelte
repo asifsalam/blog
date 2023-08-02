@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { articleList, allCategories, clickedTheme } from '$lib/json/stores';
-	import { filterCategory } from '$lib/modules/utility_functions';
+	import { articleList, themes, allCategories, clickedTheme } from '$lib/json/stores';
+	import { filterCategory, filterArticles } from '$lib/modules/utility_functions';
 	// import CategoryList from '$lib/components/category-list.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
@@ -14,25 +14,39 @@
 	$: selectedTheme = $clickedTheme;
 	$: theme = $clickedTheme;
 	$: articles = [];
-	let themes = [];
+	// let themes = [];
 	let themeObj = {};
+	console.log('theme-selectedTheme-clickedTheme', theme, selectedTheme, $clickedTheme);
 
 	onMount(() => {
+		console.log('theme-page-onmount');
 		selectedTheme = $clickedTheme;
-		themes = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
-		themeObj = $allCategories.filter((d) => d.category == selectedTheme)[0];
-		theme = themeObj.category;
-		articles = filterCategory($articleList, themeObj);
-		// console.log(articles[0].link_id);
+		console.log($themes);
+		// del- themes = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
+		// del- themeObj = $allCategories.filter((d) => d.category == selectedTheme)[0];
+		// new
+		// theme = themeObj.category;
+
+		themeObj = $themes.filter((d) => d.name == $clickedTheme)[0];
+		// theme = themeObj.theme;
+		console.log('themeObj,clicked-theme: ', themeObj.name, $clickedTheme);
+		// articles = filterCategory($articleList, themeObj);
+		// articles = $articleList.slice(1, 15);
+		articles = filterArticles($articleList, themeObj);
 	});
 
 	function themeClicked(clTheme) {
+		console.log('theme-page-themeClicked');
 		selectedTheme = clTheme;
 		$clickedTheme = selectedTheme;
-		themes = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
-		themeObj = $allCategories.filter((d) => d.category == selectedTheme)[0];
-		theme = themeObj.category;
-		articles = filterCategory($articleList, themeObj);
+		// themes = $allCategories.filter((d) => d.type != 'category').map((d) => d.category);
+		// themeObj = $allCategories.filter((d) => d.category == selectedTheme)[0];
+		// theme = themeObj.category;
+		themeObj = $themes.filter((d) => d.name == selectedTheme)[0];
+		console.log('themeClicked-themeObj: ', themeObj);
+		articles = filterArticles($articleList, themeObj);
+		// articles = $articleList.slice(1, 15);
+		// articles = filterCategory($articleList, themeObj);
 	}
 	/** @type {string}*/
 	const headingText = 'Selected theme: ';
@@ -51,9 +65,10 @@
 		<SidebarHeading
 			sidebarLeadinText={'Select articles and resources from the main themes below'}
 		/>
+
 		<p class="topics">
 			<CreateTags
-				tags={themes}
+				tags={$themes}
 				tagClicked={themeClicked}
 				tagType="theme"
 				headingText={sidebarTagHeading}

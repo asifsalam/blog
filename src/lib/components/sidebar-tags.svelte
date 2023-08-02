@@ -1,5 +1,5 @@
 <script>
-	import { allThemes, allCategories, allTopics } from '$lib/json/stores';
+	import { themes, categories, tags, allThemes, allCategories, allTopics } from '$lib/json/stores';
 	import KeyTags from '$lib/components/key-tags.svelte';
 	import '/src/styles/global.css';
 
@@ -10,13 +10,15 @@
 
 <div class="sidebar">
 	{#if useThemes == 'yes'}
-		<KeyTags headingText={'Main themes'} tags={$allThemes} tagType="theme" />
+		<!-- change $theme to $allThemes to revert -->
+		<KeyTags headingText={'Themes'} tags={$themes} tagType="theme" />
 	{/if}
 	{#if useCategories == 'yes'}
-		<KeyTags headingText={'Categories'} tags={$allCategories} tagType="category" />
+		<!-- change $categories to $allCategories to revert -->
+		<KeyTags headingText={'Categories'} tags={$categories} tagType="category" />
 	{/if}
 	{#if useTopics == 'yes'}
-		<KeyTags headingText={'All tags'} tags={$allTopics} tagType="topic" />
+		<KeyTags headingText={'Tags'} tags={$tags} tagType="tag" />
 	{/if}
 </div>
 

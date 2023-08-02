@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { articleList, allCategories, clickedCategory } from '$lib/json/stores';
+	import { articleList, categories, allCategories, clickedCategory } from '$lib/json/stores';
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
@@ -12,32 +12,35 @@
 	import PaginationList from '$lib/components/pagination-list.svelte';
 
 	$: selectedCategory = '';
-	$: category = 'dataviz';
+	$: category = 'data-viz';
 	$: articles = [];
 
-	let categories = [];
+	// let allCategories = [];
 	let categoryObj = {};
-	let categoriesObj = $allCategories.filter((d) => d.type === 'category');
+	// let categoriesObj = $categories.filter((d) => d.type === 'category');
 
 	onMount(() => {
 		console.log('category: ', $clickedCategory);
-		selectedCategory = $clickedCategory;
-		categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
-		categoryObj = $allCategories
-			.filter((d) => d.type === 'category' || d.type === 'all')
-			.filter((d) => d.category == selectedCategory)[0];
-		category = categoryObj.category;
+		// selectedCategory = $clickedCategory;
+		// categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
+		// categoryObj = $allCategories
+		// .filter((d) => d.type === 'category' || d.type === 'all')
+		// .filter((d) => d.category == selectedCategory)[0];
+		categoryObj = $categories.filter((d) => d.name === $clickedCategory)[0];
+		category = categoryObj.name;
 		articles = filterCategory($articleList, categoryObj);
 	});
 
 	function categoryClicked(clCategory) {
 		selectedCategory = clCategory;
 		$clickedCategory = selectedCategory;
-		categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
-		categoryObj = $allCategories
-			.filter((d) => d.type === 'category')
-			.filter((d) => d.category == selectedCategory)[0];
-		category = categoryObj.category;
+		// categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
+		// categoryObj = $allCategories
+		// 	.filter((d) => d.type === 'category')
+		// 	.filter((d) => d.category == selectedCategory)[0];
+		// category = categoryObj.category;
+		categoryObj = $categories.filter((d) => d.name === $clickedCategory)[0];
+		category = categoryObj.name;
 		articles = filterCategory($articleList, categoryObj);
 	}
 	/** @type {string}*/
@@ -58,7 +61,7 @@
 		/>
 		<p class="topics">
 			<CreateTags
-				tags={categoriesObj}
+				tags={$categories}
 				tagClicked={categoryClicked}
 				tagType="category"
 				headingText={sidebarTagHeading}
@@ -77,7 +80,7 @@
 	div.container {
 		width: 100%;
 		display: grid;
-		grid-template-columns: 2fr 7fr;
+		grid-template-columns: 2fr 5fr;
 		margin: 0px 0px 5px 0px;
 	}
 	.sidebar {

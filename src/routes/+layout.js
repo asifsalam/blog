@@ -1,9 +1,10 @@
 import * as d3 from 'd3';
 import { parseArticle, parsePosts } from '/src/lib/modules/utility_functions';
-import { allCategories, allThemes, allTopics } from '$lib/json/app-data';
-const postFile = '/data/my_posts.csv';
+// import {categories, themes, tags, allThemes, allTopics } from '$lib/json/app-data';
+import { themes, categories, tags, allCategories, allThemes, allTopics } from '$lib/json/categories';
+// const postFile = '/data/my_posts.csv';
 // const dataFile = '/data/basic_resource_link_data.csv';
-const dataFile = '/data/link_data_full.csv';
+const dataFile = '/data/link_data_full-v2.csv';
 // const dataFile = 'https://raw.githubusercontent.com/asifsalam/datasets/master/processed_links-small.csv';
 
 export const ssr = false;
@@ -24,7 +25,7 @@ export async function load({ fetch }) {
             articles[i] = parseArticle(d)
         })
 
-    console.log(articles[1]);
+    // console.log(articles[1]);
     articles.sort((a, b) => {
         if (a.link_id > b.link_id) {
             // console.log(a, b)
@@ -33,7 +34,6 @@ export async function load({ fetch }) {
             return 1;
         }
     })
-
 
     // const repsonse2 = await fetch(postFile);
     // const textData2 = await repsonse2.text();
@@ -45,7 +45,7 @@ export async function load({ fetch }) {
     // articles = articles.slice(0, 5);
 
     return {
-        articles, posts, allCategories, allThemes, allTopics
+        articles, posts, themes, categories, tags, allCategories, allThemes, allTopics
     }
 }
 

@@ -11,16 +11,16 @@
 	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
 	import PaginationList from '$lib/components/pagination-list.svelte';
 
-	$: topic = data.topic;
+	$: topic = data.tag;
 	$: articles = filterTopic($articleList, topic);
-	console.log('topics-[topic]-', data.topic);
+	console.log('tags-[tag]-', data.tag);
 
 	function topicClicked(clTopic) {
 		$clickedTopic = clTopic;
 		topic = clTopic;
 		// console.log('topics[Topic]Clicked', clTopic, `/resources/topics/${topic}`);
-		articles = filterTag($articleList, clTopic);
-		goto(`/resources/topics/${topic}`);
+		// articles = filterTag($articleList, clTopic);
+		goto(`/resources/tags/${topic}`);
 	}
 
 	/** @type {string}*/
@@ -65,7 +65,7 @@
 		width: 100%;
 		display: grid;
 		grid-template-columns: 2fr 5fr;
-		margin: 0px 0px 5px 0px;
+		margin: 10px 0px 5px 0px;
 	}
 	.sidebar {
 		float: left;

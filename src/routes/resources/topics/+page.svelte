@@ -1,8 +1,16 @@
 <script>
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	import { articleList, allCategories, allTopics, clickedTopic } from '$lib/json/stores';
-	import { filterTopic } from '$lib/modules/utility_functions';
+	import {
+		articleList,
+		themes,
+		categories,
+		tags,
+		allCategories,
+		allTopics,
+		clickedTopic
+	} from '$lib/json/stores';
+	import { filterTopic, filterTag } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import CreateTags from '$lib/components/create-tags.svelte';
@@ -12,29 +20,43 @@
 
 	$: selectedTopic = 'rstats';
 	let topics = $allTopics;
-	/** @type {array} */
+	let tagObj = {};
+	/** @type {Array} */
 	let articles = [];
 
 	onMount(() => {
 		selectedTopic = $clickedTopic;
 		articles = filterTopic($articleList, selectedTopic);
+		console.log(selectedTopic);
 	});
 
-	function topicClicked(topic) {
-		$clickedTopic = topic;
-		selectedTopic = $clickedTopic;
-		console.log('topics-page-function-clicked: ', $clickedTopic);
-		articles = filterTopic($articleList, selectedTopic);
-		// goto('/resources/topics');
-		goto(`/resources/topics/${topic}`);
+	function tagClicked(tag) {
+		// @ts-ignore
+		$clickedTopic = tag;
+		console.log('key-tag-clicked: ', $clickedTopic);
+		goto(`/resources/topics/`);
 	}
+
+	function topicClicked(selectedTag) {
+		// $clickedTopic = topic;
+		// selectedTopic = $clickedTopic;
+		// console.log('topics-page-function-clicked: ', $clickedTopic);
+		// articles = filterTag($articleList, selectedTopic);
+		// goto(`/resources/topics/${topic}`);
+		$clickedTopic = selectedTag;
+		console.log('topics-page-function-clicked: ', $clickedTopic);
+		tagObj = $tags.filter((d) => d.name == selectedTag)[0];
+		// articles = filterTag($articleList, tagObj);
+		goto(`/resources/topics/${selectedTag}`);
+	}
+
 	/** @type {string}*/
 	const headingText = 'Tag';
 	$: totalQuantity = articles.length;
-	console.log('topics-page');
+	console.log('topics-page-tags-topics-selectedTopic: ', $tags, topics, selectedTopic);
 	let sidebarTagHeading = 'All tags';
 	articles = articles;
-	selectedTopic = selectedTopic;
+	selectedTopic = $clickedTopic;
 </script>
 
 <RandomQuote />
@@ -45,22 +67,27 @@
 		<SidebarHeading sidebarLeadinText={'Select articles and resources from the tags below.'} />
 		<p class="topics">
 			<CreateTags
-				tags={topics}
+				tags={$tags}
 				tagClicked={topicClicked}
-				tagType="topic"
+				tagType="tag"
 				headingText={sidebarTagHeading}
 			/>
 		</p>
 	</div>
-
-	<div class="posts">
-		<div class="posts-list">
-			<SectionHeadingBasic selectedTag={selectedTopic} {totalQuantity} headingTitle={headingText} />
-			{#key selectedTopic}
-				<PaginationList {articles} category={selectedTopic} {totalQuantity} />
-			{/key}
+	{#key $clickedTopic}
+		<div class="posts">
+			<div class="posts-list">
+				<SectionHeadingBasic
+					selectedTag={selectedTopic}
+					{totalQuantity}
+					headingTitle={headingText}
+				/>
+				{#key selectedTopic}
+					<PaginationList {articles} category={selectedTopic} {totalQuantity} />
+				{/key}
+			</div>
 		</div>
-	</div>
+	{/key}
 </div>
 
 <style>
@@ -72,7 +99,7 @@
 	div.container {
 		width: 100%;
 		display: grid;
-		grid-template-columns: 2fr 7fr;
+		grid-template-columns: 2fr 5fr;
 		margin: 0px 0px 5px 0px;
 	}
 

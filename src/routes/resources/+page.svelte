@@ -1,5 +1,13 @@
 <script>
-	import { articleList, allThemes, allCategories, allTopics } from '$lib/json/stores';
+	import {
+		articleList,
+		themes,
+		categories,
+		tags,
+		allThemes,
+		allCategories,
+		allTopics
+	} from '$lib/json/stores';
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
@@ -8,12 +16,16 @@
 	import SectionHeading from '$lib/components/section-heading.svelte';
 	import ResourcesCategoryCard from '$lib/components/resources-category-card.svelte';
 
-	const categories = $allCategories.filter((d) => d.type === 'category');
+	//changed
+	// const categories = $allCategories.filter((d) => d.type === 'category');
+
 	const headingTitle = 'Resource categories';
 	const totalQuantity = $articleList.length;
 	const articlesPerCategory = 3;
+	// const displayQuantity =
+	// articlesPerCategory * $allCategories.filter((d) => d.type === 'category').length;
 	const displayQuantity =
-		articlesPerCategory * $allCategories.filter((d) => d.type === 'category').length;
+		articlesPerCategory * $categories.filter((d) => d.type === 'category').length;
 	const sidebarTitle = '';
 	const sidebarLeadinText =
 		'Select items by category or tag. Categories are simply a set of tags.<br /> ';
@@ -33,7 +45,7 @@
 	<div class="posts">
 		<SectionHeading {headingTitle} {displayQuantity} {totalQuantity} />
 		<div class="resources-container">
-			{#each categories as category}
+			{#each $categories as category}
 				<div class="category-container-1">
 					<ResourcesCategoryCard
 						articles={filterCategory($articleList, category)}
@@ -55,7 +67,7 @@
 	div.container {
 		width: 100%;
 		display: grid;
-		grid-template-columns: 3fr 9fr;
+		grid-template-columns: 2fr 5fr;
 		margin: 10px 0px 5px 0px;
 	}
 
