@@ -1,24 +1,14 @@
 <script>
-	import { excerptLength } from '$lib/json/stores';
-	import { getImageUrl } from '$lib/modules/utility_functions';
+	import { excerptLengthM } from '$lib/json/stores';
+	import { getImageUrl, cleanTags } from '$lib/modules/utility_functions';
 	import TopicListCard from '$lib/components/topic-list-card-v2.svelte';
-	// import TagListCard from '$lib/components/tag-list-card.svelte';
+
 	const twitterLogoUrl = '/img/icons/twitter-svgrepo-com-1.svg';
 	export let article;
 	let tags;
 	let img_url;
 	img_url = getImageUrl(article);
-
-	if (article.tags.length > 7) {
-		tags = article.tags.slice(0, 6);
-	} else if (article.tags.length < 1) {
-		tags = ['all'];
-	} else {
-		tags = article.tags;
-	}
-
-	let excerpt = article.excerpt.substring(0, $excerptLength);
-	// console.log('cc-med: ', article.img_url);
+	tags = cleanTags(article.tags);
 </script>
 
 <div class="post-container">
@@ -51,8 +41,8 @@
 		<div class="right-content">
 			<a href={article.link} class="excerpt-linked">
 				<p class="excerpt" style="text-decoration:none">
-					{article.excerpt.substring(0, $excerptLength)}
-					<span class="read-more">&#8212 read more</span>
+					{article.excerpt.substring(0, $excerptLengthM)}
+					<span class="read-more">&#8674 read more</span>
 				</p>
 			</a>
 		</div>
@@ -121,25 +111,6 @@
 		background-position: center;
 	}
 
-	.logo-container {
-		height: 30px;
-		width: 30px;
-		margin-top: 3px;
-		padding-right: 10px;
-	}
-
-	.site-logo {
-		width: 30px;
-		height: 100%;
-		position: relative;
-		left: 0;
-		top: 0;
-	}
-
-	.site-logo:hover {
-		filter: brightness(0.5);
-	}
-
 	.post-main {
 		width: 100%;
 		min-height: 20px;
@@ -171,8 +142,9 @@
 	.article-author {
 		font-family: 'Roboto', Georgia, 'Times New Roman', Times, serif;
 		font-size: 1rem;
-		font-weight: bold;
-		color: hsla(251, 100%, 20%, 0.7);
+		/* font-weight: bold; */
+		/* font-style: italic; */
+		color: hsla(251, 100%, 20%, 1);
 		margin: 0px 0px 5px 10px;
 		padding: 0;
 		width: 100%;
@@ -209,7 +181,8 @@
 	}
 
 	.read-more {
-		font-weight: bold;
+		font-style: italic;
+		color: rgb(177, 116, 164);
 	}
 
 	.read-more:hover {
@@ -221,26 +194,5 @@
 		font-weight: 900;
 		margin-left: 5px;
 		transition: margin 0.3s, opacity 0.3s;
-	}
-	.tags {
-		display: flex;
-		align-items: flex-start;
-		padding: 3px 0px;
-		grid-column-start: 1;
-		grid-column-end: 3;
-		border-top: 1px solid hsla(251, 100%, 30%, 0.1);
-		border-bottom: 1px solid hsla(251, 100%, 30%, 0.1);
-		z-index: 5;
-	}
-
-	.topics {
-		line-height: 1.7;
-		margin-top: 3px;
-		padding: 0px 0px 0px 0px;
-		display: flex;
-		grid-column-start: 1;
-		grid-column-end: 3;
-		background: linear-gradient(hsl(55deg 100% 98% / 50%), hsl(55deg 100% 98% / 100%));
-		z-index: 5;
 	}
 </style>

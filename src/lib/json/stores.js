@@ -14,4 +14,7 @@ export const clickedTheme = writable('all');
 export const clickedTopic = writable('all');
 export const clickedTag = writable('all');
 export const excerptLength = writable(100);
+export const excerptLengthL = writable(200);
+export const excerptLengthM = writable(150);
+export const excerptLengthS = writable(100)
 export const itemsPerPage = writable(30);

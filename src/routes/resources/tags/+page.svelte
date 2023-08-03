@@ -32,7 +32,6 @@
 
 	function topicClicked(selectedTag) {
 		$clickedTopic = selectedTag;
-		console.log('topics-page-function-clicked: ', $clickedTopic);
 		tagObj = $tags.filter((d) => d.name == selectedTag)[0];
 		goto(`/resources/tags/${selectedTag}`);
 	}

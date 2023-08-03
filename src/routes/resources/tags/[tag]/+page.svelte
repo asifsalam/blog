@@ -2,8 +2,8 @@
 	export let data;
 	// import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	import { articleList, filteredArticles, allTopics, tags, clickedTopic } from '$lib/json/stores';
-	import { filterTopic, filterTag } from '$lib/modules/utility_functions';
+	import { articleList, tags, clickedTopic } from '$lib/json/stores';
+	import { filterTopic } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import CreateTags from '$lib/components/create-tags.svelte';

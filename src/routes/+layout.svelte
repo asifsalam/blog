@@ -5,9 +5,6 @@
 		themes,
 		categories,
 		tags,
-		allCategories,
-		allThemes,
-		allTopics,
 		excerptLength
 	} from '$lib/json/stores.js';
 
@@ -18,20 +15,20 @@
 
 	export let data;
 	export let errors;
-	let numArticles = 350;
+	let numArticles = 500;
 
-	data.allCategories.forEach((element) => {
-		element.img = element.img.replace('/static', '');
-	});
+	// data.allCategories.forEach((element) => {
+	// 	element.img = element.img.replace('/static', '');
+	// });
 	const articleData = data.articles.slice(0, numArticles);
 	$articleList = articleData;
 	$postList = data.posts;
 	$themes = data.themes;
 	$categories = data.categories;
 	$tags = data.tags;
-	$allCategories = data.allCategories;
-	$allThemes = data.allThemes;
-	$allTopics = data.allTopics;
+	// $allCategories = data.allCategories;
+	// $allThemes = data.allThemes;
+	// $allTopics = data.allTopics;
 	$excerptLength = 100;
 	// console.log('layout-svelte: ', $categories);
 </script>

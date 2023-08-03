@@ -4,14 +4,14 @@
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
-	import ContentCard from '$lib/components/content-card-large.svelte';
+	import ContentCard from '$lib/components/content-card-large-v2.svelte';
 	// import SidebarHeadingBlog from '$lib/components/sidebar-heading-blog.svelte';
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 
 	const categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
 
 	let displayQuantity = $postList.length;
-	let headingText = 'My scribbles';
+	let headingText = 'My scribery';
 	let totalQuantity = displayQuantity;
 	let category = 'all';
 
@@ -27,7 +27,7 @@
 	<div class="sidebar-container">
 		<!-- <SidebarHeadingBlog /> -->
 		<SidebarHeading {sidebarLeadinText} />
-		<SidebarTags useThemes={'yes'} useCategories={'yes'} useTopics={'no'} />
+		<SidebarTags useThemes={'yes'} useCategories={'yes'} useTags={'no'} />
 	</div>
 	<div class="main-content">
 		<SectionHeading {category} headingTitle={headingText} {displayQuantity} {totalQuantity} />
@@ -69,15 +69,4 @@
 		column-gap: 1.5rem;
 		row-gap: 1.5rem;
 	}
-
-	.more-posts {
-		text-align: right;
-	}
-
-	/* h1 {
-		font-family: 'Sanchez';
-		font-weight: normal;
-		margin: 0px 0px 10px 0px;
-		color: var(--heading-color);
-	} */
 </style>

@@ -45,11 +45,6 @@
 					{/if}
 				</p>
 			</a>
-			<!-- {#if article.link_type === 'twitter'}
-					<a class="logo-container" href="https://twitter.com">
-						<img class="site-logo" src={twitterLogoUrl} alt="" srcset="" /></a
-					>
-				{/if} -->
 		</div>
 		<p class="topics">
 			<TopicListCard {tags} link_type={article.link_type} size={1} />
@@ -73,13 +68,6 @@
 		z-index: 0;
 		position: relative;
 	}
-
-	/* .content {
-		display: grid;
-		grid-template-columns: 1fr;
-		height: 100%;
-		width: 100%;
-	} */
 
 	.main-content {
 		margin: 0;
@@ -117,16 +105,6 @@
 		display: inline;
 		text-decoration: none;
 	}
-	/* .article-date::after {
-		content: '\21D2';
-		position: absolute;
-		margin-left: 5px;
-		font-weight: bold;
-	}
-	.article-date:hover::after {
-		text-decoration: underline;
-		font-weight: 900;
-	} */
 
 	.article-title:hover {
 		text-decoration: double;
@@ -145,8 +123,9 @@
 		font-family: 'Roboto', Georgia, 'Times New Roman', Times, serif;
 		font-size: 1rem;
 		font-weight: normal;
-		font-style: italic;
-		color: rgb(0, 0, 0);
+		/* font-style: italic; */
+		/* color: rgb(0, 0, 0); */
+		color: hsla(251, 100%, 20%, 1);
 		margin: 0px 0px 0px 0px;
 		padding: 0;
 		width: 100%;
@@ -157,7 +136,8 @@
 		font-size: 0.95rem;
 		font-weight: 400;
 		font-style: normal;
-		color: hsla(250, 100%, 5%, 1);
+		color: hsla(250, 100%, 5%, 0.8);
+		/* color: hsla(250, 100%, 5%, 1); */
 		margin: 0px 0px 0px 0px;
 		width: 100%;
 	}

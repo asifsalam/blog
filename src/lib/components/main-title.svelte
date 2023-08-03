@@ -4,13 +4,6 @@
 </script>
 
 <div class="main-title-wrap">
-	<!-- <p class="main-title">
-		a &nbsp
-		<span class="main-title-left">rough guide</span>
-		&nbsp to the &nbsp
-		<span class="main-title-right">data-driven enterprise</span>
-	</p> -->
-
 	<div class="main-title">
 		<p class="main-title-header">
 			<span class="main-title-minor">the digital &nbsp </span>
@@ -105,10 +98,11 @@
 	}
 	.title-name {
 		font-family: 'Great Vibes', 'Pacifico';
-		font-size: 1em;
+		font-size: 0.9em;
 		margin: 0;
 		/* rotate: -34deg; */
-		color: var(--heading-color);
+		/* color: var(--heading-color); */
+		color: hsla(251, 100%, 21%, 0.4);
 		margin-top: -15px;
 	}
 

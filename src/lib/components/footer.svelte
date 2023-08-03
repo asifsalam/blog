@@ -13,7 +13,7 @@
 	</div>
 	<img
 		class="swedish-flag"
-		src="/img/icons/Flag_of_Sweden.svg.png"
+		src="/img/icons/sweden_flag_postage_stamp_2.jpg"
 		alt="Flag of Sweden"
 		srcset=""
 	/>
@@ -66,7 +66,7 @@
 		float: right;
 		margin: 0;
 		background-image: url('/img/icons/Flag_of_Sweden.svg.png');
-		height: 40px;
+		height: 90px;
 		width: auto;
 		text-decoration: none;
 		color: hsl(55deg 100% 98%);

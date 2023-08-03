@@ -24,7 +24,6 @@
 		trimStart = (currentPage - 1) * articlesPerPage;
 		trimEnd = trimStart + articlesPerPage;
 		articleSet = articles.slice(trimStart, trimEnd);
-		console.log('pagination-list, trimmed set:', articleSet.length);
 		// fetch new data for the current page
 	}
 	/*

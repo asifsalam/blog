@@ -6,9 +6,13 @@ const config = {
 	kit: {
 		adapter: adapter()
 	},
+	vitePlugin: {
+		experimental: {
+			inspector: true,
+		},
+	},
 	extensions: ['.svelte', '.md'],
 	preprocess: [
-
 		mdsvex({
 			extensions: ['.md']
 		})

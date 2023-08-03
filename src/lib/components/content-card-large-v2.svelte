@@ -1,18 +1,12 @@
 <script>
-	import { excerptLength } from '$lib/json/stores';
+	import { excerptLength, excerptLengthL } from '$lib/json/stores';
 	import { getImageUrl, cleanTags } from '$lib/modules/utility_functions';
 	import TopicListCard from '$lib/components/topic-list-card-v2.svelte';
 	// import TagListCard from '$lib/components/tag-list-card.svelte';
 	const twitterLogoUrl = '/img/icons/twitter-svgrepo-com-1.svg';
 	export let article;
-	let tags;
-	let img_url;
-	img_url = getImageUrl(article);
-
-	tags = cleanTags(article.tags);
-
-	let excerpt = article.excerpt.substring(0, $excerptLength);
-	// console.log('cc-med: ', article.img_url);
+	let tags = cleanTags(article.tags);
+	let img_url = getImageUrl(article);
 </script>
 
 <div class="post-container">
@@ -45,8 +39,8 @@
 		<div class="right-content">
 			<a href={article.link} class="excerpt-linked">
 				<p class="excerpt" style="text-decoration:none">
-					{article.excerpt.substring(0, $excerptLength)}
-					<span class="read-more">&#8212 read more</span>
+					{article.excerpt.substring(0, $excerptLengthL)}
+					<span class="read-more">&#8674 read more</span>
 				</p>
 			</a>
 		</div>
@@ -150,8 +144,8 @@
 	.article-author {
 		font-family: 'Roboto', Georgia, 'Times New Roman', Times, serif;
 		font-size: 1rem;
-		font-weight: bold;
-		color: hsla(251, 100%, 20%, 0.7);
+		/* font-weight: bold; */
+		color: hsla(251, 100%, 20%, 1);
 		margin: 0px 0px 5px 10px;
 		padding: 0;
 		width: 100%;
@@ -188,7 +182,9 @@
 	}
 
 	.read-more {
-		font-weight: bold;
+		/* font-weight: bold; */
+		font-style: italic;
+		color: rgb(177, 116, 164);
 	}
 
 	.read-more:hover {

@@ -1,16 +1,5 @@
 <script>
-	import {
-		articleList,
-		postList,
-		// allThemes,
-		// themes,
-		// categories,
-		// tags,
-		// allCategories,
-		// allTopics,
-		clickedTheme,
-		clickedCategory
-	} from '$lib/json/stores';
+	import { articleList, postList, clickedTheme, clickedCategory } from '$lib/json/stores';
 	import { goto } from '$app/navigation';
 	import { fade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
@@ -21,8 +10,6 @@
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
 	import SectionHeading from '$lib/components/section-heading.svelte';
 
-	// const themes = $allThemes;
-	// console.log('home-page:');
 	let sidebarTitle = '';
 	let sidebarLeadinText =
 		'Greetings! My name is Asif. <br/> And you have wittingly or otherwise chanced upon this space, which is:';
