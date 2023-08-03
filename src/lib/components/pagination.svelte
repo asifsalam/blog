@@ -147,17 +147,19 @@
 		padding: 15px 0;
 	}
 	.pagination button {
-		background-color: hsla(0, 0%, 95%, 0.1);
+		background-color: hsla(0, 0%, 96%, 0.5);
 		border: 0.1px solid hsla(251, 32%, 44%, 0.5);
 		border-radius: 5px;
-		color: #333;
+		/* color: #bababa; */
+		color: hsla(251, 100%, 20%, 0.5);
 		cursor: pointer;
 	}
 
 	.pagination button.active {
 		font-family: Roboto, Arial, Helvetica, sans-serif;
 		font-size: medium;
-		background-color: hsla(251, 100%, 20%, 0.9);
+		/* background-color: hsla(251, 100%, 20%, 0.9); */
+		background-color: hsl(251, 25%, 67%);
 		color: #fff;
 	}
 	.previous-page {

@@ -1,15 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	import {
-		articleList,
-		themes,
-		categories,
-		tags,
-		allCategories,
-		allTopics,
-		clickedTopic
-	} from '$lib/json/stores';
+	import { articleList, tags, allCategories, allTopics, clickedTopic } from '$lib/json/stores';
 	import { filterTopic, filterTag } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
@@ -20,7 +12,7 @@
 	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 
 	$: selectedTopic = 'rstats';
-	let topics = $allTopics;
+	// let topics = $allTopics;
 	let tagObj = {};
 	/** @type {Array} */
 	let articles = [];
@@ -34,28 +26,21 @@
 	function tagClicked(tag) {
 		// @ts-ignore
 		$clickedTopic = tag;
-		console.log('key-tag-clicked: ', $clickedTopic);
+
 		goto(`/resources/tags/`);
 	}
 
 	function topicClicked(selectedTag) {
-		// $clickedTopic = topic;
-		// selectedTopic = $clickedTopic;
-		// console.log('topics-page-function-clicked: ', $clickedTopic);
-		// articles = filterTag($articleList, selectedTopic);
-		// goto(`/resources/topics/${topic}`);
 		$clickedTopic = selectedTag;
 		console.log('topics-page-function-clicked: ', $clickedTopic);
 		tagObj = $tags.filter((d) => d.name == selectedTag)[0];
-		// articles = filterTag($articleList, tagObj);
 		goto(`/resources/tags/${selectedTag}`);
 	}
 
 	/** @type {string}*/
-	const headingText = 'Tag';
+	const headingText = 'Tag: ';
 	$: totalQuantity = articles.length;
-	// console.log('tags-topics-selectedTopic: ', $tags, topics, selectedTopic);
-	let sidebarTagHeading = 'Other tags';
+	let sidebarTagHeading = 'Tags';
 	articles = articles;
 	selectedTopic = $clickedTopic;
 </script>
@@ -110,33 +95,7 @@
 		margin: 10px 30px 00px 0px;
 		flex-flow: column;
 	}
-	/* .sidebar-header {
-		display: block;
-		height: auto;
-		width: 100%;
-		background-color: rgb(255, 254, 243);
-		padding: 0 0 10px 0;
-		margin: 0;
-		border-bottom: 2px solid hsl(23, 8%, 50%);
-	} */
-	/* .sidebar-header-text {
-		display: block;
-		padding: 0;
-		margin: 0px 0 5px 0;
-		font-family: 'Crete Round';
-		font-size: 1.4em;
-		font-weight: 100;
-		color: hsla(251, 100%, 15%, 1);
-		text-align: left;
-	} */
-	/* .topics-header {
-		padding: 5px 0;
-		margin: 10px 0;
-		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
-		font-size: 1.4em;
-		font-weight: 300;
-		color: hsla(251, 100%, 20%, 0.9);
-	} */
+
 	.topics {
 		display: inline;
 		line-height: 1.5;

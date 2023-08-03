@@ -50,10 +50,8 @@
 		margin: 10px 0px 5px 0px;
 	}
 	div.sidebar-container {
-		/* margin: 0;
-		padding: 0; */
 		float: left;
-		margin: 10px 30px 00px 0px;
+		margin: 10px 30px 0px 0px;
 		flex-flow: column;
 	}
 	div.main-content {

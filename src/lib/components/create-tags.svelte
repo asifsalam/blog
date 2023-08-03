@@ -1,14 +1,9 @@
 <script>
 	import { group_outros } from 'svelte/internal';
-
 	export let tags;
 	export let tagType = 'tag';
 	export let tagClicked = () => {};
 	export let headingText = 'Main themes';
-	console.log('create-tags: ', tags);
-	console.log('create-tags: ', tagType);
-
-	console.log('create-tags: ', tagType, tags);
 </script>
 
 <p class="tags-header">{headingText}</p>

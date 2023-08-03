@@ -86,16 +86,11 @@
 		text-decoration: underline hsl(251, 100%, 20%) 0.2em;
 	}
 
-	/* .nav-item {
-		font-size: 1.2rem;
-		font-weight: normal;
-		padding: 5px 10px;
-	} */
-
 	.active {
-		background-color: rgba(16, 2, 77, 0.9);
-		border: 1px solid hsl(251, 100%, 20%);
-		color: beige;
+		/* background-color: rgba(16, 2, 77, 0.9); */
+		border: 1px solid hsl(251, 100%, 20%, 0.2);
+		background-color: hsl(251, 25%, 67%);
+		color: hsl(55, 100%, 97%);
 		/* font-weight: bolder; */
 	}
 
@@ -105,10 +100,8 @@
 	}
 
 	.nav-container {
-		/* height: 50px; */
 		width: 100%;
-		margin: 0px 0 0 0px;
-		/* border-bottom: 2px solid var(--heading-color); */
+		margin: 0 0 0 0;
 		border-bottom: 2px solid #999980;
 		position: sticky;
 		top: 0;

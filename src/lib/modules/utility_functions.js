@@ -45,6 +45,31 @@ function loadPosts(postApi = '/api/posts.json') {
 
 };
 
+/** @type {Array}*/
+function cleanTags(articleTags) {
+    const tagsToRemove = ["post", "article", "pitfall"]
+    let tags = articleTags;
+    let index;
+    if (articleTags.length > 0) {
+        for (let i = 0; i < tagsToRemove.length; i++) {
+            index = tags.indexOf(tagsToRemove[i])
+            if (index > -1) {
+                tags.splice(index, 1)
+            }
+        }
+        if (tags.length > 7) {
+            tags = tags.slice(0, 6);
+        }
+        if (tags.length < 1) {
+            tags = ['all'];
+        }
+        // console.log("clean tags: ",articletags)
+        return tags;
+    } else {
+        return -1;
+    }
+}
+
 /**
  * @param {any[] | Promise<{ allPosts: any; }>} posts
  */
@@ -136,10 +161,10 @@ function filterCategory(articles, category) {
 
 function filterArticles(articles, selection) {
     let result;
-    // console.log("filterCategory: ", articles, category);
+    // console.log("filterArticles: ", articles, selection);
     if (selection.type === "theme") {
         if (selection.name == "all") {
-            result = articles
+            result = articles;
         } else {
             result = articles.filter((x) => {
                 let includesSelection = false;
@@ -157,7 +182,7 @@ function filterArticles(articles, selection) {
                 result = articles.slice(1, 7);
             }
         }
-
+    // console.log("filterArticles: ", result);
     return result;
 }
 
@@ -199,7 +224,6 @@ function filterTag(articles, tag, tags) {
             return (x.tags.includes(tag));
         });
     }
-    console.log(`function filterTag: ${result.length} items.`)
     return result;
 }
 
@@ -236,5 +260,5 @@ function filterTopic1(articles, topic) {
 
 export {
     randomIntFromInterval, paddedRandomIntFromInterval, parsePosts, parseArticle, capitalizeFirstLetter, loadArticles, loadPosts,
-    filterCategory, filterTheme, filterTag, filterTopic, filterArticles, getImageUrl
+    filterCategory, filterTheme, filterTag, filterTopic, filterArticles, cleanTags, getImageUrl
 } 

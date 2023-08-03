@@ -1,9 +1,20 @@
 <script>
-	import { articleList, clickedTheme } from '$lib/json/stores';
+	import {
+		articleList,
+		postList,
+		// allThemes,
+		// themes,
+		// categories,
+		// tags,
+		// allCategories,
+		// allTopics,
+		clickedTheme,
+		clickedCategory
+	} from '$lib/json/stores';
 	import { goto } from '$app/navigation';
 	import { fade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
-	import ContentCard from '$lib/components/content-card-large-v2.svelte';
+	import ContentCard from '$lib/components/content-card-large.svelte';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import SidebarTags from '$lib/components/sidebar-tags.svelte';
@@ -21,14 +32,24 @@
 		'Mostly useful links',
 		'And some original posts'
 	];
-	let headingTitleItems = 'Latest posts';
-	let displayQuantityItems = 20;
-	let totalQuantityItems = $articleList.length;
-	// @ts-ignore
-	function moreItemsClicked(selectedCategory) {
+	let headingTitlePosts = 'Latest posts';
+	let displayQuantityPosts = 6;
+	let totalQuantityPosts = $postList.length;
+
+	let headingTitleLinks = 'Latest links:';
+	let displayQuantityLinks = 6;
+	let totalQuantityLinks = $articleList.length;
+	function morePostsClicked(selectedCategory) {
+		// @ts-ignore
 		$clickedTheme = 'all';
-		goto('/theme');
+		goto('/blog');
 	}
+	function moreLinksClicked(selectedCategory) {
+		// @ts-ignore
+		$clickedCategory = 'all';
+		goto('/resources/category');
+	}
+	// console.log($postList);
 </script>
 
 <RandomQuote />
@@ -42,19 +63,33 @@
 		<div class="main-content">
 			<div class="articles">
 				<SectionHeading
-					headingTitle={headingTitleItems}
-					displayQuantity={displayQuantityItems}
-					totalQuantity={totalQuantityItems}
-					{moreItemsClicked}
+					headingTitle={headingTitlePosts}
+					displayQuantity={displayQuantityPosts}
+					totalQuantity={totalQuantityPosts}
+					moreItemsClicked={morePostsClicked}
 				/>
 				<div class="posts">
-					{#each $articleList.slice(0, displayQuantityItems) as article}
-						<ContentCard {article} />
+					{#each $postList.slice(0, displayQuantityPosts) as post}
+						<ContentCard article={post} />
 					{/each}
 				</div>
 				<!-- <p class="more-posts"><a href="\blog">More posts</a></p> -->
 			</div>
 			<div class="section-break" />
+			<div class="articles">
+				<SectionHeading
+					headingTitle={headingTitleLinks}
+					displayQuantity={displayQuantityLinks}
+					totalQuantity={totalQuantityLinks}
+					moreItemsClicked={moreLinksClicked}
+				/>
+				<div class="posts">
+					{#each $articleList.slice(0, displayQuantityLinks) as article}
+						<ContentCard {article} />
+					{/each}
+				</div>
+				<!-- <p class="more-posts"><a href="\resources">More links</a></p> -->
+			</div>
 		</div>
 	</div>
 {/key}
@@ -73,7 +108,7 @@
 
 	div.sidebar-container {
 		float: left;
-		margin: 10px 30px 00px 0px;
+		margin: 10px 30px 0px 0px;
 		flex-flow: column;
 	}
 
@@ -99,6 +134,11 @@
 		margin: 10px 0;
 		padding: 0;
 	}
+	/* .more-posts {
+		text-align: right;
+		font-size: 1.2rem;
+		margin: 5px 0 10px 0;
+	} */
 
 	.articles {
 		margin-bottom: 20px;

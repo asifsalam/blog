@@ -33,10 +33,11 @@
 
 	.tag-container {
 		display: flex;
+		flex-wrap: wrap;
 		/* align-items: flex-start; */
 		align-items: center;
 		/* padding: 0px 0px; */
-		padding: 0px 0px 5px 0px;
+		padding: 0px 0px 0px 0px;
 		grid-column-start: 1;
 		grid-column-end: 3;
 		border-top: 1px solid hsla(251, 100%, 30%, 0.1);

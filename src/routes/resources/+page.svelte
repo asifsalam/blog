@@ -1,13 +1,5 @@
 <script>
-	import {
-		articleList,
-		themes,
-		categories,
-		tags,
-		allThemes,
-		allCategories,
-		allTopics
-	} from '$lib/json/stores';
+	import { articleList, categories } from '$lib/json/stores';
 	import { filterCategory } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
@@ -16,22 +8,15 @@
 	import SectionHeading from '$lib/components/section-heading.svelte';
 	import ResourcesCategoryCard from '$lib/components/resources-category-card.svelte';
 
-	//changed
-	// const categories = $allCategories.filter((d) => d.type === 'category');
-
 	const headingTitle = 'Resource categories';
 	const totalQuantity = $articleList.length;
 	const articlesPerCategory = 3;
-	// const displayQuantity =
-	// articlesPerCategory * $allCategories.filter((d) => d.type === 'category').length;
 	const displayQuantity =
 		articlesPerCategory * $categories.filter((d) => d.type === 'category').length;
 	const sidebarTitle = '';
 	const sidebarLeadinText =
 		'Select items by category or tag. Categories are simply a set of tags.<br /> ';
 	const sidebarBulletText = '';
-
-	console.log('resources: ', $categories);
 </script>
 
 <RandomQuote />
@@ -39,16 +24,13 @@
 
 <div class="container">
 	<div class="sidebar-container">
-		<!-- <SidebarHeadingResources /> -->
 		<SidebarHeading {sidebarTitle} {sidebarLeadinText} {sidebarBulletText} />
 		<SidebarTags useThemes={'no'} useCategories={'yes'} useTags={'yes'} />
 	</div>
-	<!-- <Sidebar allThemes={$allThemes} allCategories={$allCategories} allTopics={$allTopics} /> -->
 	<div class="posts">
 		<SectionHeading {headingTitle} {displayQuantity} {totalQuantity} />
 		<div class="resources-container">
 			{#each $categories as category}
-				<!-- {category.category} -->
 				<div class="category-container-1">
 					<ResourcesCategoryCard
 						articles={filterCategory($articleList, category)}

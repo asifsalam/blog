@@ -13,21 +13,11 @@
 	import PaginationList from '$lib/components/pagination-list.svelte';
 
 	$: selectedCategory = '';
-	$: category = 'data-viz';
+	$: category = '';
 	$: articles = [];
-	// console.log($categories);
-	// let allCategories = [];
 	let categoryObj = {};
-	// let categoriesObj = $categories.filter((d) => d.type === 'category');
 
 	onMount(() => {
-		console.log('category: ', $clickedCategory);
-
-		// selectedCategory = $clickedCategory;
-		// categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
-		// categoryObj = $allCategories
-		// .filter((d) => d.type === 'category' || d.type === 'all')
-		// .filter((d) => d.category == selectedCategory)[0];
 		categoryObj = $categories.filter((d) => d.name === $clickedCategory)[0];
 		category = categoryObj.name;
 		articles = filterCategory($articleList, categoryObj);
@@ -36,19 +26,13 @@
 	function categoryClicked(clCategory) {
 		selectedCategory = clCategory;
 		$clickedCategory = selectedCategory;
-		// categories = $allCategories.filter((d) => d.type === 'category').map((d) => d.category);
-		// categoryObj = $allCategories
-		// 	.filter((d) => d.type === 'category')
-		// 	.filter((d) => d.category == selectedCategory)[0];
-		// category = categoryObj.category;
 		categoryObj = $categories.filter((d) => d.name === $clickedCategory)[0];
 		category = categoryObj.name;
 		articles = filterCategory($articleList, categoryObj);
 	}
 	/** @type {string}*/
-	const headingText = 'Category ';
+	const headingText = 'Category: ';
 	$: totalQuantity = articles.length;
-	// $: console.log('category-page: ', category, selectedCategory, totalQuantity, categoriesObj);
 	let sidebarTagHeading = 'Categories';
 	articles = articles;
 </script>
@@ -89,7 +73,7 @@
 	}
 	.sidebar {
 		float: left;
-		margin: 10px 30px 00px 0px;
+		margin: 10px 30px 0px 0px;
 		flex-flow: column;
 	}
 

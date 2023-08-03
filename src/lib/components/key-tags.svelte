@@ -2,8 +2,9 @@
 	import { goto } from '$app/navigation';
 	import { clickedCategory, clickedTheme, clickedTopic } from '$lib/json/stores';
 	import CreateTags from '$lib/components/create-tags.svelte';
-	/** @type {undefined}*/
+	/** @type {string}*/
 	export let tagType = 'theme';
+	/** @type {undefined}*/
 	export let tags;
 	export let headingText = 'Main themes';
 
@@ -11,29 +12,24 @@
 		tags = tags.filter((d) => d.type === 'category');
 	}
 
-	// console.log('key-themes-categories: ', themes);
 	/** @param {string} theme */
 	function themeClicked(theme) {
 		// @ts-ignore
 		$clickedTheme = theme;
 		goto('/theme');
-		console.log('theme-clicked: ', $clickedTheme);
 	}
 
 	function categoryClicked(tag) {
 		// @ts-ignore
 		$clickedCategory = tag;
 		goto('/resources/category');
-		console.log('category-clicked: ', $clickedCategory);
 	}
 
 	function tagClicked(tag) {
 		// @ts-ignore
 		$clickedTopic = tag;
-		console.log('key-tag-clicked: ', $clickedTopic);
 		goto(`/resources/tags/`);
 	}
-	console.log('key-tags: ', tagType, tags);
 </script>
 
 <div class="sidebar-themes">
@@ -63,20 +59,7 @@
 		padding: 0;
 	}
 
-	/* .themes-header {
-		padding: 10px 0 0 0;
-		margin: 0;
-		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
-		font-size: 1.4rem;
-		font-weight: 300;
-		color: hsla(251, 100%, 20%, 0.9);
-	} */
-
 	.tags {
-		/* display: inline; */
 		line-height: 1.5;
-		/* margin: 50px 0 50px 0px; */
-		/* font-size: 1rem; */
-		/* font-weight: bold; */
 	}
 </style>
