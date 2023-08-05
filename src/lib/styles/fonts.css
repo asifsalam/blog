@@ -40,6 +40,40 @@
 /* Lancelot - sans serif*/
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
 
+/* Alata, Cherry Swash */
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Cherry+Swash:wght@700&display=swap');
+/* Galdeano */
+@import url('https://fonts.googleapis.com/css2?family=Galdeano&display=swap');
+/* PT Sans Caption */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
+
+/* Sora */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@200;400&display=swap');
+
+/* Singika */
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap');
+
+/* Alegreya Sans - men*/
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap');
+
+/* Palanquin Dark - Not usable*/
+@import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;600&display=swap');
+
+/* Titillium Web - meh*/
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap');
+
+/* Asap, Exo 2, Hind Madurai, Prompt, Space Grotesk, Varela Round*/
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@200;400&family=Exo+2:wght@200;400&family=Hind+Madurai:wght@300;400&family=Prompt:wght@200;400&family=Signika+Negative:wght@300;400&family=Space+Grotesk:wght@300;400&family=Varela+Round&display=swap');
+
+/* ABeeZee, Epilogue, Laila, Urbanist */
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Epilogue:wght@200;400;500&family=Laila:wght@300;400;600&family=Urbanist:wght@200;400&display=swap');
+
+/* Capriola, Electrolize, Gotu, KoHo, 'M PLUS Code Latin', 'Palanquin Dark', Ruloko, 'Sulphur Point', Syne, 'Tsukimi Rounded' */
+@import url('https://fonts.googleapis.com/css2?family=Capriola&family=Electrolize&family=Gotu&family=KoHo:wght@200;300;400&family=M+PLUS+Code+Latin:wght@200;300;400;500&family=Palanquin+Dark:wght@400;600&family=Ruluko&family=Sulphur+Point:wght@300;400&family=Syne:wght@400;600&family=Tsukimi+Rounded:wght@300;400;600&display=swap');
+
+/* Comfortaa, Flamenco, Goldman, Gugi, Iceland, Macondo, MuseoModerno, Overlock, 'Poiret One', Righteous, Skranji, Wellfleet*/
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Flamenco:wght@300;400&family=Goldman&family=Gugi&family=Iceland&family=Macondo&family=MuseoModerno:wght@100;200;300;400&family=Overlock:wght@400;700&family=Poiret+One&family=Righteous&family=Skranji&family=Wellfleet&display=swap');
+
 /* 
 Allura - handwriting font
 Great Vibes - handwriting
@@ -57,26 +91,6 @@ Crimson Pro - slight - headline?
 Antik Slab - Slight serif - too basic
 Amiri - light serif - too basic
  */
-:root {
-	/* colors */
-	--heading-color: hsl(251, 100%, 21%);
-	--hue1: 251;
-	--heading-text: var(--hue) 100% 21% --text: var(--hue) 4.8% 28.9%;
-	--accent1: var(--hue) 43.6% 57.5%;
-	--accent2: var(--hue) 71.4% 95.9%;
-	--bkg: var(--hue) 100% 99.6%;
-	--color_white: #fff;
-	--color_prime: #5ad67d;
-	--color_grey: #e2e2e2;
-	--color_grey_dark: #a2a2a2;
-	--color_link: #b7ffbc;
-
-	/* box-shadows */
-	--boxs-sm: 4px 6px 8px hsl(var(--accent1) / 14%), -3px 3px 18px 2px hsl(var(--accent1) / 12%),
-		2px 5px 10px -3px hsl(var(--accent1) / 20%);
-	--boxs-lg: 0px 8px 10px hsl(var(--accent1) / 14%), 0px 3px 14px 2px hsl(var(--accent1) / 12%),
-		0px 5px 5px -3px hsl(var(--accent1) / 20%);
-}
 
 @font-face {
 	font-family: 'Amal Baik';
@@ -89,88 +103,48 @@ Amiri - light serif - too basic
 	font-family: 'Demora';
 	/* src: url('/fonts/trial/DemoraItalic-p7LxD.otf'); */
 	src: url('/fonts/trial/Demora-w1Wr6.otf');
-	/* src: url('fonts/trial/TimeburnerBold-peGR.ttf'); */
-	/* src: url('/fonts/trial/Gepestev-nRJgO.ttf'); */
-	/* src: url('/fonts/trial/Timeburner-xJB8.ttf'); */
-	/* src: url('/fonts/trial/TrenchThin-aZ1J.ttf'); */
-	/* font-style: italic; */
-	/* font-weight: 600; */
 }
 
-/* 
 @font-face {
 	font-family: 'Dista Calista';
-	src: url('../../static/fonts/Ditsa\ Calista\ DEMO.ttf');
+	src: url('/fonts/Ditsa\ Calista\ DEMO.ttf');
 	font-style: normal;
 	font-weight: 400;
 }
+
 
 @font-face {
 	font-family: 'Bukhari';
-	src: url('../../static/fonts/BukhariScript-lemD.ttf');
+	src: url('/fonts/BukhariScript-lemD.ttf');
 	font-style: normal;
 	font-weight: 400;
 }
 
 @font-face {
-	font-family: 'blog-title-1';
-	src: url('../../static/fonts/RedThinker-Light.ttf');
+	font-family: 'RedThinker';
+	src: url('/fonts/RedThinker-Light.ttf');
 	font-style: normal;
 	font-weight: 200;
 }
 
 @font-face {
-	font-family: 'blog-title';
-	src: url('../../static/fonts/DelikFreeTrial.ttf');
+	font-family: 'Delik';
+	src: url('/fonts/DelikFreeTrial.ttf');
 	font-style: normal;
 	font-weight: 400;
-} */
-
-body {
-	background-color: rgb(255, 254, 243);
-	margin: 0;
-	width: 1200px;
-	margin: auto;
-	/* align-items: center; */
 }
 
-h1 {
-	font-family: Raleway, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('/fonts/Montserrat/MontserratAlternates-Bold.ttf');
+	font-style: normal;
+	font-weight: 400;
 }
 
-h2 {
-	font-family: 'Libre Baskerville', 'Roboto Slab', Georgia, 'Times New Roman', Times, serif;
-	font-weight: 200;
-	font-size: 2em;
-}
-
-h3 {
-	font-family: 'Libre Baskerville', 'Roboto Slab', Georgia, 'Times New Roman', Times, serif;
-	font-weight: 200;
-}
-
-h4 {
-	font-family: 'Scope One', 'Libre Baskerville', 'Roboto Slab', Georgia, 'Times New Roman', Times, serif;
-	font-weight: normal;
-}
-
-p {
-	font-family: 'Scope One', 'Libre Baskerville', 'Roboto Slab', Georgia, 'Times New Roman', Times, serif;
-	font-weight: normal;
-	letter-spacing: 0.012em;
-	word-spacing: 0.15em;
-}
-
-a,
-li {
-	font-family: 'Roboto', Verdana, 'Geneva', Tahoma, sans-serif;
-	font-weight: normal;
-}
-
-q {
-	font-family: 'Lancelot', 'Bukhari';
-}
-
-blockquote {
-	font-family: 'Lancelot', 'Bad Script', 'Libre Baskerville', 'Delius', Georgia, 'Times New Roman', Times, serif;
+@font-face {
+	font-family: 'Audiowide';
+	src: url('/fonts/Audiowide/Audiowide-Regular.ttf');
+	font-style: normal;
+	font-weight: 400;
 }

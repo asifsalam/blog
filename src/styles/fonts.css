@@ -1,27 +1,61 @@
+/* Roboto Slab, Roboto */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100;300&display=swap');
+
+/* Allura, Delius, Great Vibes */
+/*@import url('https://fonts.googleapis.com/css2?family=Allura&family=Delius&family=Great+Vibes&display=swap');*/
+
+/* Libre Baskerville */
+/* @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap'); */
+
+/* DM Sans */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* Yellowtail */
+/* @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap'); */
+
+/* Pacifico */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Crimson Pro, Meddon */
+/* @import url('https://fonts.googleapis.com/css2?family=Calligraffitti&family=Crimson+Pro:wght@300;500&family=Meddon&display=swap'); */
+
+/* Antic Slab */
+/* @import url('https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap'); */
+
+/* Amiri */
 @import url('https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&display=swap');
+
+/* Bad Script, Marck Script */
+/* @import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Marck+Script&display=swap'); */
+
+/* Noto Sans */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,500;0,700;1,300&display=swap');
+
+/* Cherry Swash, Lancelot, Maiden Orange, Noto Serif Thai, Offisde, Scope One */
 @import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Lancelot&family=Maiden+Orange&family=Noto+Serif+Thai:wght@300;400&family=Offside&family=Scope+One&display=swap');
+
+/* Crete Round, Pridi, Sanchez */
 @import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Pridi&family=Sanchez&display=swap');
+
+/* Lancelot - sans serif*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
 
 /* 
 Allura - handwriting font
-Delius - slight handwriting
 Great Vibes - handwriting
-Libre baskerville - slight handwriting - Headline?
-DM Sans - Sans font
 Yellowtail - handwriting Astigmatic, 1 style
 Pacifico - handwrting, 1 style
 Calligraffitti - handwriting, too much
-Crimson Pro - slight - headline?
 Meddon - slant handwriting, too much
+Bad Script - handwriting
+Delius - slight handwriting
+Marck Script - handwriting
+Proza Libre - slight handwriting
+Libre baskerville - slight handwriting - Headline?
+DM Sans - Sans font
+Crimson Pro - slight - headline?
 Antik Slab - Slight serif - too basic
 Amiri - light serif - too basic
-Proza Libre - slight handwriting
-Bad Script - handwriting
-Marck Script - handwriting
  */
 
 @font-face {
@@ -29,6 +63,11 @@ Marck Script - handwriting
 	src: url('/fonts/Amal\ Baik.ttf');
 	font-style: normal;
 	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Demora';
+	src: url('/fonts/trial/Demora-w1Wr6.otf');
 }
 
 /* 
@@ -59,34 +98,3 @@ Marck Script - handwriting
 	font-style: normal;
 	font-weight: 400;
 } */
-
-body {
-	background-color: rgb(255, 254, 243);
-	margin: 0;
-	width: 1200px;
-	margin: auto;
-	/* align-items: center; */
-}
-
-h1,
-h2,
-h3 {
-	font-family: 'Libre Baskerville', 'Roboto Slab', Georgia, 'Times New Roman', Times, serif;
-	font-weight: 200;
-}
-
-h4,
-a,
-p,
-li {
-	font-family: 'Roboto', Verdana, 'Geneva', Tahoma, sans-serif;
-	font-weight: normal;
-}
-
-q {
-	font-family: 'Lancelot', 'Bukhari';
-}
-
-blockquote {
-	font-family: 'Lancelot', 'Bad Script', 'Libre Baskerville', 'Delius', Georgia, 'Times New Roman', Times, serif;
-}

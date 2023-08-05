@@ -1,4 +1,5 @@
 <script>
+	import '$lib/styles/blog.css';
 	import { page } from '$app/stores';
 	import { postList } from '$lib/json/stores';
 	// import RandomQuote from '$lib/components/random-quote.svelte';
@@ -44,6 +45,10 @@
 		/* grid-template-columns: 300px 900px; */
 		grid-template-columns: 3fr 5fr;
 		margin: 0px 0px 5px 0px;
+	}
+	h2 {
+		font-size: 4em;
+		font-family: 'Courier New', Courier, monospace;
 	}
 	.sidebar {
 		/* position: fixed; */

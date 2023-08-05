@@ -1,13 +1,13 @@
 <script>
 	import { page } from '$app/stores';
-	import '/src/styles/global.css';
+	// import '/src/lib/styles/global.css';
 
 	const menuItems = [
 		{ name: 'Home', url: '/' },
 		{ name: 'Blog', url: '/blog' },
 		// { name: 'Articles', url: '/articles' },
 		{ name: 'Resources', url: '/resources' },
-		{ name: 'Shayari', url: '/shayari' },
+		{ name: 'Melancholy', url: '/shayari' },
 		{ name: 'Contact', url: '/contact' },
 		{ name: 'About', url: '/about' }
 	];

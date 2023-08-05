@@ -17,9 +17,18 @@
 		alt="Flag of Sweden"
 		srcset=""
 	/>
-	<a href="mailto:asif.salam@yahoo.com"><i class="icon ri-mail-send-fill" /></a>
-	<a href="http://twitter.com/asifsalam"><i class="icon ri-twitter-fill" /></a>
-	<a href="https://www.linkedin.com/in/asifsalam/"><i class="icon ri-linkedin-fill" /></a>
+	<a href="mailto:asif.salam@yahoo.com"
+		><img src="/img/icons/email-retro-1.svg" alt="email icon" class="other-icon" />
+	</a>
+	<a href="http://twitter.com/asifsalam"
+		><img class="other-icon" src="/img/icons/twitter-retro-1.svg" alt="Twitter Logo" />
+	</a>
+	<a href="https://www.linkedin.com/in/asifsalam/"
+		><img src="/img/icons/linkedin-retro-1.svg" alt="linkedin icon" class="other-icon" />
+	</a>
+	<!-- <a href="mailto:asif.salam@yahoo.com"><i class="icon ri-mail-send-fill" /></a> -->
+	<!-- <a href="http://twitter.com/asifsalam"><i class="icon ri-twitter-fill" /></a> -->
+	<!-- <a href="https://www.linkedin.com/in/asifsalam/"><i class="icon ri-linkedin-fill" /></a> -->
 	<!-- <a href="https://twitter.com/asifsalam"><i class="twitter-icon" /></a>
 	<a href="https://www.linkedin.com/in/asifsalam/"><i class="linkedin-icon" /></a> -->
 </div>
@@ -56,8 +65,10 @@
 	.icon {
 		margin-top: 0px;
 		padding: 10px;
-		background: hsla(251, 100%, 20%, 1);
-		font-size: 1.3em;
+		/* background: hsla(251, 100%, 20%, 1); */
+		background: hsla(193, 47%, 56%, 1);
+		/* background: hsla(193, 48%, 67%, 1); */
+		font-size: 2em;
 		text-decoration: none;
 		color: hsl(55deg 100% 98%);
 		border: 2px dotted hsl(54, 35%, 79%);
@@ -66,7 +77,17 @@
 		float: right;
 		margin: 0;
 		background-image: url('/img/icons/Flag_of_Sweden.svg.png');
-		height: 90px;
+		height: 52px;
+		width: auto;
+		text-decoration: none;
+		color: hsl(55deg 100% 98%);
+		background-size: cover;
+	}
+	.other-icon {
+		float: right;
+		margin: 0;
+		background-image: url('/img/icons/Flag_of_Sweden.svg.png');
+		height: 52px;
 		width: auto;
 		text-decoration: none;
 		color: hsl(55deg 100% 98%);

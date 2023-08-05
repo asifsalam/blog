@@ -20,21 +20,21 @@ categories:
 
 ## Introduction
 
-Companies talk about "data-driven decision making", but a slick PowerPoint deck is how decisions are really made. A good slide can find its way into all kinds of decision material, and be viewed by many more decision-makers than any dashboard. Even if you use **R** (or **Python**) for data analysis, PowerPoint is how you distribute and communicate results, so learning to to create those decks as part of the analysis workflow can be worthwhile. Recreating and customizing slides based on scenarios or updates to the analysis becomes fairly straightforward, with effective version control and reproducibility. Beyond efficiency and repeatability, programmatic access enables you to do things that just would not be possible with point and click.
+Companies talk about "data-driven decision making", but a slick PowerPoint deck is how decisions are really made. A good slide can find its way into all kinds of decision material, and be viewed by many more decision-makers than any graph or dashboard. Even if you use **R** (or **Python**) for data analysis, PowerPoint is how you distribute and communicate results, so learning to to create those decks as part of analysis workflow can be worthwhile. Recreating and customizing slides based on scenarios or updates to the analysis becomes fairly straightforward, with effective version control and reproducibility. Beyond efficiency and repeatability, programmatic access enables you to do things that just would not be possible with point and click.
 
 The [**Windows COM**][2] is an interface standard that allows applications such as **Excel**, **PowerPoint** and **Word** to expose functionality to other applications, such as **Python** or **R**. The [**pywin**][3] package enables **Python** to communicate to other applications through _COM_. [In this talk][1], S Anand uses **Python** to create some impressive effects in a **PowerPoint** slide using **Python**, scraping data from [_IMDB_][10] and creating a PowerPoint slide using the data. [**RDCOMClient**][4] by Duncan Temple Lang provided similar functionality for **R**. Unfortunately that project is not maintained regularly, and is not part of the CRAN distribution. It can also be somewhat challenging to load, and there is no support available.
 
-The [**`reticulate`**][5] package, however, provides an alternative way of accessing the [`COM`][2]. It provides **R** with an interface to **Python**, which means that the [**`pywin`**][3] package can be used with **R**.
+The [**`reticulate`**][5] package, however, provides an alternative way of accessing the [`COM`][2]. It provides **`R`** with an interface to **`Python`**, which means that the [**`pywin`**][3] package can be used with **`R`**.
 
-In this series of 3 posts, we will use these tools to create a **PowerPoint** slide with **R**. We will try to recreate some of the elements of [S Anand's talk][1], and add a few things, with a focus on interaction and animation. We will go through the basics of accessing methods and properties of **PowerPoint VBA** objects ([Part 1][30]), scrape data on Clint Eastwood's movies from [IMDB][13] ([Part 2][31]), and use it to create a slide ([Part 3][32]). The end result should be a fairly complex, and fun, **PowerPoint** slide with Clint Eastwood's filmography.
+In this series of 3 posts, we will use these tools to create a **`PowerPoint`** slide with **`R`**. We will try to recreate some of the elements of [S Anand's talk][1], and add a few things, with a focus on interaction and animation. We will go through the basics of accessing methods and properties of **`PowerPoint VBA`** objects ([Part 1][30]), scrape data on Clint Eastwood's movies from [IMDB][13] ([Part 2][31]), and use it to create a slide ([Part 3][32]). The end result should be a fairly complex, and fun, **`PowerPoint`** slide with Clint Eastwood's filmography.
 
 The goal here is to learn and explore a bit so there will be code and animation that's not strictly necessary.
 
 ([Here's a short video of what we're aiming for][16], [how it was created][15] and [the R code.][17])
 
-(Clearly **PowerPoint VBA** has a powerful animation engine, and the [object model][12] allows you to programmatically manipulate almost everything. The [Microsoft documentation][11], however, seems to be organized as a mystery.)
+(Clearly **`PowerPoint VBA`** has a powerful animation engine, and the [object model][12] allows you to programmatically manipulate almost everything. The [Microsoft documentation][11], however, seems to be organized as a mystery.)
 
-In this first part, we look at the basics of manipulating **PowerPoint VBA** with **R**.
+In this first part, we look at the basics of manipulating **`PowerPoint VBA`** with **`R`**.
 
 Let's get started.
 

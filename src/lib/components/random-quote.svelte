@@ -1,5 +1,5 @@
 <script>
-	import '/src/styles/global.css';
+	// import '/src/styles/global.css';
 	import { fade, fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { quotes } from '$lib/json/quotes';

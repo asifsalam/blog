@@ -46,7 +46,8 @@
 		font-family: 'Pridi', Georgia, 'Times New Roman', Times, serif;
 		font-size: 1.4rem;
 		font-weight: 300;
-		color: hsla(251, 100%, 20%, 0.9);
+		/* color: hsla(251, 100%, 20%, 0.9); */
+		color: hsla(0, 0%, 56%, 80%);
 	}
 
 	.main-link {
@@ -55,76 +56,20 @@
 		text-decoration: none;
 	}
 
-	.article-title:hover {
-		text-decoration: underline;
-		/* font-weight: bolder; */
-	}
-
 	.article-title {
 		display: block;
-		font-family: Roboto, Poppins, sans-serif;
-		/* font-family: 'Scope One', Cochin, Georgia, Times, 'Times New Roman', serif; */
+		font-family: Urbanist, 'Titillium Web', 'Scope One', Cochin, Georgia, Times, 'Times New Roman',
+			serif;
 		margin: 0px 0px 15px 2px;
 		font-size: 1.1rem;
 		/* line-height: 1rem; */
 		/* color: rgb(0, 0, 0); */
-		color: #3b3882;
+		/* color: #3b3882; */
+		color: hsla(0, 0%, 56%, 80%);
 	}
 
-	/* .article-author {
-		font-family: 'Roboto', Georgia, 'Times New Roman', Times, serif;
-		font-size: 1rem;
-		font-weight: normal;
-		font-style: italic;
-		color: rgb(0, 0, 0);
-		margin: 0px 0px 0px 0px;
-		padding: 0;
-		width: 100%;
-	}
-
-	.article-date {
-		font-family: Roboto, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-		font-size: 0.95rem;
-		font-weight: 400;
-		font-style: normal;
-		color: hsla(250, 100%, 5%, 1);
-		margin: 0px 0px 0px 0px;
-		width: 100%;
-	}
-
-	.topics {
-		display: block;
-		margin: 0 0 0px 0px;
-	} */
-
-	/* .post-card .read-more-link a {
-		color: blue;
-		display: inline-block;
-		position: relative;
-		text-decoration: double;
-	}
-
-	.post-card .read-more-link a:hover {
-		background-color: hsla(16, 100%, 25%, 0);
+	.article-title:hover {
 		text-decoration: underline;
-	} */
-
-	/* .logo-container {
-		height: 30px;
-		width: 30px;
-		margin-top: 3px;
-		padding-right: 10px;
+		/* font-weight: bolder; */
 	}
-
-	.site-logo {
-		width: 30px;
-		height: 100%;
-		position: relative;
-		left: 0;
-		top: 0;
-	}
-
-	.site-logo:hover {
-		filter: brightness(0.5);
-	} */
 </style>
