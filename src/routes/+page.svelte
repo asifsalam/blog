@@ -14,12 +14,14 @@
 	// console.log('home-page:');
 	let sidebarTitle = '';
 	let sidebarLeadinText =
-		'Greetings! My name is Asif. <br/> And you have wittingly or otherwise chanced upon this space, which is:';
+		'Greetings! In case you are here unwittingly, I am Asif, and this is my personal site. It is:';
 	let sidebarBulletText = [
+		'Something of a personal bookmark manager',
 		'Mostly about data',
-		'And how enterprises can become "data-driven" ',
-		'Mostly useful links',
-		'And some original posts'
+		'And how enterprises can become "data-driven"',
+		'Mostly links that I have found interesting, useful, or even somewhat unsavoury',
+		'With some original posts',
+		'Send an email or a message on LinkedIn if you have a comment or just want to connect'
 	];
 	let headingTitleItems = 'Latest posts';
 	let displayQuantityItems = 20;

@@ -1,17 +1,18 @@
 <script>
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	import { articleList, tags, allCategories, allTopics, clickedTopic } from '$lib/json/stores';
-	import { filterTopic, filterTag } from '$lib/modules/utility_functions';
+	import { articleList, tags, clickedTopic } from '$lib/json/stores';
+	import { filterTag, searchArticles } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import CreateTags from '$lib/components/create-tags.svelte';
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
-	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
+	import SectionHeadingBasic from '$lib/components/section-heading-basic-v2.svelte';
 	import PaginationList from '$lib/components/pagination-list.svelte';
 	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 
-	$: selectedTopic = 'rstats';
+	$: selectedTopic = '';
+	$: searchTerm = '';
 	// let topics = $allTopics;
 	let tagObj = {};
 	/** @type {Array} */
@@ -32,9 +33,13 @@
 
 	function topicClicked(selectedTag) {
 		$clickedTopic = selectedTag;
-		tagObj = $tags.filter((d) => d.name == selectedTag)[0];
+		// tagObj = $tags.filter((d) => d.name == selectedTag)[0];
 		goto(`/resources/tags/${selectedTag}`);
 	}
+
+	const searchItems = () => {
+		articles = searchArticles(articles, searchTerm, $clickedTopic, $articleList);
+	};
 
 	/** @type {string}*/
 	const headingText = 'Tag: ';
@@ -63,10 +68,17 @@
 	{#key $clickedTopic}
 		<div class="posts">
 			<div class="posts-list">
+				<!-- <SectionHeadingBasic
+					selectedTag={selectedTopic}
+					{totalQuantity}
+					headingTitle={headingText}
+				/> -->
 				<SectionHeadingBasic
 					selectedTag={selectedTopic}
 					{totalQuantity}
 					headingTitle={headingText}
+					bind:searchTerm
+					{searchItems}
 				/>
 				{#key selectedTopic}
 					<PaginationList {articles} category={selectedTopic} {totalQuantity} />
@@ -86,7 +98,7 @@
 		width: 100%;
 		display: grid;
 		grid-template-columns: 2fr 5fr;
-		margin: 0px 0px 10px 0px;
+		margin: 10px 0px 10px 0px;
 	}
 
 	.sidebar {

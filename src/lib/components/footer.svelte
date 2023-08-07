@@ -39,9 +39,9 @@
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Allura&family=Delius&family=Great+Vibes&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-	i {
+	/* i {
 		display: block;
-	}
+	} */
 	.personal-info {
 		display: grid;
 		grid-row: auto;
@@ -62,22 +62,20 @@
 	a {
 		text-decoration: none;
 	}
-	.icon {
+	/* .icon {
 		margin-top: 0px;
 		padding: 10px;
-		/* background: hsla(251, 100%, 20%, 1); */
 		background: hsla(193, 47%, 56%, 1);
-		/* background: hsla(193, 48%, 67%, 1); */
 		font-size: 2em;
 		text-decoration: none;
 		color: hsl(55deg 100% 98%);
 		border: 2px dotted hsl(54, 35%, 79%);
-	}
+	} */
 	.swedish-flag {
 		float: right;
 		margin: 0;
 		background-image: url('/img/icons/Flag_of_Sweden.svg.png');
-		height: 52px;
+		height: 90%;
 		width: auto;
 		text-decoration: none;
 		color: hsl(55deg 100% 98%);
@@ -103,6 +101,7 @@
 		padding: 5px 0px;
 		border-bottom: 1px solid grey;
 		border-top: 1px solid rgb(56, 56, 56);
+		height: 100px;
 	}
 	.footer-bottom {
 		font-size: 1em;

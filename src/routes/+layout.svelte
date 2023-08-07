@@ -14,7 +14,7 @@
 
 	export let data;
 	export let errors;
-	let numArticles = 500;
+	let numArticles = data.articles.length;
 
 	const articleData = data.articles.slice(0, numArticles);
 	$articleList = articleData;

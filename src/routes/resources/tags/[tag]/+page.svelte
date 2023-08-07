@@ -3,23 +3,29 @@
 	// import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { articleList, tags, clickedTopic } from '$lib/json/stores';
-	import { filterTopic } from '$lib/modules/utility_functions';
+	import { filterTag, filterTopic, searchArticles } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import CreateTags from '$lib/components/create-tags.svelte';
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
-	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
+	import SectionHeadingBasic from '$lib/components/section-heading-basic-v2.svelte';
 	import PaginationList from '$lib/components/pagination-list.svelte';
 	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 
 	$: topic = data.tag;
-	$: articles = filterTopic($articleList, topic);
+	$: searchTerm = '';
+	$: $clickedTopic, (() => (searchTerm = ''))();
+	$: articles = filterTag($articleList, topic);
 
 	function topicClicked(clTopic) {
 		$clickedTopic = clTopic;
 		topic = clTopic;
 		goto(`/resources/tags/${topic}`);
 	}
+
+	const searchItems = () => {
+		articles = searchArticles(articles, searchTerm, $clickedTopic, $articleList);
+	};
 
 	/** @type {string}*/
 	const headingText = 'Tag';
@@ -46,8 +52,17 @@
 	</div>
 	<div class="posts">
 		<div class="posts-list">
-			<SectionHeadingBasic selectedTag={topic} {totalQuantity} headingTitle={headingText} />
+			<!-- <SectionHeadingBasic selectedTag={topic} {totalQuantity} headingTitle={headingText} /> -->
 			{#key topic}
+				<SectionHeadingBasic
+					selectedTag={topic}
+					{totalQuantity}
+					headingTitle={headingText}
+					bind:searchTerm
+					{searchItems}
+					{articles}
+				/>
+
 				<PaginationList {articles} category={topic} {totalQuantity} />
 			{/key}
 		</div>

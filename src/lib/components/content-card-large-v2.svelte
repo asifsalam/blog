@@ -172,12 +172,13 @@
 
 	.right-content .excerpt {
 		font-family: Roboto, Arial, Helvetica, sans-serif;
-		color: hsl(257, 89%, 21%);
+		color: hsla(257, 89%, 21%, 0.6);
 		font-size: 1rem;
 		line-height: 110%;
 		margin: 0;
 		flex: 1;
 		margin: 5px 0 3px 10px;
+		min-height: 75px;
 	}
 
 	.excerpt-linked {
@@ -196,7 +197,7 @@
 	}
 
 	.excerpt {
-		min-height: 75px;
+		color: pink;
 	}
 
 	.excerpt:hover::after {

@@ -46,6 +46,33 @@ function loadPosts(postApi = '/api/posts.json') {
 };
 
 /** @type {Array}*/
+function searchArticles(articles, searchTerm, selection, articleList) {
+    // console.log(articles, searchTerm, selection);
+    if (typeof articles === "undefined") {
+        return "undefined error"
+    }
+    if (searchTerm === '') {
+        if (selection === 'all') {
+            articles = articleList;
+            return articles
+            // console.log('page-searchItems-0: ', searchTerm, $clickedCategory, articles);
+        } else {
+            articles = articleList.filter((d) => {
+                return d.tags.includes(selection);
+            });
+        }
+        // console.log('page-searchItems-1: ', searchTerm, $clickedCategory, articles);
+    } else {
+        articles = articles.filter((d) => {
+            return d.tags.includes(searchTerm.toLowerCase());
+        });
+        // console.log('page-searchItems-2: ', searchTerm, articles);
+    }
+    return articles;
+}
+
+
+/** @type {Array}*/
 function cleanTags(articleTags) {
     const tagsToRemove = ["post", "article", "pitfall"]
     let tags = articleTags;
@@ -260,5 +287,5 @@ function filterTopic1(articles, topic) {
 
 export {
     randomIntFromInterval, paddedRandomIntFromInterval, parsePosts, parseArticle, capitalizeFirstLetter, loadArticles, loadPosts,
-    filterCategory, filterTheme, filterTag, filterTopic, filterArticles, cleanTags, getImageUrl
+    filterCategory, filterTheme, filterTag, filterTopic, filterArticles, cleanTags, getImageUrl, searchArticles
 } 

@@ -1,11 +1,13 @@
 <script>
 	export let category = 'all';
 	export let size = 1;
+	export let type = 'sidebar';
 	let boxSize = 'size-' + size;
+
 	// console.log("category: ",category, "displayQuantity")
 </script>
 
-<span class="topic-box {boxSize}">{category}</span>
+<span class="topic-box {boxSize} {type}">{category}</span>
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Pridi:wght@200;400&display=swap');
@@ -26,5 +28,9 @@
 		font-weight: normal;
 		border-radius: 5px;
 		border: 0.1px solid hsla(251, 32%, 44%, 0.5);
+	}
+
+	.heading {
+		font-size: 1.8rem;
 	}
 </style>

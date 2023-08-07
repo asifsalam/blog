@@ -17,6 +17,20 @@
 	const sidebarLeadinText =
 		'Select items by category or tag. Categories are simply a set of tags.<br /> ';
 	const sidebarBulletText = '';
+	$: searchTerm = 'method';
+	$: articles = $articleList;
+
+	const searchItems = () => {
+		// console.log('page-searchItems: ', searchTerm);
+		if (searchTerm === '') {
+			articles = $articleList;
+		} else {
+			articles = articles.filter((d) => {
+				return d.tags.includes(searchTerm.toLowerCase());
+			});
+			// console.log('page-searchItems-2: ', searchTerm, articles);
+		}
+	};
 </script>
 
 <RandomQuote />

@@ -82,7 +82,7 @@
 	.main-title-right {
 		/* font-family: 'IBM Plex Mono', Macondo, Righteous; */
 		/* font-family: 'Demora'; MuseoModerno,, Gugi, Iceland, 'Poiret One', Wellfleet, */
-		font-family: Gugi, Iceland, 'Poiret One', Wellfleet, Macondo, Gugi, Comfortaa, Iceland,
+		font-family: 'Demora', Gugi, Iceland, 'Poiret One', Wellfleet, Macondo, Gugi, Comfortaa, Iceland,
 			MuseoModerno, 'Audiowide';
 		color: var(--heading-color);
 		font-size: 1.4em;

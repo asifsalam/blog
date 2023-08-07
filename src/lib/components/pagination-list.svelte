@@ -14,6 +14,7 @@
 	$: currentPage = 1;
 	$: pageSet = 5;
 	let startArticleNum = 0;
+	// console.log('pagination-list', articles);
 	$: articleSet = articles.slice(startArticleNum, articlesPerPage);
 	//	let currentPage = 1;
 	let trimStart = 0;
@@ -76,7 +77,7 @@
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100;300&display=swap');
 	.pagination-container {
-		margin: 0;
+		margin: 0 0 15px 0;
 		padding: 0;
 		/* display: flex; */
 		display: grid;

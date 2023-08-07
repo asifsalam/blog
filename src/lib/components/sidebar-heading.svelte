@@ -63,6 +63,7 @@
 		position: relative;
 		list-style: none;
 		font-family: 'Scope One', 'Crete Round';
+		color: rgb(154, 154, 154);
 		margin-left: 0;
 		margin-top: 0px;
 		margin-bottom: 0px;

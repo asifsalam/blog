@@ -28,7 +28,7 @@
 	function tagClicked(tag) {
 		// @ts-ignore
 		$clickedTopic = tag;
-		goto(`/resources/tags/`);
+		goto(`/resources/tags/${tag}`);
 	}
 </script>
 

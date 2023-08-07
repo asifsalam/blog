@@ -2,18 +2,19 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { articleList, themes, clickedTheme } from '$lib/json/stores';
-	import { filterArticles } from '$lib/modules/utility_functions';
+	import { filterArticles, searchArticles } from '$lib/modules/utility_functions';
 	import RandomQuote from '$lib/components/random-quote.svelte';
 	import Breadcrumbs from '$lib/components/breadcrumbs.svelte';
 	import SidebarTags from '$lib/components/sidebar-tags.svelte';
 	import CreateTags from '$lib/components/create-tags.svelte';
 	import SidebarHeading from '$lib/components/sidebar-heading.svelte';
-	import SectionHeadingBasic from '$lib/components/section-heading-basic.svelte';
+	import SectionHeadingBasic from '$lib/components/section-heading-basic-v2.svelte';
 	import PaginationList from '$lib/components/pagination-list.svelte';
 
 	$: selectedTheme = '';
 	$: theme = '';
 	$: articles = [];
+	$: searchTerm = '';
 
 	let themeObj = {};
 
@@ -30,6 +31,10 @@
 		theme = themeObj.name;
 		articles = filterArticles($articleList, themeObj);
 	}
+
+	const searchItems = () => {
+		articles = searchArticles(articles, searchTerm, $clickedTheme, $articleList);
+	};
 	/** @type {string}*/
 	const headingText = 'Theme: ';
 	$: totalQuantity = articles.length;
@@ -56,7 +61,14 @@
 		<SidebarTags useCategories={'yes'} />
 	</div>
 	<div class="posts-list">
-		<SectionHeadingBasic selectedTag={theme} {totalQuantity} headingTitle={headingText} />
+		<!-- <SectionHeadingBasic selectedTag={theme} {totalQuantity} headingTitle={headingText} /> -->
+		<SectionHeadingBasic
+			selectedTag={theme}
+			{totalQuantity}
+			headingTitle={headingText}
+			bind:searchTerm
+			{searchItems}
+		/>
 		{#key theme}
 			<PaginationList {articles} category={theme} {totalQuantity} />
 		{/key}

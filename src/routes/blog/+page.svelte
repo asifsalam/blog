@@ -16,7 +16,7 @@
 	let category = 'all';
 
 	let sidebarTitle = '';
-	let sidebarLeadinText = 'Not nearly enough. Reading is much more enjoyable!';
+	let sidebarLeadinText = 'Not nearly enough.';
 	let sidebarBulletText = [];
 </script>
 
