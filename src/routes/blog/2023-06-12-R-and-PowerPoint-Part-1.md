@@ -122,7 +122,7 @@ The critical part is, of course, knowing what methods and properties are availab
 mediaType = "image"
 mediaPath={"/post_assets/0001/vba_object_browser.png"}
 mediaNumber=1
-mediaCaption="This is a test"
+mediaCaption="VBA Object Browser"
 />
 <br />
 
@@ -167,7 +167,7 @@ mediaNumber=2
 mediaCaption="This is a video"
 />
 
-## Using `R` to create and animate shapes
+## Using R to create and animate shapes
 
 Now let's do the same thing with `R`.
 
