@@ -13,7 +13,7 @@
 	import Footer from '$lib/components/footer.svelte';
 
 	export let data;
-	export let errors;
+	// export let errors;
 	let numArticles = data.articles.length;
 
 	const articleData = data.articles.slice(0, numArticles);

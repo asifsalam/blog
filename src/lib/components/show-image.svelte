@@ -1,6 +1,6 @@
 <script>
 	export let mediaType = 'image';
-	export let mediaPath = '/img/images/geometric-patterh-01.jpg';
+	export let mediaPath = '/img/images/geometric-pattern-01.jpg';
 	export let mediaCaption = 'This is an image';
 	export let mediaNumber = 1;
 </script>
